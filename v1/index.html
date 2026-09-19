@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>元素周期表：化学的天气图 · 给牧之</title>
+<meta name="description" content="从 63 张纸牌到一张能预言未知元素的表——元素周期表的诞生、门捷列夫的赌注、以及它背后真正的原理：最外层电子。">
+<meta name="theme-color" content="#f6f7f6">
+<meta property="og:type" content="article">
+<meta property="og:title" content="元素周期表：化学的天气图">
+<meta property="og:description" content="门捷列夫凭什么敢给还没发现的元素留空位？为什么性质会周期性重复？一页讲清元素周期表的原理。">
+<meta property="og:url" content="https://k286c7hg65-hub.github.io/elements-feynman/">
+<meta property="og:image" content="https://k286c7hg65-hub.github.io/elements-feynman/assets/share-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e6f7a'/%3E%3Ctext x='16' y='23' font-size='19' text-anchor='middle' fill='%23fff' font-family='sans-serif'%3EH%3C/text%3E%3C/svg%3E">
+<script>
+/* 防闪白：主题初始化必须在 <head> 内、CSS 之后 body 之前 */
+(function(){try{var t=localStorage.getItem('pt-theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t);}else if(window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches){document.documentElement.setAttribute('data-theme','dark');}}catch(e){}})();
+</script>
+<style>
+/* ═══════════════════════════════════════════════════════════
+   ATLAS 设计系统 v1.1（内联，零站外资源）
+   标尺层令牌：字号 6 档 / 字重 3 档 / 行高 3 档 / 字距 2 档 / 间距 4px 网格
+   ═══════════════════════════════════════════════════════════ */
+:root{
+  /* 纸面 */
+  --bgPage:#f6f7f6; --paper:#ffffff; --paper2:#eef1f0;
+  --ink:#16191c; --ink-dim:#5b646a; --frame:#dbddda;
+  /* 主色（青）+ 语义色（茜红，仅用于「错」） */
+  --pen:#0e6f7a; --pen2:#0a545c; --penRed:#8c2f39;
+  /* 暗底段专用 */
+  --void:#111416; --void2:#1a1e21; --voidInk:#e9edec; --voidDim:#9aa4a8;
+  --voidLine:rgba(255,255,255,.13); --voidPen:#7fd0da; --voidText:#c9d2d4;
+  --cardBg:rgba(255,255,255,.72); --inputBg:#ffffff;
+  --mark:rgba(127,208,218,.32); --rule:rgba(22,25,28,.15);
+  /* 标尺令牌 */
+  --fs-xs:11px; --fs-sm:13px; --fs-md:15px; --fs-lg:17px;
+  --fs-h2:clamp(22px,2.6vw,32px); --fs-h1:clamp(30px,5.4vw,60px);
+  --fw-r:400; --fw-b:700; --fw-h:900;
+  --lh-tight:1.15; --lh-ui:1.6; --lh-body:1.85;
+  --ls-wide:.18em;
+  /* 间距（4px 网格） */
+  --sp1:4px; --sp2:8px; --sp3:12px; --sp4:16px; --sp5:24px; --sp6:32px; --sp7:48px; --sp8:72px;
+  --cell:48px; --gcellMin:36px; --gridH:316px;
+  --titleFont:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans CJK SC","PingFang SC","Microsoft YaHei",sans-serif;
+  --bodyFont:var(--titleFont);
+  --monoFont:ui-monospace,"SF Mono",Menlo,Consolas,"Noto Sans Mono CJK SC",monospace;
+}
+html[data-theme="dark"]{
+  --bgPage:#111416; --paper:#1a1e21; --paper2:rgba(255,255,255,.04);
+  --ink:#e9edec; --ink-dim:#9aa4a8; --frame:rgba(255,255,255,.14);
+  --pen:#7fd0da; --pen2:#7fd0da; --penRed:#d98b93;
+  --cardBg:rgba(255,255,255,.03); --inputBg:rgba(0,0,0,.28);
+  --mark:rgba(127,208,218,.22); --rule:rgba(255,255,255,.14);
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;font-family:var(--bodyFont);font-weight:var(--fw-r);font-size:var(--fs-lg);
+  line-height:var(--lh-body);color:var(--ink);background:var(--bgPage);overflow-wrap:break-word;
+}
+h1{font-weight:var(--fw-h);font-size:var(--fs-h1);line-height:var(--lh-tight);margin:0 0 var(--sp4)}
+h2{font-weight:var(--fw-h);font-size:var(--fs-h2);line-height:var(--lh-tight);margin:0 0 var(--sp4)}
+h3{font-weight:var(--fw-b);font-size:var(--fs-lg);line-height:var(--lh-ui);margin:var(--sp5) 0 var(--sp2)}
+p{margin:0 0 var(--sp4)}
+strong{font-weight:var(--fw-b)}
+em{font-style:normal;background:var(--mark);padding:0;border-radius:2px}
+a{color:var(--pen)}
+.num,.mono{font-family:var(--monoFont);font-variant-numeric:tabular-nums}
+.lbl{font-family:var(--monoFont);font-size:var(--fs-xs);letter-spacing:var(--ls-wide);text-transform:uppercase;color:var(--ink-dim)}
+
+/* 主题开关 */
+.themebtn{position:fixed;top:8px;right:8px;z-index:60;width:44px;height:44px;padding:0;border-radius:50%;
+  border:1px solid var(--frame);background:var(--cardBg);color:var(--ink);cursor:pointer;
+  font-size:var(--fs-md);line-height:var(--lh-tight);display:flex;align-items:center;justify-content:center;
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.themebtn:focus-visible{outline:3px solid var(--pen);outline-offset:2px}
+
+/* 阅读进度 */
+.progress{position:fixed;top:0;left:0;right:0;height:4px;z-index:70;background:transparent}
+.progress i{display:block;height:100%;width:0;background:var(--pen);transition:width .12s linear}
+
+/* 章节导航（吸顶） */
+.topnav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bgPage) 92%,transparent);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--frame)}
+.topnav .rail{display:flex;gap:var(--sp2);overflow-x:auto;scrollbar-width:none;padding:8px 64px 8px 16px;max-width:1100px;margin:0 auto}
+.topnav .rail::-webkit-scrollbar{display:none}
+.rail.scrollable.more{-webkit-mask-image:linear-gradient(to right,#000 86%,transparent);mask-image:linear-gradient(to right,#000 86%,transparent)}
+.rails-hint{font-family:var(--monoFont);font-size:var(--fs-xs);color:var(--ink-dim);margin:var(--sp2) 0 0}
+.chip{flex:none;font-family:var(--monoFont);font-size:var(--fs-xs);color:var(--ink-dim);
+  border:1px solid var(--frame);background:var(--paper);border-radius:999px;padding:8px 12px;min-height:44px;
+  display:inline-flex;align-items:center;text-decoration:none;cursor:pointer}
+.chip[aria-current="true"]{color:var(--paper);background:var(--pen);border-color:var(--pen)}
+.chip:focus-visible{outline:3px solid var(--pen);outline-offset:2px}
+
+.wrap{max-width:34em;margin:0 auto;padding:0 16px}
+
+/* 首屏 */
+.hero{padding:var(--sp8) 0 var(--sp6)}
+.hero .kicker{font-family:var(--monoFont);font-size:var(--fs-xs);letter-spacing:var(--ls-wide);text-transform:uppercase;color:var(--pen);margin-bottom:var(--sp3)}
+.lede{font-size:var(--fs-lg);color:var(--ink-dim);max-width:32em}
+.byline{font-size:var(--fs-sm);color:var(--ink-dim);font-family:var(--monoFont);margin-top:var(--sp5)}
+.herofigure{margin:var(--sp5) 0 0;padding:0;color:var(--pen)}
+.herochart{width:100%;height:auto;display:block}
+.herochart .bars rect{fill:currentColor;opacity:.34}
+.herochart .bars rect.full{opacity:.95}
+.herofigure figcaption{font-size:var(--fs-sm);color:var(--ink-dim);margin-top:var(--sp3);line-height:var(--lh-ui)}
+.foldfig{margin:var(--sp4) 0 var(--sp5);padding:0;color:var(--pen)}
+.foldfig svg{width:100%;height:auto;display:block}
+.foldfig .fold rect{fill:currentColor}
+.foldfig figcaption{font-size:var(--fs-sm);color:var(--ink-dim);margin-top:var(--sp3);line-height:var(--lh-ui)}
+
+/* 章节 */
+section{padding:var(--sp7) 0;border-top:1px solid var(--rule)}
+.sec-head{display:flex;align-items:baseline;gap:var(--sp3);margin-bottom:var(--sp4)}
+.sec-no{font-family:var(--monoFont);font-size:var(--fs-xs);letter-spacing:var(--ls-wide);color:var(--pen);flex:none;padding-top:4px}
+.sec-head h2{margin:0}
+
+/* 术语注解 */
+.term{background:none;border:0;font:inherit;color:inherit;padding:0;cursor:pointer;
+  border-bottom:1px dashed var(--pen);border-radius:0;min-height:0}
+.term:focus-visible{outline:3px solid var(--pen);outline-offset:2px}
+.term-def{padding:var(--sp3) var(--sp3) var(--sp3) var(--sp4);border-left:2px solid var(--pen);
+  background:color-mix(in srgb,var(--pen) 7%,transparent);font-size:var(--fs-md);line-height:var(--lh-ui);margin:var(--sp2) 0 var(--sp4)}
+.term-def[hidden]{display:none}
+
+/* 盒子 */
+.box{border:1px solid var(--frame);background:var(--paper);border-radius:8px;padding:var(--sp4);margin:var(--sp4) 0}
+.note{border-left:2px solid var(--ink-dim);padding-left:var(--sp3);color:var(--ink-dim);font-size:var(--fs-sm);line-height:var(--lh-ui);margin:var(--sp4) 0}
+.warn{border-left:2px solid var(--penRed);background:color-mix(in srgb,var(--penRed) 6%,transparent);
+  padding:var(--sp3) var(--sp4);margin:var(--sp4) 0;font-size:var(--fs-md);line-height:var(--lh-ui)}
+.warn b{color:var(--penRed)}
+.quote{border-left:2px solid var(--pen);padding-left:var(--sp4);margin:var(--sp5) 0;
+  font-size:var(--fs-lg);line-height:var(--lh-ui);font-weight:var(--fw-b)}
+.quote strong{color:var(--pen2)}
+
+/* 先押注 */
+.guess{border-top:1px solid var(--ink);padding-top:var(--sp4);margin:var(--sp5) 0}
+.gq{margin:0 0 var(--sp5)}
+.gq .qt{font-weight:var(--fw-b);margin-bottom:var(--sp2)}
+.opts{display:flex;flex-direction:column;gap:var(--sp2)}
+.opt{text-align:left;font:inherit;font-size:var(--fs-md);color:var(--ink);background:var(--paper);
+  border:1px solid var(--frame);border-radius:8px;padding:12px;min-height:44px;cursor:pointer;line-height:var(--lh-ui)}
+.opt:hover{border-color:var(--pen)}
+.opt:focus-visible{outline:3px solid var(--pen);outline-offset:2px}
+.opt[aria-pressed="true"]{border-color:var(--pen);background:color-mix(in srgb,var(--pen) 9%,transparent)}
+.opt.right{border-color:var(--pen);background:color-mix(in srgb,var(--pen) 14%,transparent);font-weight:var(--fw-b)}
+.opt.wrong{border-color:var(--penRed);background:color-mix(in srgb,var(--penRed) 10%,transparent)}
+.fb{margin-top:var(--sp2);font-size:var(--fs-md);line-height:var(--lh-ui);color:var(--ink-dim)}
+.fb b{color:var(--ink)}
+
+/* 表格 */
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:var(--sp4) 0}
+table{border-collapse:collapse;width:100%;min-width:460px;font-size:var(--fs-md)}
+th,td{border-bottom:1px solid var(--frame);padding:12px;text-align:left;vertical-align:top}
+th{font-weight:var(--fw-b);font-size:var(--fs-sm);color:var(--ink-dim);border-bottom:1px solid var(--ink)}
+td.n{font-family:var(--monoFont)}
+tbody tr:last-child td{border-bottom:1px solid var(--frame)}
+
+/* 暗底聚焦段 */
+.focus{background:var(--void);color:var(--voidInk);border-top:0;padding:var(--sp8) 0}
+.focus h2{color:#fff}
+.focus p{color:var(--voidText)}
+.focus .sec-no{color:var(--voidPen)}
+.focus .lbl{color:var(--voidDim)}
+.focus strong{color:#fff}
+.focus em{background:rgba(127,208,218,.24);color:#fff}
+.focus .note{border-left-color:var(--voidLine);color:var(--voidDim)}
+.focus .box{background:var(--void2);border-color:var(--voidLine);color:var(--voidText)}
+.focus .quote{border-left-color:var(--voidPen);color:#fff}
+.focus .quote strong{color:var(--voidPen)}
+.focus .term{border-bottom-color:var(--voidPen)}
+.focus .term-def{background:rgba(127,208,218,.10);border-left-color:var(--voidPen);color:var(--voidText)}
+
+/* 装置 */
+.bench{border:1px solid var(--frame);background:var(--paper);border-radius:8px;padding:var(--sp4);margin:var(--sp5) 0}
+.bench .bench-head{display:flex;justify-content:space-between;align-items:center;gap:var(--sp3);flex-wrap:wrap;margin-bottom:var(--sp3)}
+.focus .bench .lbl,.focus .bench .note,.focus .bench .readout{color:var(--ink-dim)}
+.focus .bench strong{color:var(--ink)}
+.focus .bench .note{border-left-color:var(--frame)}
+.shellbox{display:flex;justify-content:center;padding:var(--sp3) 0}
+.shellbox svg{width:min(240px,60vw);height:auto;display:block}
+svg.shell .ring{fill:none;stroke:var(--frame);stroke-width:1;stroke-dasharray:2 4}
+svg.shell .nuc{fill:var(--ink-dim)}
+svg.shell .e{fill:var(--ink-dim);opacity:.55}
+svg.shell .e.outer{fill:var(--pen);opacity:1}
+.readout{display:flex;gap:var(--sp4);flex-wrap:wrap;justify-content:center;font-size:var(--fs-sm);color:var(--ink-dim);margin-top:var(--sp2)}
+.readout b{color:var(--ink);font-family:var(--monoFont);font-size:var(--fs-md)}
+input[type=range]{width:100%;height:44px;margin:0;font-size:var(--fs-md);line-height:var(--lh-tight);background:none;-webkit-appearance:none;appearance:none;cursor:pointer}
+input[type=range]::-webkit-slider-runnable-track{height:2px;background:var(--ink)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;
+  background:var(--paper);border:2px solid var(--pen);margin-top:-12px}
+input[type=range]::-moz-range-track{height:2px;background:var(--ink)}
+input[type=range]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;background:var(--paper);border:2px solid var(--pen)}
+input[type=range]:focus-visible{outline:3px solid var(--pen);outline-offset:4px}
+
+/* 周期性条带 */
+.strip{display:grid;grid-template-columns:repeat(10,1fr);gap:4px;margin-top:var(--sp3);line-height:var(--lh-tight)}
+.strip .cell{border:1px solid var(--frame);border-radius:6px;padding:8px 0;text-align:center;
+  font-family:var(--monoFont);font-size:var(--fs-xs);color:var(--ink-dim);background:var(--paper)}
+.strip .cell .z{display:block;font-size:var(--fs-xs);color:var(--ink-dim)}
+.strip .cell.hi{border-color:var(--pen);background:color-mix(in srgb,var(--pen) 16%,transparent);color:var(--ink);font-weight:var(--fw-b)}
+.strip .cell.hi .z{color:var(--ink)}
+.strip .cell.sel{outline:2px solid var(--ink);outline-offset:1px}
+
+/* 元素格 */
+.rail{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:var(--sp2)}
+.ptable{display:grid;grid-template-columns:repeat(8,minmax(var(--gcellMin),1fr));gap:4px;min-width:var(--gridH)}
+.glabels{display:grid;grid-template-columns:repeat(8,minmax(var(--gcellMin),1fr));gap:4px;min-width:var(--gridH);margin-bottom:4px}
+.glabels span{font-family:var(--monoFont);font-size:var(--fs-xs);color:var(--ink-dim);text-align:center}
+.drop{visibility:hidden}
+.el{position:relative;border:1px solid var(--frame);background:var(--paper);border-radius:6px;
+  min-height:var(--cell);padding:4px 0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  font-family:var(--monoFont);font-size:var(--fs-md);cursor:pointer;color:var(--ink);gap:2px;line-height:var(--lh-tight)}
+.el .z{font-size:var(--fs-xs);color:var(--ink-dim)}
+.el .s{font-size:var(--fs-md);font-weight:var(--fw-b)}
+.el .nm{font-size:var(--fs-xs);color:var(--ink-dim)}
+.el[data-cat="金属"]{background:color-mix(in srgb,var(--pen) 12%,var(--paper))}
+.el[data-cat="非金属"]{background:var(--paper);border-style:dashed}
+.el[data-cat="准金属"]{background:color-mix(in srgb,var(--pen) 4%,var(--paper))}
+.el[data-cat="稀有气体"]{background:color-mix(in srgb,var(--ink) 8%,var(--paper))}
+.el[aria-pressed="true"]{outline:2px solid var(--ink);outline-offset:1px}
+.el:focus-visible{outline:3px solid var(--pen);outline-offset:2px}
+.legend{display:flex;gap:var(--sp3);flex-wrap:wrap;font-size:var(--fs-sm);color:var(--ink-dim);margin-top:var(--sp3)}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:4px;border:1px solid var(--frame);margin-right:4px;vertical-align:-2px}
+.elinfo{margin-top:var(--sp4);border-top:1px solid var(--rule);padding-top:var(--sp4);min-height:136px}
+.elinfo h3{margin:0 0 var(--sp2)}
+.elinfo .row{display:flex;gap:var(--sp3);flex-wrap:wrap;font-size:var(--fs-sm);color:var(--ink-dim);margin-bottom:var(--sp2)}
+.elinfo .row b{color:var(--ink);font-size:var(--fs-md)}
+.elno{color:var(--ink-dim)}
+.shellbars{display:flex;flex-direction:column;gap:4px;margin-top:var(--sp2)}
+.shellbar{display:grid;grid-template-columns:52px 1fr 24px;gap:8px;align-items:center;font-family:var(--monoFont);font-size:var(--fs-xs);color:var(--ink-dim)}
+.shellbar span:last-child{text-align:right}
+.shellbar .track{height:8px;background:var(--paper2);border-radius:4px;overflow:hidden;display:flex;gap:2px}
+.shellbar .dot{flex:1;background:var(--pen);border-radius:2px;opacity:.55}
+.shellbar.outer .dot{opacity:1}
+
+/* 找错游戏 */
+.round{margin:var(--sp5) 0}
+.stmt{display:grid;grid-template-columns:auto 1fr;gap:var(--sp3);align-items:start;
+  border:1px solid var(--frame);background:var(--paper);border-radius:8px;padding:var(--sp3);margin-bottom:var(--sp2)}
+.stmt .idx{font-family:var(--monoFont);font-size:var(--fs-sm);color:var(--ink-dim);padding-top:4px}
+.stmt .body p{margin:0}
+.stmt .pick{margin-top:var(--sp2);font:inherit;font-size:var(--fs-md);min-height:44px;padding:8px 16px;
+  border:1px solid var(--frame);border-radius:999px;background:var(--paper);color:var(--ink);cursor:pointer}
+.stmt .pick:focus-visible{outline:3px solid var(--pen);outline-offset:2px}
+.stmt.picked{border-color:var(--ink)}
+.stmt.ok{border-color:var(--pen);background:color-mix(in srgb,var(--pen) 10%,var(--paper))}
+.stmt.no{border-color:var(--penRed);background:color-mix(in srgb,var(--penRed) 8%,var(--paper))}
+.stmt .why{font-size:var(--fs-md);line-height:var(--lh-ui);color:var(--ink-dim);margin-top:var(--sp2)}
+.stmt .why b{color:var(--ink)}
+.stmt .why[hidden]{display:none}
+.gbtn{font:inherit;font-weight:var(--fw-b);font-size:var(--fs-md);min-height:48px;padding:12px 24px;border-radius:999px;
+  border:1px solid var(--pen);background:var(--pen);color:var(--paper);cursor:pointer}
+.gbtn:focus-visible{outline:3px solid var(--pen);outline-offset:3px}
+.gbtn.ghost{background:transparent;color:var(--pen)}
+.score{font-family:var(--monoFont);font-size:var(--fs-sm);color:var(--ink-dim);margin-left:var(--sp3)}
+
+/* 复述区 */
+textarea{width:100%;min-height:152px;font:inherit;font-size:var(--fs-lg);line-height:var(--lh-ui);color:var(--ink);
+  background:var(--inputBg);border:1px solid var(--frame);border-radius:8px;padding:var(--sp3);resize:vertical}
+textarea:focus-visible{outline:3px solid var(--pen);outline-offset:2px}
+.timerrow{display:flex;gap:var(--sp3);align-items:center;flex-wrap:wrap;margin:var(--sp3) 0}
+.timer{font-family:var(--monoFont);font-size:var(--fs-h2);font-weight:var(--fw-b);color:var(--pen);min-width:80px}
+.saved{font-size:var(--fs-sm);color:var(--ink-dim);font-family:var(--monoFont)}
+
+/* 页脚 */
+footer{border-top:1px solid var(--rule);padding:var(--sp6) 0 var(--sp8);font-size:var(--fs-sm);color:var(--ink-dim)}
+footer ul{margin:var(--sp2) 0 var(--sp4);padding-left:16px}
+footer li{margin:4px 0}
+footer a{color:var(--ink-dim)}
+footer em{color:var(--ink)}
+
+/* 打印 */
+@media print{
+  :root{--bgPage:#fff;--paper:#fff;--paper2:#fff;--ink:#000;--ink-dim:#333;--frame:#bbb;--pen:#000;
+        --pen2:#000;--penRed:#000;--cardBg:#fff;--inputBg:#fff;--mark:#eee;--rule:#bbb;
+        --void:#fff;--void2:#fff;--voidInk:#000;--voidDim:#333;--voidLine:#bbb;--voidPen:#000;--voidText:#000}
+  html[data-theme="dark"]{--bgPage:#fff;--paper:#fff;--paper2:#fff;--ink:#000;--ink-dim:#333;--frame:#bbb;
+        --pen:#000;--pen2:#000;--penRed:#000;--cardBg:#fff;--inputBg:#fff;--mark:#eee;--rule:#bbb;
+        --void:#fff;--void2:#fff;--voidInk:#000;--voidDim:#333;--voidLine:#bbb;--voidPen:#000;--voidText:#000}
+  body{font-size:11pt;line-height:1.6}
+  .topnav,.progress,.themebtn,.gbtn,.pick,.timerrow,.rails-hint{display:none!important}
+  .focus,.focus .box{background:#fff}
+  .focus h2,.focus p,.focus .quote,.focus .quote strong,.focus strong,.focus .box,.focus .term-def{color:#000}
+  .focus .note{color:#333}
+  section{padding:12pt 0}
+  h1{font-size:22pt} h2{font-size:15pt} h3{font-size:12pt}
+  table{min-width:0;font-size:9.5pt}
+  .ptable,.glabels{min-width:0}
+  .el{min-height:32px}
+  .box,.bench,.stmt,.gq,.opt,.round,.term-def,.elinfo,.shellbars,.strip,.herofigure,.guess{break-inside:avoid}
+  p,h1,h2,h3,li,td,th{orphans:3;widows:3}
+  table,tr{break-inside:avoid}
+  a[href^="http"]::after{content:" (" attr(href) ")";font-size:8pt;color:#555}
+  footer{break-before:page}
+}
+@media (max-width:400px){.bench{padding:var(--sp3)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="progress" aria-hidden="true"><i id="pbar"></i></div>
+<button class="themebtn" id="themebtn" type="button" aria-label="切换亮色 / 暗色主题" title="切换主题">◐</button>
+<nav class="topnav" aria-label="章节导航">
+  <div class="rail" id="navrail">
+    <a class="chip" href="#s0">先押注</a>
+    <a class="chip" href="#s1">1869 以前</a>
+    <a class="chip" href="#s2">门捷列夫</a>
+    <a class="chip" href="#s3">三个赌注</a>
+    <a class="chip" href="#s4">为什么有周期</a>
+    <a class="chip" href="#s5">怎么读表</a>
+    <a class="chip" href="#s6">找错</a>
+    <a class="chip" href="#s7">讲出来</a>
+  </div>
+</nav>
+
+<div class="wrap">
+<header class="hero">
+  <div class="kicker">化学 · 第一性原理</div>
+  <h1>元素周期表<br>不是一张要背的表</h1>
+  <p class="lede">它是一张化学的「天气图」。横着走一格，性质突变；走完一行，性质重演一遍。
+  更狠的是——<strong>靠它，你能说出一个还没被发现的元素长什么样。</strong></p>
+
+  <figure class="herofigure">
+    <svg viewBox="0 0 420 96" class="herochart" role="img" aria-label="1 到 20 号元素最外层电子数柱状图：1、2、1、2、3、4、5、6、7、8、1、2、3、4、5、6、7、8、1、2">
+      <line x1="8" y1="80" x2="412" y2="80" stroke="currentColor" stroke-opacity=".35" stroke-width="1"/>
+      <g class="bars">
+        <rect x="10"  y="70"  width="12" height="10"/><rect x="30"  y="60"  width="12" height="20"/>
+        <rect x="50"  y="70"  width="12" height="10"/><rect x="70"  y="60"  width="12" height="20"/>
+        <rect x="90"  y="50"  width="12" height="30"/><rect x="110" y="40"  width="12" height="40"/>
+        <rect x="130" y="30"  width="12" height="50"/><rect x="150" y="20"  width="12" height="60"/>
+        <rect x="170" y="10"  width="12" height="70"/><rect x="190" y="0"   width="12" height="80" class="full"/>
+        <rect x="210" y="70"  width="12" height="10"/><rect x="230" y="60"  width="12" height="20"/>
+        <rect x="250" y="50"  width="12" height="30"/><rect x="270" y="40"  width="12" height="40"/>
+        <rect x="290" y="30"  width="12" height="50"/><rect x="310" y="20"  width="12" height="60"/>
+        <rect x="330" y="10"  width="12" height="70"/><rect x="350" y="0"   width="12" height="80" class="full"/>
+        <rect x="370" y="70"  width="12" height="10"/><rect x="390" y="60"  width="12" height="20"/>
+      </g>
+    </svg>
+    <figcaption>1 号到 20 号元素，<strong>最外层各有几个电子</strong>。
+    看形状：1、2 → 1…7、8 → 又回到 1、2。它在原地打转——这一页讲的就是「为什么它会打转」。</figcaption>
+  </figure>
+  <p class="byline">给牧之 · 2026 年 9 月 · 阅读约 12 分钟</p>
+</header>
+</div>
+
+<main>
+
+<!-- ══════════ 0 先押注 ══════════ -->
+<section id="s0">
+<div class="wrap">
+  <div class="sec-head"><span class="sec-no">00</span><h2>先押注，再读</h2></div>
+  <p>往下读之前，把三个赌注押上。读完再回来对答案——<strong>先猜后验，记得最牢</strong>。</p>
+
+  <div class="guess" id="guess">
+    <div class="gq" data-answer="1">
+      <div class="qt">1. 今天这张表，从左到右是按什么排的？</div>
+      <div class="opts">
+        <button class="opt" type="button">A　按原子量——谁重谁排后面</button>
+        <button class="opt" type="button">B　按原子序数——核里有几个质子</button>
+        <button class="opt" type="button">C　按发现时间的先后</button>
+      </div>
+      <div class="fb" hidden></div>
+    </div>
+
+    <div class="gq" data-answer="1">
+      <div class="qt">2. 门捷列夫 1869 年排表时，给「还没被发现的元素」留了空格——这些空格后来怎么样了？</div>
+      <div class="opts">
+        <button class="opt" type="button">A　后人发现留错了，把空格删掉</button>
+        <button class="opt" type="button">B　空格后来一个接一个被找到填上，元素性质和他预言的几乎一样</button>
+        <button class="opt" type="button">C　空格至今还空着，那几个元素没找到</button>
+      </div>
+      <div class="fb" hidden></div>
+    </div>
+
+    <div class="gq" data-answer="0">
+      <div class="qt">3. 同一竖列（同一族）的元素，化学性质……</div>
+      <div class="opts">
+        <button class="opt" type="button">A　相似但不完全相同，越往下越「金属」</button>
+        <button class="opt" type="button">B　完全一样，可以互相替换</button>
+        <button class="opt" type="button">C　毫无关系，只是碰巧排在一列</button>
+      </div>
+      <div class="fb" hidden></div>
+    </div>
+  </div>
+
+  <button class="gbtn ghost" type="button" id="revealGuess">揭晓答案</button>
+  <span class="score" id="guessScore" aria-live="polite"></span>
+</div>
+</section>
+
+<!-- ══════════ 1 1869 以前 ══════════ -->
+<section id="s1">
+<div class="wrap">
+  <div class="sec-head"><span class="sec-no">01</span><h2>1869 年以前：化学家手里有 60 多种元素，却没有目录</h2></div>
+  <p>到 1860 年代，化学家已经认识了 <strong>60 多种元素</strong>。麻烦不在「不知道」，而在「放不齐」：每种元素都拖着一长串自己的脾气——多重、熔点多少、跟谁能反应、反应得多凶。<strong>像一本没有目录的字典：每个字都在，但你要找谁就翻半天。</strong></p>
+  <p>更难受的是：新元素一被发现，没人知道它该排在哪、该跟谁像。线索其实早就露头了，只是散在不同人手里：</p>
+
+  <div class="box">
+    <p style="margin-bottom:8px"><strong>1829　德贝赖纳（德国）·「三兄弟」</strong><br>
+    他发现有几组元素像亲兄弟：锂-钠-钾、钙-锶-钡、氯-溴-碘。每组里<strong>中间那个的原子量，差不多正好是两边两个的平均数</strong>。这是最早的一条真线索。</p>
+    <p style="margin-bottom:8px"><strong>1843　格梅林（德国）· 分类表</strong><br>
+    把 55 种元素按共同特征归了类——但只是一张「整理过的柜子」，说不出规律。</p>
+    <p style="margin-bottom:8px"><strong>1864　迈耶尔（德国）· 按化合价分类</strong><br>
+    排得很漂亮，图上甚至能看到性质周期起伏的曲线。但他<strong>没有预言任何一个新元素</strong>。</p>
+    <p style="margin-bottom:0"><strong>1865　纽兰兹（英国）·「八音律」</strong><br>
+    他把元素按原子量排成一长排，发现「每 8 个一循环」，像音阶的 do re mi fa sol la si do。他管这叫<span class="term" data-def="纽兰兹发现：按原子量排序时，每隔 8 个元素，性质就会重复一次——像音乐里每 8 个音一循环。">八音律</span>。结果呢？<strong>被同行当笑话</strong>。因为他说不清「为什么偏偏是 8」，也没留地方给没发现的元素。</p>
+  </div>
+
+  <p>所以真正缺的不是聪明人——线索都摆在那儿了。缺的是一个<strong>敢赌的人</strong>。</p>
+</div>
+</section>
+
+<!-- ══════════ 2 门捷列夫 ══════════ -->
+<section id="s2">
+<div class="wrap">
+  <div class="sec-head"><span class="sec-no">02</span><h2>门捷列夫：把元素写成纸牌的人</h2></div>
+  <p><strong>德米特里·伊万诺维奇·门捷列夫（1834–1907）</strong>生于西伯利亚的托博尔斯克附近，是家里最小的孩子（他兄弟姐妹多到史料都记不准数目）。父亲早逝，母亲带着他一路辗转，最后送进彼得堡读书。</p>
+  <p>1867 年，他 33 岁，成为彼得堡大学的化学教授。为了上课，他动手写一本教科书——<strong>《化学原理》</strong>，1868 到 1870 年分两卷出版。</p>
+  <p>写着写着，他撞上一个几乎所有人都绕过去的问题：<em>讲元素，总得有个顺序吧？</em></p>
+  <p>他做了一件今天看起来有点笨、当时看起来更笨的事：<strong>把当时已知的 63 种元素，每种写一张卡片</strong>——符号、原子量、化合价、性质。然后像摆扑克牌一样，在桌上、纸上，一遍遍地排。</p>
+
+  <div class="note">
+    传说他是在火车上摆「<span class="term" data-def="据说门捷列夫乘火车时用元素卡片反复排列，像玩单人纸牌。这个说法流传很广，但更可靠的记载是他写教科书、反复整理卡片过程中逐渐看清规律。">化学纸牌</span>」时突然想通的。这个说法很流行——但它更像传说。可靠的记载是：他在写教科书、反复推倒重排卡片的过程中，一点点看清的。<strong>灵光一闪之前，他已经排了很久。</strong>
+  </div>
+
+  <p><strong>1869 年 3 月 6 日</strong>，他向俄国化学会正式宣读论文，题目长得像句绕口令：<strong>《元素的属性与原子量的关系》</strong>。那年他 35 岁。</p>
+</div>
+</section>
+
+<!-- ══════════ 3 三个赌注 ══════════ -->
+<section id="s3">
+<div class="wrap">
+  <div class="sec-head"><span class="sec-no">03</span><h2>他赌了三把——第三把最关键</h2></div>
+
+  <h3>第一把：把长队折成行</h3>
+  <p>如果一直按原子量排成一长排，「性质重复」每隔一段就冒一次。他的动作是：<strong>把它折起来</strong>。折成一行一行的，重复的部分自动对齐到同一列——这就是<span class="term" data-def="表里的横行。第几周期 = 这个元素的原子有几层电子。第一周期只有 2 个元素，第二、三周期各 8 个。">周期</span>。</p>
+
+  <figure class="foldfig">
+    <svg viewBox="0 0 406 132" role="img" aria-label="把一长排元素折成一行八列：颜色相同的方块折完后落在同一列">
+      <g class="fold">
+        <rect x="4" y="8" width="18" height="18" opacity="0.22"/>
+        <rect x="24" y="8" width="18" height="18" opacity="0.33"/>
+        <rect x="44" y="8" width="18" height="18" opacity="0.43"/>
+        <rect x="64" y="8" width="18" height="18" opacity="0.54"/>
+        <rect x="84" y="8" width="18" height="18" opacity="0.64"/>
+        <rect x="104" y="8" width="18" height="18" opacity="0.75"/>
+        <rect x="124" y="8" width="18" height="18" opacity="0.85"/>
+        <rect x="144" y="8" width="18" height="18" opacity="0.96"/>
+        <rect x="164" y="8" width="18" height="18" opacity="0.22"/>
+        <rect x="184" y="8" width="18" height="18" opacity="0.33"/>
+        <rect x="204" y="8" width="18" height="18" opacity="0.43"/>
+        <rect x="224" y="8" width="18" height="18" opacity="0.54"/>
+        <rect x="244" y="8" width="18" height="18" opacity="0.64"/>
+        <rect x="264" y="8" width="18" height="18" opacity="0.75"/>
+        <rect x="284" y="8" width="18" height="18" opacity="0.85"/>
+        <rect x="304" y="8" width="18" height="18" opacity="0.96"/>
+        <rect x="324" y="8" width="18" height="18" opacity="0.22"/>
+        <rect x="344" y="8" width="18" height="18" opacity="0.33"/>
+        <rect x="364" y="8" width="18" height="18" opacity="0.43"/>
+        <rect x="384" y="8" width="18" height="18" opacity="0.54"/>
+        <path d="M204 36 L204 54 M196 46 L204 58 L212 46" fill="none" stroke="currentColor" stroke-width="1.5" stroke-opacity=".55"/>
+        <rect x="4" y="68" width="18" height="18" opacity="0.22"/>
+        <rect x="24" y="68" width="18" height="18" opacity="0.33"/>
+        <rect x="44" y="68" width="18" height="18" opacity="0.43"/>
+        <rect x="64" y="68" width="18" height="18" opacity="0.54"/>
+        <rect x="84" y="68" width="18" height="18" opacity="0.64"/>
+        <rect x="104" y="68" width="18" height="18" opacity="0.75"/>
+        <rect x="124" y="68" width="18" height="18" opacity="0.85"/>
+        <rect x="144" y="68" width="18" height="18" opacity="0.96"/>
+        <rect x="4" y="88" width="18" height="18" opacity="0.22"/>
+        <rect x="24" y="88" width="18" height="18" opacity="0.33"/>
+        <rect x="44" y="88" width="18" height="18" opacity="0.43"/>
+        <rect x="64" y="88" width="18" height="18" opacity="0.54"/>
+        <rect x="84" y="88" width="18" height="18" opacity="0.64"/>
+        <rect x="104" y="88" width="18" height="18" opacity="0.75"/>
+        <rect x="124" y="88" width="18" height="18" opacity="0.85"/>
+        <rect x="144" y="88" width="18" height="18" opacity="0.96"/>
+        <rect x="4" y="108" width="18" height="18" opacity="0.22"/>
+        <rect x="24" y="108" width="18" height="18" opacity="0.33"/>
+        <rect x="44" y="108" width="18" height="18" opacity="0.43"/>
+        <rect x="64" y="108" width="18" height="18" opacity="0.54"/>
+      </g>
+    </svg>
+    <figcaption>上面：把元素按原子量排成一长排，颜色每隔 8 个重复一次。<br>下面：<strong>折成一行 8 列</strong>——颜色相同的方块自动落到同一列。这一步就是「周期表」这个名字的来历。</figcaption>
+  </figure>
+
+  <h3>第二把：敢改别人的数字</h3>
+  <p>有几个元素按当时的原子量，位置就是不对劲。比如铍（Be），按测量值该排在别处，可那样性质就对不上。他的判断是：<strong>「是你们的原子量测错了，不是我的表错了。」</strong>后来证明他对了。</p>
+
+  <h3>第三把：敢留空格</h3>
+  <p>这是最难的一步。为了保住「同一列性质相似」，他宁可让表格出现<strong>空格</strong>，也不硬塞。他还给空格起了名字——<strong>类铝、类硼、类硅</strong>——并且把它们的原子量和密度<strong>写下来当作预言</strong>。</p>
+
+  <div class="quote">
+    别人做的是「<strong>总结已知</strong>」；他做的是「<strong>预言未知</strong>」。<br>这就是他和同时代最接近的那个人之间的全部差距。
+  </div>
+
+  <h3>三次「打脸现场」，也是三次验证</h3>
+  <p>下面是历史账本，左边是他 1869–1871 年写下的预言，右边是后来实际测到的结果：</p>
+
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>他起的名</th><th>后来发现的元素</th><th>预言原子量</th><th>实测原子量</th><th>预言密度</th><th>实测密度</th></tr></thead>
+    <tbody>
+      <tr><td>类铝</td><td>镓 Ga　1875 年，法国 布瓦博德朗</td><td class="n">68</td><td class="n">69.72</td><td class="n">6.0 g/cm³</td><td class="n">5.91 g/cm³</td></tr>
+      <tr><td>类硼</td><td>钪 Sc　1879 年，瑞典 尼尔森</td><td class="n">40–48 之间</td><td class="n">44.96</td><td class="n">原表未列</td><td class="n">原表未列</td></tr>
+      <tr><td>类硅</td><td>锗 Ge　1886 年，德国 温克勒</td><td class="n">72</td><td class="n">72.63</td><td class="n">5.5 g/cm³</td><td class="n">5.32 g/cm³</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p>锗这一行最有说服力：他连「这个元素的氯化物沸点在 100 ℃ 以下」都说对了（实测 86.5 ℃）。<strong>一个还没被任何人看见过的元素，被他从一张纸上的空格里「读」了出来。</strong></p>
+
+  <div class="warn">
+    <b>等一下——那为什么课本上写的是「迈耶尔和门捷列夫各自独立得到周期表」？</b><br>
+    因为这是事实。迈耶尔的曲线和门捷列夫的表时间接近、思路相通。但 1882 年两人同获英国皇家学会的戴维奖章时，评语明确把「预言新元素」这一笔算在门捷列夫名下。<strong>能不能被记住，往往取决于你敢不敢押那个注。</strong>
+  </div>
+</div>
+</section>
+
+<!-- ══════════ 4 为什么有周期（暗底） ══════════ -->
+<section id="s4" class="focus">
+<div class="wrap">
+  <div class="sec-head"><span class="sec-no">04</span><h2>真正的问题：凭什么会有「周期」？</h2></div>
+  <p>前面讲的都是「怎么排」。但有个更硬的问题一直没回答：<strong>元素凭什么知道「又轮到我了」？</strong></p>
+  <p>为什么锂、钠、钾脾气像？为什么氟、氯、溴脾气像？它们之间隔着一大堆别的元素，彼此从不见面，凭什么像一家人？门捷列夫本人也不知道——他那张表是<strong>「现象上对」</strong>，不是<strong>「原理上懂」</strong>。</p>
+  <p>答案晚了 44 年才到，而且要三个人接力。</p>
+
+  <div class="box">
+    <p><strong>1913　范登布鲁克（荷兰）先提出猜想</strong><br>
+    决定元素位置的，可能不是原子量，而是<strong>原子核带的正电荷数</strong>。他猜对了，但他没法验证。</p>
+    <p><strong>1913　莫塞莱（英国）用 X 射线把它测出来</strong><br>
+    他把每种元素用 X 射线照一遍，发现 X 射线的波长和这个「正电荷数」严格对应。<strong>他第一次给元素排出了绝对顺序</strong>，顺手纠正了三处「别扭」的位置：氩和钾、钴和镍、碲和碘——按原子量排是反的，按这个数排正好。</p>
+    <p style="margin-bottom:0"><strong>1919–1921　朗缪尔、伯里：电子是一层一层住的</strong><br>
+    电子在核外不是挤成一团，而是<strong>分层</strong>待着，每层还有容量上限：第一层最多 2 个，第二层最多 8 个，第三层先塞 8 个。</p>
+  </div>
+
+  <p>三块拼图拼上，答案就露出来了——而且简单得不像话：</p>
+
+  <div class="quote">
+    化学反应里动的，几乎只有<strong>最外层那几个电子</strong>。<br>
+    最外层电子数一样 → 化学脾气就一样 → 就被排到同一列。<br>
+    而最外层电子数，是<strong>周期性重复</strong>的 → 整张表就跟着周期性重复。
+  </div>
+
+  <p>于是两个最常被问到的问题，一句话就能答：</p>
+  <p><strong>它在第几行（周期）＝ 它有几层电子。</strong><br>
+  <strong>它在第几列（族）＝ 它最外层有几个电子。</strong></p>
+
+  <div class="bench">
+    <div class="bench-head">
+      <div><span class="lbl">装置 01</span><br><strong>拖着看：1 到 20 号，最外层电子数怎么重复</strong></div>
+    </div>
+    <div class="shellbox" id="shellbox"></div>
+    <div class="readout">
+      <span>元素　<b id="rEl">—</b></span>
+      <span>电子层数　<b id="rShells">—</b></span>
+      <span>最外层电子　<b id="rVal">—</b></span>
+    </div>
+    <input type="range" id="zslider" min="1" max="20" step="1" value="1"
+           aria-label="选择原子序数 1 到 20">
+    <div class="strip" id="strip" aria-hidden="true"></div>
+    <p class="note" style="margin-bottom:0">盯着数字看：1、2 → 1…7、8（满）→ 又回到 1、2。<strong>它在原地打转——这就是「周期」两个字的全部含义。</strong>上面一行是原子序数，下面那个数是它最外层有几个电子；<strong>高亮的格子是「同一列」</strong>，它们排到一列，就是因为最外层电子数一样。</p>
+  </div>
+
+  <p class="note">顺便说清楚一件常被混淆的事：<strong>化学性质不是由「里面」决定的，是由「最外面」决定的。</strong>钠原子里有 11 个电子，可它那么凶，靠的只是最外层那 1 个。</p>
+</div>
+</section>
+<!-- ══════════ 5 怎么读表 ══════════ -->
+<section id="s5">
+<div class="wrap">
+  <div class="sec-head"><span class="sec-no">05</span><h2>怎么读这张表：三步走</h2></div>
+  <p>知道原理以后，读数就变成三个动作，不用背：</p>
+  <p><strong>第 1 步　看它在第几行</strong> → 这个原子有几层电子（就是第几周期）。<br>
+  <strong>第 2 步　看它在第几列</strong> → 最外层有几个电子（主族）。<br>
+  <strong>第 3 步　看它在图的哪一边</strong> → 左边爱丢电子（金属），右边爱抢电子（非金属），最右边那些不缺电子（稀有气体）。</p>
+  <p>下面这张是主族部分的简表（前四行的 26 个元素）。<strong>点任意一格</strong>，看它的电子层和最外层电子——你会亲眼看到「同一列的人，最外层电子数一样」。</p>
+
+  <div class="bench">
+    <div class="bench-head">
+      <div><span class="lbl">装置 02</span><br><strong>点一格，看它为什么在那儿</strong></div>
+    </div>
+    <div class="rail" id="gridrail">
+      <div class="glabels" aria-hidden="true">
+        <span>ⅠA</span><span>ⅡA</span><span>ⅢA</span><span>ⅣA</span><span>ⅤA</span><span>ⅥA</span><span>ⅦA</span><span>0</span>
+      </div>
+      <div class="ptable" id="ptable" role="group" aria-label="主族元素简表，点击查看元素详情">
+        <button class="el" type="button" data-z="1"  data-cat="非金属"><span class="z">1</span><span class="s">H</span><span class="nm">氢</span></button>
+        <span class="drop"></span><span class="drop"></span><span class="drop"></span><span class="drop"></span><span class="drop"></span><span class="drop"></span>
+        <button class="el" type="button" data-z="2"  data-cat="稀有气体"><span class="z">2</span><span class="s">He</span><span class="nm">氦</span></button>
+
+        <button class="el" type="button" data-z="3"  data-cat="金属"><span class="z">3</span><span class="s">Li</span><span class="nm">锂</span></button>
+        <button class="el" type="button" data-z="4"  data-cat="金属"><span class="z">4</span><span class="s">Be</span><span class="nm">铍</span></button>
+        <button class="el" type="button" data-z="5"  data-cat="准金属"><span class="z">5</span><span class="s">B</span><span class="nm">硼</span></button>
+        <button class="el" type="button" data-z="6"  data-cat="非金属"><span class="z">6</span><span class="s">C</span><span class="nm">碳</span></button>
+        <button class="el" type="button" data-z="7"  data-cat="非金属"><span class="z">7</span><span class="s">N</span><span class="nm">氮</span></button>
+        <button class="el" type="button" data-z="8"  data-cat="非金属"><span class="z">8</span><span class="s">O</span><span class="nm">氧</span></button>
+        <button class="el" type="button" data-z="9"  data-cat="非金属"><span class="z">9</span><span class="s">F</span><span class="nm">氟</span></button>
+        <button class="el" type="button" data-z="10" data-cat="稀有气体"><span class="z">10</span><span class="s">Ne</span><span class="nm">氖</span></button>
+
+        <button class="el" type="button" data-z="11" data-cat="金属"><span class="z">11</span><span class="s">Na</span><span class="nm">钠</span></button>
+        <button class="el" type="button" data-z="12" data-cat="金属"><span class="z">12</span><span class="s">Mg</span><span class="nm">镁</span></button>
+        <button class="el" type="button" data-z="13" data-cat="金属"><span class="z">13</span><span class="s">Al</span><span class="nm">铝</span></button>
+        <button class="el" type="button" data-z="14" data-cat="准金属"><span class="z">14</span><span class="s">Si</span><span class="nm">硅</span></button>
+        <button class="el" type="button" data-z="15" data-cat="非金属"><span class="z">15</span><span class="s">P</span><span class="nm">磷</span></button>
+        <button class="el" type="button" data-z="16" data-cat="非金属"><span class="z">16</span><span class="s">S</span><span class="nm">硫</span></button>
+        <button class="el" type="button" data-z="17" data-cat="非金属"><span class="z">17</span><span class="s">Cl</span><span class="nm">氯</span></button>
+        <button class="el" type="button" data-z="18" data-cat="稀有气体"><span class="z">18</span><span class="s">Ar</span><span class="nm">氩</span></button>
+
+        <button class="el" type="button" data-z="19" data-cat="金属"><span class="z">19</span><span class="s">K</span><span class="nm">钾</span></button>
+        <button class="el" type="button" data-z="20" data-cat="金属"><span class="z">20</span><span class="s">Ca</span><span class="nm">钙</span></button>
+        <button class="el" type="button" data-z="31" data-cat="金属"><span class="z">31</span><span class="s">Ga</span><span class="nm">镓</span></button>
+        <button class="el" type="button" data-z="32" data-cat="准金属"><span class="z">32</span><span class="s">Ge</span><span class="nm">锗</span></button>
+        <button class="el" type="button" data-z="33" data-cat="准金属"><span class="z">33</span><span class="s">As</span><span class="nm">砷</span></button>
+        <button class="el" type="button" data-z="34" data-cat="非金属"><span class="z">34</span><span class="s">Se</span><span class="nm">硒</span></button>
+        <button class="el" type="button" data-z="35" data-cat="非金属"><span class="z">35</span><span class="s">Br</span><span class="nm">溴</span></button>
+        <button class="el" type="button" data-z="36" data-cat="稀有气体"><span class="z">36</span><span class="s">Kr</span><span class="nm">氪</span></button>
+      </div>
+    </div>
+    <p class="rails-hint" id="gridhint" hidden>← 表比屏幕宽，左右滑动看全 8 列 →</p>
+    <div class="legend">
+      <span><i style="background:color-mix(in srgb,var(--pen) 12%,var(--paper))"></i>金属</span>
+      <span><i style="background:var(--paper);border-style:dashed"></i>非金属</span>
+      <span><i style="background:color-mix(in srgb,var(--pen) 4%,var(--paper))"></i>准金属</span>
+      <span><i style="background:color-mix(in srgb,var(--ink) 8%,var(--paper))"></i>稀有气体</span>
+    </div>
+    <div class="elinfo" id="elinfo" aria-live="polite">
+      <p class="note" style="margin:0">上面任意点一格 →</p>
+    </div>
+  </div>
+
+  <h3>三处「不听话」的地方——它们说明表里也有人的约定</h3>
+  <div class="box">
+    <p style="margin-bottom:8px"><strong>① 氢（H）站在第一列</strong>——第一列全是活泼金属，可氢是非金属气体。因为它最外层只有 1 个电子，「像」第一列，就暂住这儿了。</p>
+    <p style="margin-bottom:8px"><strong>② 氦（He）站在最右一列</strong>——它最外层只有 2 个电子，按「8 才满」的规矩看着不合群。但第一层住满就是 2 个——<strong>它已经满了</strong>。所以它是稀有气体。</p>
+    <p style="margin-bottom:0"><strong>③ 下面那两行（镧系、锕系）被单独抽出来</strong>——不抽出来，表会宽到一页放不下。这是排版约定，不是自然规律。</p>
+  </div>
+  <p class="note">所以准确的说法是：<strong>周期表是自然规律 + 人类约定的混合物。</strong>规律那部分很硬（最外层电子），约定那部分很软（谁放哪儿、怎么排版）。分得清这两半，才算真的读懂它。</p>
+</div>
+</section>
+
+<!-- ══════════ 6 找错 ══════════ -->
+<section id="s6">
+<div class="wrap">
+  <div class="sec-head"><span class="sec-no">06</span><h2>找错游戏：两轮</h2></div>
+  <p>下面两轮，每轮四句话。<strong>先把「你看哪句不对劲」挑出来，再看解释</strong>——挑错了也没关系，那正是要记住的地方。</p>
+
+  <div class="round" id="round1">
+    <h3>第一轮：这四句里，<em>只有一句是对的</em></h3>
+    <div class="stmt">
+      <span class="idx">①</span>
+      <div class="body">
+        <p class="txt">门捷列夫在 1869 年只把已知的 63 种元素排了个队，没有做任何预言。</p>
+        <button class="pick" type="button">就选它</button>
+        <div class="why" hidden></div>
+      </div>
+    </div>
+    <div class="stmt" data-ok="1">
+      <span class="idx">②</span>
+      <div class="body">
+        <p class="txt">他给尚未发现的元素留了空格，并且写下了它们的原子量和性质。</p>
+        <button class="pick" type="button">就选它</button>
+        <div class="why" hidden></div>
+      </div>
+    </div>
+    <div class="stmt">
+      <span class="idx">③</span>
+      <div class="body">
+        <p class="txt">他的表之所以被接受，是因为他排得比同时代的迈耶尔更漂亮。</p>
+        <button class="pick" type="button">就选它</button>
+        <div class="why" hidden></div>
+      </div>
+    </div>
+    <div class="stmt">
+      <span class="idx">④</span>
+      <div class="body">
+        <p class="txt">今天这张表完全按原子量从小到大排列。</p>
+        <button class="pick" type="button">就选它</button>
+        <div class="why" hidden></div>
+      </div>
+    </div>
+    <button class="gbtn" type="button" data-check="round1">对答案</button>
+    <span class="score" id="score1" aria-live="polite"></span>
+  </div>
+
+  <div class="round" id="round2">
+    <h3>第二轮：这四句里，<em>只有一句是错的</em></h3>
+    <div class="stmt">
+      <span class="idx">①</span>
+      <div class="body">
+        <p class="txt">1869 年，门捷列夫把 63 种元素按原子量排成了表。</p>
+        <button class="pick" type="button">就选它</button>
+        <div class="why" hidden></div>
+      </div>
+    </div>
+    <div class="stmt">
+      <span class="idx">②</span>
+      <div class="body">
+        <p class="txt">1913 年莫塞莱用 X 射线证明：真正决定位置的是原子序数（核里的质子数）。</p>
+        <button class="pick" type="button">就选它</button>
+        <div class="why" hidden></div>
+      </div>
+    </div>
+    <div class="stmt" data-ok="1">
+      <span class="idx">③</span>
+      <div class="body">
+        <p class="txt">莫塞莱之后，门捷列夫的表被推翻，化学家重新排了一张全新的表。</p>
+        <button class="pick" type="button">就选它</button>
+        <div class="why" hidden></div>
+      </div>
+    </div>
+    <div class="stmt">
+      <span class="idx">④</span>
+      <div class="body">
+        <p class="txt">同一族元素性质相似，是因为它们最外层电子数相同或相近。</p>
+        <button class="pick" type="button">就选它</button>
+        <div class="why" hidden></div>
+      </div>
+    </div>
+    <button class="gbtn" type="button" data-check="round2">对答案</button>
+    <span class="score" id="score2" aria-live="polite"></span>
+  </div>
+</div>
+</section>
+
+<!-- ══════════ 7 讲出来 ══════════ -->
+<section id="s7">
+<div class="wrap">
+  <div class="sec-head"><span class="sec-no">07</span><h2>最后一步：讲出来</h2></div>
+  <p>看懂不算懂，<strong>能讲出来才算懂</strong>。合上这一页，用 60 秒讲给别人听：</p>
+  <div class="quote">
+    为什么一张 1869 年画在纸上的表，<br>能说出 1886 年才被发现的元素长什么样？
+  </div>
+  <p class="note">卡住的地方，就是你真正还没懂的地方——回到上面找那一节，再讲一遍。</p>
+
+  <div class="timerrow">
+    <span class="timer" id="timer">1:00</span>
+    <button class="gbtn" type="button" id="startTimer">开始 60 秒</button>
+    <button class="gbtn ghost" type="button" id="resetTimer">重置</button>
+    <span class="saved" id="savedTip"></span>
+  </div>
+  <textarea id="notes" placeholder="在这里先把要讲的东西敲出来（自动保存在这台设备上，不会上传）……" aria-label="复述区"></textarea>
+</div>
+</section>
+</main>
+
+<div class="wrap">
+<footer>
+  <p><strong>资料来源</strong>（2026-09-19 经 GitHub Actions 中继读取原文）</p>
+  <ul>
+    <li>Wikipedia, <em>History of the periodic table</em> —— 德贝赖纳三元素组（1829）、格梅林（1843）、纽兰兹八音律（1865）、迈耶尔（1864）、门捷列夫 1869 年 3 月 6 日宣读论文、莫塞莱 1913 年原子序数与三处顺序纠正、朗缪尔/伯里电子层（1919–1921）</li>
+    <li>Wikipedia, <em>Mendeleev's predicted elements</em> —— 类铝/镓、类硼/钪、类硅/锗的预言值与实测值对照</li>
+    <li>Wikipedia, <em>Dmitri Mendeleev</em> / <em>Scandium</em> —— 生卒年、63 种元素、《化学原理》1868–1870、钪 1879 年由尼尔森发现</li>
+  </ul>
+  <p><strong>存疑标注</strong>：类硼（钪）的预言原子量，文献记为「40 到 48 之间」，各版本数值略有差异，此处按区间保留原始说法；「火车上摆化学纸牌」属流传说法（原文用词为 sometimes said），页面中已标为传说而非史实。</p>
+  <p>给牧之做的第三本科普页 · 与前两本（普朗克尺度、电磁感应）同一套设计系统 · 零站外资源，断网可看</p>
+</footer>
+</div>
+<script>
+(function(){
+'use strict';
+var $=function(s,r){return (r||document).querySelector(s);};
+var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s));};
+var root=document.documentElement;
+
+/* ── 主题切换 ── */
+var tb=$('#themebtn');
+tb.addEventListener('click',function(){
+  var next=root.getAttribute('data-theme')==='dark'?'light':'dark';
+  root.setAttribute('data-theme',next);
+  try{localStorage.setItem('pt-theme',next);}catch(e){}
+});
+
+/* ── 阅读进度 + 章节高亮 ── */
+var pbar=$('#pbar'), secs=$$('main section'), chips=$$('.chip'), ticking=false;
+function railCheck(){
+  $$('.rail').forEach(function(r){
+    var sc = r.scrollWidth > r.clientWidth + 1;
+    var atEnd = r.scrollLeft + r.clientWidth >= r.scrollWidth - 2;
+    r.classList.toggle('scrollable', sc);
+    r.classList.toggle('more', sc && !atEnd);
+  });
+  var gh=$('#gridhint'), gr=$('#gridrail');
+  if(gh && gr){ gh.hidden = !(gr.scrollWidth > gr.clientWidth + 1); }
+}
+function onScroll(){
+  if(ticking) return; ticking=true;
+  requestAnimationFrame(function(){
+    var h=root.scrollHeight-window.innerHeight;
+    pbar.style.width=(h>0?Math.min(1,window.scrollY/h)*100:0).toFixed(2)+'%';
+    var y=window.scrollY+window.innerHeight*0.3, cur=secs[0];
+    secs.forEach(function(s){ if(s.offsetTop<=y) cur=s; });
+    chips.forEach(function(c){ c.setAttribute('aria-current', c.getAttribute('href')==='#'+cur.id?'true':'false'); });
+    ticking=false;
+  });
+}
+window.addEventListener('scroll',onScroll,{passive:true});
+window.addEventListener('resize',function(){railCheck();onScroll();},{passive:true});
+$$('.rail').forEach(function(r){ r.addEventListener('scroll',railCheck,{passive:true}); });
+onScroll(); railCheck();
+
+/* ── 术语注解（事件委派，动态插入也能用）── */
+function toggleTerm(t){
+  var def=t.__def;
+  if(!def){
+    def=document.createElement('div');
+    def.className='term-def';
+    def.textContent=t.getAttribute('data-def');
+    def.hidden=true;
+    var host=t.closest('p,li,.qt,.txt,.note,.box,.opt,.cell,.quote')||t.parentElement;
+    host.insertAdjacentElement('afterend',def);
+    t.__def=def; t.setAttribute('aria-expanded','false');
+  }
+  def.hidden=!def.hidden;
+  t.setAttribute('aria-expanded', def.hidden?'false':'true');
+}
+document.addEventListener('click',function(ev){
+  var t=ev.target.closest?ev.target.closest('.term'):null;
+  if(t){ ev.preventDefault(); toggleTerm(t); }
+});
+
+/* ── 元素数据（电子层按主族常见排布）── */
+var EL={
+ 1:{s:'H',n:'氢',sh:[1]}, 2:{s:'He',n:'氦',sh:[2]},
+ 3:{s:'Li',n:'锂',sh:[2,1]}, 4:{s:'Be',n:'铍',sh:[2,2]}, 5:{s:'B',n:'硼',sh:[2,3]},
+ 6:{s:'C',n:'碳',sh:[2,4]}, 7:{s:'N',n:'氮',sh:[2,5]}, 8:{s:'O',n:'氧',sh:[2,6]},
+ 9:{s:'F',n:'氟',sh:[2,7]}, 10:{s:'Ne',n:'氖',sh:[2,8]},
+ 11:{s:'Na',n:'钠',sh:[2,8,1]}, 12:{s:'Mg',n:'镁',sh:[2,8,2]}, 13:{s:'Al',n:'铝',sh:[2,8,3]},
+ 14:{s:'Si',n:'硅',sh:[2,8,4]}, 15:{s:'P',n:'磷',sh:[2,8,5]}, 16:{s:'S',n:'硫',sh:[2,8,6]},
+ 17:{s:'Cl',n:'氯',sh:[2,8,7]}, 18:{s:'Ar',n:'氩',sh:[2,8,8]},
+ 19:{s:'K',n:'钾',sh:[2,8,8,1]}, 20:{s:'Ca',n:'钙',sh:[2,8,8,2]},
+ 31:{s:'Ga',n:'镓',sh:[2,8,18,3]}, 32:{s:'Ge',n:'锗',sh:[2,8,18,4]}, 33:{s:'As',n:'砷',sh:[2,8,18,5]},
+ 34:{s:'Se',n:'硒',sh:[2,8,18,6]}, 35:{s:'Br',n:'溴',sh:[2,8,18,7]}, 36:{s:'Kr',n:'氪',sh:[2,8,18,8]}
+};
+var GRP={1:'ⅠA',2:'0 族',3:'ⅠA',4:'ⅡA',5:'ⅢA',6:'ⅣA',7:'ⅤA',8:'ⅥA',9:'ⅦA',10:'0 族',
+ 11:'ⅠA',12:'ⅡA',13:'ⅢA',14:'ⅣA',15:'ⅤA',16:'ⅥA',17:'ⅦA',18:'0 族',
+ 19:'ⅠA',20:'ⅡA',31:'ⅢA',32:'ⅣA',33:'ⅤA',34:'ⅥA',35:'ⅦA',36:'0 族'};
+/* 1–20 号在简表里所在的列（1–8）。高亮按「列」而不是按「最外层电子数」——
+   因为氦最外层是 2 个，但它属于最右一列（第一层住满），不跟铍、镁一族。 */
+var COL={1:1,2:8,3:1,4:2,5:3,6:4,7:5,8:6,9:7,10:8,11:1,12:2,13:3,14:4,15:5,16:6,17:7,18:8,19:1,20:2};
+var TIP={
+ '金属':'最外层电子少（1–3 个），很容易把电子丢出去——所以活泼。',
+ '非金属':'最外层电子多（4–7 个），更想抢别人的电子。',
+ '准金属':'卡在中间：丢也不太舍得，抢也不太有力——半导体常常出在这一带。',
+ '稀有气体':'最外层已经住满，不想要也不肯给，所以几乎不跟别人反应。'
+};
+var NS='http://www.w3.org/2000/svg';
+function ringsSVG(sh){
+  var svg=document.createElementNS(NS,'svg');
+  svg.setAttribute('viewBox','0 0 200 200');
+  svg.setAttribute('class','shell');
+  svg.setAttribute('role','img');
+  svg.setAttribute('aria-label','电子分层示意图：'+sh.join('、')+' 个电子');
+  var nuc=document.createElementNS(NS,'circle');
+  nuc.setAttribute('cx',100);nuc.setAttribute('cy',100);nuc.setAttribute('r',9);nuc.setAttribute('class','nuc');
+  svg.appendChild(nuc);
+  var R=[30,52,72,90];
+  sh.forEach(function(cnt,i){
+    var r=R[Math.min(i,R.length-1)], outer=(i===sh.length-1);
+    var ring=document.createElementNS(NS,'circle');
+    ring.setAttribute('cx',100);ring.setAttribute('cy',100);ring.setAttribute('r',r);ring.setAttribute('class','ring');
+    svg.appendChild(ring);
+    for(var k=0;k<cnt;k++){
+      var a=-Math.PI/2 + k*2*Math.PI/cnt;
+      var c=document.createElementNS(NS,'circle');
+      c.setAttribute('cx',(100+r*Math.cos(a)).toFixed(2));
+      c.setAttribute('cy',(100+r*Math.sin(a)).toFixed(2));
+      c.setAttribute('r', cnt>12?2.2:3);
+      c.setAttribute('class','e'+(outer?' outer':''));
+      svg.appendChild(c);
+    }
+  });
+  return svg;
+}
+function outerOf(sh){return sh[sh.length-1];}
+
+/* ── 装置 01：1–20 号滑块 ── */
+var sb=$('#shellbox'), sl=$('#zslider'), strip=$('#strip');
+(function buildStrip(){
+  for(var z=1;z<=20;z++){
+    var d=document.createElement('div');
+    d.className='cell'; d.dataset.v=COL[z]; d.dataset.z=z;
+    d.innerHTML='<span class="z">'+z+'</span>'+outerOf(EL[z].sh);
+    strip.appendChild(d);
+  }
+})();
+function showZ(z){
+  var e=EL[z], v=outerOf(e.sh), col=COL[z];
+  sb.innerHTML=''; sb.appendChild(ringsSVG(e.sh));
+  $('#rEl').textContent=e.s+'　'+e.n+'（'+z+' 号）';
+  $('#rShells').textContent=e.sh.length+' 层';
+  $('#rVal').textContent=v+' 个'+(v===2&&e.sh.length===1?'　已满':(v===8?'　已满':''));
+  $$('.cell',strip).forEach(function(c){
+    c.classList.toggle('hi', +c.dataset.v===col);
+    c.classList.toggle('sel', +c.dataset.z===z);
+  });
+}
+sl.addEventListener('input',function(){ showZ(+sl.value); });
+showZ(1);
+
+/* ── 装置 02：元素格 ── */
+var info=$('#elinfo'), grid=$('#ptable');
+function barsHTML(sh){
+  var out='';
+  sh.forEach(function(cnt,i){
+    var outer=(i===sh.length-1), dots='';
+    for(var k=0;k<cnt;k++){ dots+='<span class="dot"></span>'; }
+    out+='<div class="shellbar'+(outer?' outer':'')+'"><span>第 '+(i+1)+' 层</span><span class="track">'+dots+'</span><span>'+cnt+'</span></div>';
+  });
+  return out;
+}
+function renderInfo(z,cat){
+  var e=EL[z], sh=e.sh, v=outerOf(sh);
+  info.innerHTML=
+    '<h3>'+e.s+'　'+e.n+'<span class="mono elno">　第 '+z+' 号</span></h3>'+
+    '<div class="row"><span>周期（第几行）<b>第 '+sh.length+' 周期</b></span>'+
+    '<span>族（第几列）<b>'+GRP[z]+'</b></span>'+
+    '<span>最外层电子<b>'+v+' 个</b></span>'+
+    '<span>类别<b>'+cat+'</b></span></div>'+
+    '<div class="shellbars">'+barsHTML(sh)+'</div>'+
+    '<p class="note" style="margin:12px 0 0">'+TIP[cat]+'</p>';
+}
+grid.addEventListener('click',function(ev){
+  var b=ev.target.closest('.el'); if(!b) return;
+  $$('.el',grid).forEach(function(x){ x.setAttribute('aria-pressed', x===b?'true':'false'); });
+  renderInfo(+b.dataset.z, b.dataset.cat);
+});
+
+/* ── 先押注 ── */
+var FB=[
+ '<b>正确答案：B（原子序数）。</b>注意这里有个反直觉的地方——1869 年的表是按原子量排的，换依据是 1913 年莫塞莱之后的事。也就是说：<b>表的样子几乎没大改，排序的依据换了。</b>',
+ '<b>正确答案：B。</b>镓（1875）、钪（1879）、锗（1886）——三个空格全被填上，性质和他写下的数字几乎一致。这是科学史上最漂亮的一次「预言被证实」。',
+ '<b>正确答案：A。</b>同族像一家人：都爱丢一个电子，或都爱抢一个。但脾气有梯度——从上到下原子越来越大，最外层电子越来越「够不着」，金属性就越来越强。锂丢进水里慢慢冒泡，钾直接烧起来。'
+];
+$$('#guess .gq').forEach(function(g){
+  $$('.opt',g).forEach(function(o){
+    o.addEventListener('click',function(){
+      $$('.opt',g).forEach(function(x){ x.setAttribute('aria-pressed','false'); });
+      o.setAttribute('aria-pressed','true');
+    });
+  });
+});
+$('#revealGuess').addEventListener('click',function(){
+  var score=0, ansd=0;
+  $$('#guess .gq').forEach(function(g,i){
+    var ans=+g.dataset.answer, opts=$$('.opt',g), picked=-1;
+    opts.forEach(function(o,k){ if(o.getAttribute('aria-pressed')==='true') picked=k; });
+    opts[ans].classList.add('right');
+    if(picked>=0){ ansd++; if(picked===ans){ score++; } else { opts[picked].classList.add('wrong'); } }
+    var fb=$('.fb',g); fb.hidden=false; fb.innerHTML=FB[i];
+  });
+  $('#guessScore').textContent='押对 '+score+' / 3'+(ansd<3?'（还有 '+(3-ansd)+' 题没押）':'　三题全中！');
+});
+
+/* ── 找错游戏 ── */
+var WHY={
+ round1:[
+  '<b>✘ 错。</b>排队谁都会排——<b>留空格 + 写下预言</b>才是这套东西真正的分量。排得漂亮的表，不止他一张。',
+  '<b>✔ 对，这就是本轮唯一正确的一句。</b>他给空格起名「类铝／类硼／类硅」，还写下了它们的原子量和密度。1875 年镓、1879 年钪、1886 年锗，一个接一个填了进来。',
+  '<b>✘ 错。</b>迈耶尔的表同样漂亮，他甚至画出了性质周期起伏的曲线。让门捷列夫留下名字的，不是画得好，是<b>预言被验证</b>。',
+  '<b>✘ 错。</b>1913 年莫塞莱之后，排序依据换成了原子序数（核里的质子数）。碲和碘就是反例：碲的原子量更大，却排在碘前面。'
+ ],
+ round2:[
+  '<b>✔ 对。</b>1869 年 3 月 6 日，他向俄国化学会宣读论文《元素的属性与原子量的关系》，那年他 35 岁。',
+  '<b>✔ 对。</b>他测出 X 射线波长与原子序数严格对应，还顺手纠正了三处顺序：氩／钾、钴／镍、碲／碘。',
+  '<b>✘ 错，这就是本轮要挑出来的那句。</b>莫塞莱换掉的是「排序的依据」和几个位置，表格的结构和门捷列夫的判断都保留了下来。<b>科学常常不是推翻重来，而是换一根更结实的地基。</b>',
+  '<b>✔ 对。</b>最外层电子数决定化学脾气——这是整张表能成立的底层机制。'
+ ]
+};
+$$('.stmt .pick').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var st=btn.closest('.stmt'), round=st.closest('.round');
+    $$('.stmt',round).forEach(function(s){ s.classList.remove('picked'); });
+    st.classList.add('picked');
+    btn.textContent='已选中';
+    $$('.pick',round).forEach(function(o){ if(o!==btn) o.textContent='就选它'; });
+  });
+});
+$$('[data-check]').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var key=btn.dataset.check, round=document.getElementById(key), stmts=$$('.stmt',round);
+    var correct=-1, picked=-1;
+    stmts.forEach(function(s,i){
+      if(s.dataset.ok==='1') correct=i;
+      if(s.classList.contains('picked')) picked=i;
+      var why=$('.why',s);
+      why.innerHTML=WHY[key][i]; why.hidden=false;
+      s.classList.remove('ok','no');
+    });
+    if(picked===correct){ stmts[picked].classList.add('ok'); }
+    else if(picked>=0){ stmts[picked].classList.add('no'); }
+    var mark=['①','②','③','④'][correct];
+    btn.textContent='再看一遍（可重新选）';
+    var out;
+    if(picked<0){ out='还没选。正确答案是 '+mark+'。'; }
+    else if(picked===correct){ out='✔ 押对了——'+mark+'。'; }
+    else { out='✘ 你选的是 '+['①','②','③','④'][picked]+'，正确答案是 '+mark+'。'; }
+    $('#score'+(key==='round1'?'1':'2')).textContent=out;
+  });
+});
+
+/* ── 60 秒讲出来 ── */
+var timerEl=$('#timer'), startBtn=$('#startTimer'), tick=null, left=60;
+function fmt(s){ s=Math.max(0,s); return Math.floor(s/60)+':'+('0'+(s%60)).slice(-2); }
+startBtn.addEventListener('click',function(){
+  if(tick){ clearInterval(tick); tick=null; startBtn.textContent='继续 60 秒'; return; }
+  left=(left<=0||left>60)?60:left;
+  timerEl.style.color='';
+  startBtn.textContent='暂停';
+  tick=setInterval(function(){
+    left--; timerEl.textContent=fmt(left);
+    if(left<=6) timerEl.style.color='var(--penRed)';
+    if(left<=0){ clearInterval(tick); tick=null; startBtn.textContent='再讲一次'; left=60; }
+  },1000);
+});
+$('#resetTimer').addEventListener('click',function(){
+  if(tick){ clearInterval(tick); tick=null; }
+  left=60; timerEl.textContent='1:00'; timerEl.style.color=''; startBtn.textContent='开始 60 秒';
+});
+var notes=$('#notes'), tipEl=$('#savedTip'), st=null;
+try{ notes.value=localStorage.getItem('pt-notes')||''; }catch(e){}
+if(notes.value){ tipEl.textContent='已恢复上次写的内容（'+notes.value.length+' 字）'; }
+notes.addEventListener('input',function(){
+  clearTimeout(st);
+  st=setTimeout(function(){
+    try{ localStorage.setItem('pt-notes',notes.value); }catch(e){}
+    tipEl.textContent='已保存在这台设备上 · '+notes.value.length+' 字';
+  },400);
+});
+})();
+</script>
+</body>
+</html>
