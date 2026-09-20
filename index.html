@@ -685,33 +685,6 @@ footer a[href]{display:inline-flex;align-items:center;min-height:44px;min-width:
 </div>
   <div class="note">这两处不是后人挑刺，是当年真实存在的矛盾：碲/碘出现在 1869 年；氩/钾要等 1894 年氩被发现才出现（那年拉姆齐和瑞利才把它认出来）。两处都要等 1913 年莫塞莱找到原子序数，才一起被解释明白。</div>
 
-  <div class="bench guess" id="guess">
-    <p class="lbl">读完先押注</p>
-    <p>三句话，凭直觉选。选完再往下看原子。</p>
-    <div class="gq" data-answer="1"><p class="qt">1. 门捷列夫凭什么敢在空位里写下「这个元素原子量大约 68」？</p>
-      <div class="opts">
-        <button class="opt" type="button">他其实见过那些元素，只是没记下来</button>
-        <button class="opt" type="button">因为折好的格子里，空位的位置已经被周围的性质定住了</button>
-        <button class="opt" type="button">因为同行都同意那里应该有个元素</button>
-      </div><p class="figcap"></p>
-    </div>
-    <div class="gq" data-answer="1"><p class="qt">2. 按原子量排有两处对不上（氩比钾重、碲比碘重），这说明什么？</p>
-      <div class="opts">
-        <button class="opt" type="button">说明原子量称错了</button>
-        <button class="opt" type="button">说明真正决定顺序的不是重量，而是另一个量</button>
-        <button class="opt" type="button">说明周期表这个思路根本站不住</button>
-      </div><p class="figcap"></p>
-    </div>
-    <div class="gq" data-answer="0"><p class="qt">3. 同一列的元素脾气像亲戚，最根本的原因是什么？</p>
-      <div class="opts">
-        <button class="opt" type="button">它们最外层的电子排布很像</button>
-        <button class="opt" type="button">它们的原子量差不多</button>
-        <button class="opt" type="button">它们在自然界里总是一起出现</button>
-      </div><p class="figcap"></p>
-    </div>
-    <button class="gbtn" id="revealGuess" type="button">看看我押对几个</button>
-    <p class="score" id="guessScore">还没押完</p>
-  </div>
 </section>
 
 <section id="s-atom" class="wrap">
@@ -745,6 +718,9 @@ footer a[href]{display:inline-flex;align-items:center;min-height:44px;min-width:
         <dl class="dl">
           <dt>原子序数</dt><dd id="atom_z">1</dd>
           <dt>原子量</dt><dd id="atom_mass">1.008</dd>
+          <dt>这个数字是</dt><dd><span class="ef-masskind" id="atom_mass_kind"></span>
+            <button class="ef-massbtn" type="button" aria-expanded="false" aria-controls="atom_masswhy">为什么这样写</button>
+            <p class="ef-masswhy" id="atom_masswhy" hidden></p></dd>
           <dt>原子核里</dt><dd id="atom_nuc">1 个质子 + 约 0 个中子</dd>
           <dt>电子排布</dt><dd id="atom_cfg">1</dd>
           <dt>最外层</dt><dd id="atom_val">1 个电子</dd>
@@ -781,7 +757,7 @@ footer a[href]{display:inline-flex;align-items:center;min-height:44px;min-width:
     <div class="tablewrap">
       <div class="ptgrid " id="tlmini" role="img" aria-label="按发现年份点亮的周期表：每格是一个元素，点亮表示到该年份已被人类认识"><i class="el m fn" style="grid-column:1;grid-row:1" data-z="1" data-y="1766" title="氢 H"></i><i class="el m fg" style="grid-column:18;grid-row:1" data-z="2" data-y="1868" title="氦 He"></i><i class="el m fa" style="grid-column:1;grid-row:2" data-z="3" data-y="1817" title="锂 Li"></i><i class="el m fa" style="grid-column:2;grid-row:2" data-z="4" data-y="1798" title="铍 Be"></i><i class="el m fn" style="grid-column:13;grid-row:2" data-z="5" data-y="1787" title="硼 B"></i><i class="el m fn" style="grid-column:14;grid-row:2" data-z="6" data-y="" title="碳 C"></i><i class="el m fn" style="grid-column:15;grid-row:2" data-z="7" data-y="1772" title="氮 N"></i><i class="el m fn" style="grid-column:16;grid-row:2" data-z="8" data-y="1771" title="氧 O"></i><i class="el m fn" style="grid-column:17;grid-row:2" data-z="9" data-y="1771" title="氟 F"></i><i class="el m fg" style="grid-column:18;grid-row:2" data-z="10" data-y="1898" title="氖 Ne"></i><i class="el m fa" style="grid-column:1;grid-row:3" data-z="11" data-y="1702" title="钠 Na"></i><i class="el m fa" style="grid-column:2;grid-row:3" data-z="12" data-y="1755" title="镁 Mg"></i><i class="el m fb" style="grid-column:13;grid-row:3" data-z="13" data-y="1746" title="铝 Al"></i><i class="el m fn" style="grid-column:14;grid-row:3" data-z="14" data-y="1739" title="硅 Si"></i><i class="el m fn" style="grid-column:15;grid-row:3" data-z="15" data-y="1669" title="磷 P"></i><i class="el m fn" style="grid-column:16;grid-row:3" data-z="16" data-y="2001" title="硫 S"></i><i class="el m fn" style="grid-column:17;grid-row:3" data-z="17" data-y="1774" title="氯 Cl"></i><i class="el m fg" style="grid-column:18;grid-row:3" data-z="18" data-y="1894" title="氩 Ar"></i><i class="el m fa" style="grid-column:1;grid-row:4" data-z="19" data-y="1702" title="钾 K"></i><i class="el m fa" style="grid-column:2;grid-row:4" data-z="20" data-y="1739" title="钙 Ca"></i><i class="el m fb" style="grid-column:3;grid-row:4" data-z="21" data-y="1879" title="钪 Sc"></i><i class="el m fb" style="grid-column:4;grid-row:4" data-z="22" data-y="1791" title="钛 Ti"></i><i class="el m fb" style="grid-column:5;grid-row:4" data-z="23" data-y="1801" title="钒 V"></i><i class="el m fb" style="grid-column:6;grid-row:4" data-z="24" data-y="1797" title="铬 Cr"></i><i class="el m fb" style="grid-column:7;grid-row:4" data-z="25" data-y="1770" title="锰 Mn"></i><i class="el m fb" style="grid-column:8;grid-row:4" data-z="26" data-y="" title="铁 Fe"></i><i class="el m fb" style="grid-column:9;grid-row:4" data-z="27" data-y="1735" title="钴 Co"></i><i class="el m fb" style="grid-column:10;grid-row:4" data-z="28" data-y="1751" title="镍 Ni"></i><i class="el m fb" style="grid-column:11;grid-row:4" data-z="29" data-y="" title="铜 Cu"></i><i class="el m fb" style="grid-column:12;grid-row:4" data-z="30" data-y="" title="锌 Zn"></i><i class="el m fb" style="grid-column:13;grid-row:4" data-z="31" data-y="1875" title="镓 Ga"></i><i class="el m fn" style="grid-column:14;grid-row:4" data-z="32" data-y="1886" title="锗 Ge"></i><i class="el m fn" style="grid-column:15;grid-row:4" data-z="33" data-y="" title="砷 As"></i><i class="el m fn" style="grid-column:16;grid-row:4" data-z="34" data-y="1817" title="硒 Se"></i><i class="el m fn" style="grid-column:17;grid-row:4" data-z="35" data-y="1825" title="溴 Br"></i><i class="el m fg" style="grid-column:18;grid-row:4" data-z="36" data-y="1898" title="氪 Kr"></i><i class="el m fa" style="grid-column:1;grid-row:5" data-z="37" data-y="1861" title="铷 Rb"></i><i class="el m fa" style="grid-column:2;grid-row:5" data-z="38" data-y="1790" title="锶 Sr"></i><i class="el m fb" style="grid-column:3;grid-row:5" data-z="39" data-y="1794" title="钇 Y"></i><i class="el m fb" style="grid-column:4;grid-row:5" data-z="40" data-y="1789" title="锆 Zr"></i><i class="el m fb" style="grid-column:5;grid-row:5" data-z="41" data-y="1801" title="铌 Nb"></i><i class="el m fb" style="grid-column:6;grid-row:5" data-z="42" data-y="1778" title="钼 Mo"></i><i class="el m fb" style="grid-column:7;grid-row:5" data-z="43" data-y="1937" title="锝 Tc"></i><i class="el m fb" style="grid-column:8;grid-row:5" data-z="44" data-y="1844" title="钌 Ru"></i><i class="el m fb" style="grid-column:9;grid-row:5" data-z="45" data-y="1804" title="铑 Rh"></i><i class="el m fb" style="grid-column:10;grid-row:5" data-z="46" data-y="1802" title="钯 Pd"></i><i class="el m fb" style="grid-column:11;grid-row:5" data-z="47" data-y="" title="银 Ag"></i><i class="el m fb" style="grid-column:12;grid-row:5" data-z="48" data-y="1817" title="镉 Cd"></i><i class="el m fb" style="grid-column:13;grid-row:5" data-z="49" data-y="1863" title="铟 In"></i><i class="el m fb" style="grid-column:14;grid-row:5" data-z="50" data-y="" title="锡 Sn"></i><i class="el m fn" style="grid-column:15;grid-row:5" data-z="51" data-y="" title="锑 Sb"></i><i class="el m fn" style="grid-column:16;grid-row:5" data-z="52" data-y="1782" title="碲 Te"></i><i class="el m fn" style="grid-column:17;grid-row:5" data-z="53" data-y="1811" title="碘 I"></i><i class="el m fg" style="grid-column:18;grid-row:5" data-z="54" data-y="1898" title="氙 Xe"></i><i class="el m fa" style="grid-column:1;grid-row:6" data-z="55" data-y="1860" title="铯 Cs"></i><i class="el m fa" style="grid-column:2;grid-row:6" data-z="56" data-y="1772" title="钡 Ba"></i><i class="el m fc" style="grid-column:3;grid-row:9" data-z="57" data-y="1838" title="镧 La"></i><i class="el m fc" style="grid-column:4;grid-row:9" data-z="58" data-y="1803" title="铈 Ce"></i><i class="el m fc" style="grid-column:5;grid-row:9" data-z="59" data-y="1885" title="镨 Pr"></i><i class="el m fc" style="grid-column:6;grid-row:9" data-z="60" data-y="1841" title="钕 Nd"></i><i class="el m fc" style="grid-column:7;grid-row:9" data-z="61" data-y="1945" title="钷 Pm"></i><i class="el m fc" style="grid-column:8;grid-row:9" data-z="62" data-y="1879" title="钐 Sm"></i><i class="el m fc" style="grid-column:9;grid-row:9" data-z="63" data-y="1896" title="铕 Eu"></i><i class="el m fc" style="grid-column:10;grid-row:9" data-z="64" data-y="1880" title="钆 Gd"></i><i class="el m fc" style="grid-column:11;grid-row:9" data-z="65" data-y="1843" title="铽 Tb"></i><i class="el m fc" style="grid-column:12;grid-row:9" data-z="66" data-y="1886" title="镝 Dy"></i><i class="el m fc" style="grid-column:13;grid-row:9" data-z="67" data-y="1878" title="钬 Ho"></i><i class="el m fc" style="grid-column:14;grid-row:9" data-z="68" data-y="1843" title="铒 Er"></i><i class="el m fc" style="grid-column:15;grid-row:9" data-z="69" data-y="1879" title="铥 Tm"></i><i class="el m fc" style="grid-column:16;grid-row:9" data-z="70" data-y="1878" title="镱 Yb"></i><i class="el m fc" style="grid-column:17;grid-row:9" data-z="71" data-y="1906" title="镥 Lu"></i><i class="el m fb" style="grid-column:4;grid-row:6" data-z="72" data-y="1922" title="铪 Hf"></i><i class="el m fb" style="grid-column:5;grid-row:6" data-z="73" data-y="1802" title="钽 Ta"></i><i class="el m fb" style="grid-column:6;grid-row:6" data-z="74" data-y="1781" title="钨 W"></i><i class="el m fb" style="grid-column:7;grid-row:6" data-z="75" data-y="1908" title="铼 Re"></i><i class="el m fb" style="grid-column:8;grid-row:6" data-z="76" data-y="1803" title="锇 Os"></i><i class="el m fb" style="grid-column:9;grid-row:6" data-z="77" data-y="1803" title="铱 Ir"></i><i class="el m fb" style="grid-column:10;grid-row:6" data-z="78" data-y="" title="铂 Pt"></i><i class="el m fb" style="grid-column:11;grid-row:6" data-z="79" data-y="" title="金 Au"></i><i class="el m fb" style="grid-column:12;grid-row:6" data-z="80" data-y="1500" title="汞 Hg"></i><i class="el m fb" style="grid-column:13;grid-row:6" data-z="81" data-y="1861" title="铊 Tl"></i><i class="el m fb" style="grid-column:14;grid-row:6" data-z="82" data-y="" title="铅 Pb"></i><i class="el m fb" style="grid-column:15;grid-row:6" data-z="83" data-y="1500" title="铋 Bi"></i><i class="el m fb" style="grid-column:16;grid-row:6" data-z="84" data-y="1898" title="钋 Po"></i><i class="el m fn" style="grid-column:17;grid-row:6" data-z="85" data-y="1940" title="砹 At"></i><i class="el m fg" style="grid-column:18;grid-row:6" data-z="86" data-y="1899" title="氡 Rn"></i><i class="el m fa" style="grid-column:1;grid-row:7" data-z="87" data-y="1939" title="钫 Fr"></i><i class="el m fa" style="grid-column:2;grid-row:7" data-z="88" data-y="1898" title="镭 Ra"></i><i class="el m fc" style="grid-column:3;grid-row:10" data-z="89" data-y="1902" title="锕 Ac"></i><i class="el m fc" style="grid-column:4;grid-row:10" data-z="90" data-y="1829" title="钍 Th"></i><i class="el m fc" style="grid-column:5;grid-row:10" data-z="91" data-y="1913" title="镤 Pa"></i><i class="el m fc" style="grid-column:6;grid-row:10" data-z="92" data-y="1789" title="铀 U"></i><i class="el m fc" style="grid-column:7;grid-row:10" data-z="93" data-y="1940" title="镎 Np"></i><i class="el m fc" style="grid-column:8;grid-row:10" data-z="94" data-y="1941" title="钚 Pu"></i><i class="el m fc" style="grid-column:9;grid-row:10" data-z="95" data-y="1944" title="镅 Am"></i><i class="el m fc" style="grid-column:10;grid-row:10" data-z="96" data-y="1944" title="锔 Cm"></i><i class="el m fc" style="grid-column:11;grid-row:10" data-z="97" data-y="1949" title="锫 Bk"></i><i class="el m fc" style="grid-column:12;grid-row:10" data-z="98" data-y="1950" title="锎 Cf"></i><i class="el m fc" style="grid-column:13;grid-row:10" data-z="99" data-y="1952" title="锿 Es"></i><i class="el m fc" style="grid-column:14;grid-row:10" data-z="100" data-y="1953" title="镄 Fm"></i><i class="el m fc" style="grid-column:15;grid-row:10" data-z="101" data-y="1955" title="钔 Md"></i><i class="el m fc" style="grid-column:16;grid-row:10" data-z="102" data-y="1965" title="锘 No"></i><i class="el m fc" style="grid-column:17;grid-row:10" data-z="103" data-y="1961" title="铹 Lr"></i><i class="el m fb" style="grid-column:4;grid-row:7" data-z="104" data-y="1969" title="𬬻 Rf"></i><i class="el m fb" style="grid-column:5;grid-row:7" data-z="105" data-y="1970" title="𬭊 Db"></i><i class="el m fb" style="grid-column:6;grid-row:7" data-z="106" data-y="1974" title="𬭳 Sg"></i><i class="el m fb" style="grid-column:7;grid-row:7" data-z="107" data-y="1981" title="𬭛 Bh"></i><i class="el m fb" style="grid-column:8;grid-row:7" data-z="108" data-y="1984" title="𬭶 Hs"></i><i class="el m fx" style="grid-column:9;grid-row:7" data-z="109" data-y="1982" title="鿏 Mt"></i><i class="el m fx" style="grid-column:10;grid-row:7" data-z="110" data-y="1994" title="𫟼 Ds"></i><i class="el m fx" style="grid-column:11;grid-row:7" data-z="111" data-y="1994" title="𬬭 Rg"></i><i class="el m fb" style="grid-column:12;grid-row:7" data-z="112" data-y="1996" title="鿔 Cn"></i><i class="el m fx" style="grid-column:13;grid-row:7" data-z="113" data-y="2003" title="鿭 Nh"></i><i class="el m fb" style="grid-column:14;grid-row:7" data-z="114" data-y="1999" title="𫓧 Fl"></i><i class="el m fx" style="grid-column:15;grid-row:7" data-z="115" data-y="2003" title="镆 Mc"></i><i class="el m fx" style="grid-column:16;grid-row:7" data-z="116" data-y="2000" title="𫟷 Lv"></i><i class="el m fx" style="grid-column:17;grid-row:7" data-z="117" data-y="2009" title="鿬 Ts"></i><i class="el m fx" style="grid-column:18;grid-row:7" data-z="118" data-y="2002" title="鿫 Og"></i></div>
     </div>
-    <p class="note" style="margin-top:14px;margin-bottom:0">注：门捷列夫 1869 年桌上摆的是 63 种；这条时间轴按「人类第一次注意到」计数，1869 年是 65 种——多出来的两种里，一种是只在太阳光谱里见过、当时很多人不承认的氦（1868），另一种是「哪些算已知」的口径差异。</p>
+    <p class="note" style="margin-top:14px;margin-bottom:0">注：门捷列夫 1869 年桌上摆的是 63 种；这条时间轴按「<strong>手里拿到实物、被公认为一种元素</strong>」计数，1869 年是 <strong>63 种</strong>——和他的 63 种正好对上。他收的就是这一批人：手里有实物、已经被公认为一种元素的。只看「在光谱里见过」的不算：氦 1868 年只在太阳光谱里留下一条线、氟 1771 年舍勒拿到的是氢氟酸（不是单质），两个都不算数。</p>
     <div class="field" role="group" aria-label="快捷年份">
       <button class="gbtn" type="button" data-tlyear="1669">1669 磷</button>
       <button class="gbtn" type="button" data-tlyear="1791">1791 钛</button>
@@ -799,7 +775,7 @@ footer a[href]{display:inline-flex;align-items:center;min-height:44px;min-width:
     <h3 style="margin-top:0">有一批元素太老了，老到没有「发现者」</h3>
     <p id="ancientLine" class="num">暂无</p>
     <p>碳、铁、铜、金、银、锡、铅、汞、硫…这些是人类还没开始讲「化学」就在用的东西。它们排不进时间轴，因为在任何一个「某年发现」的意义上，它们都太早就被用上了。</p>
-    <p style="margin-bottom:0"><strong>一个对不上的地方，我留着不抹掉</strong>：按这份资料，1869 年已经有 64 种元素，可门捷列夫那年排的是 <strong>63</strong> 种。差的那一个是氦：1868 年它只是在太阳光谱里被认出来，还没人把它拿在手上（直到 1895 年才从矿石里分离出来）。</p>
+    <p style="margin-bottom:0"><strong>两个数对上了，而且是对上得很干净</strong>：这条时间轴按「手里拿到实物」数，1869 年是 <strong>63 种</strong>，门捷列夫那年桌上摆的是 <strong>63 种</strong>——一模一样。第一版我按「人类第一次注意到」数，那时是 65 种，比他的 63 多 2 种：多出来的是氦（1868 只是在太阳光谱里看到一条线）和氟（1771 舍勒拿到的是氢氟酸，不是单质）——这两个年份都只是「碰到了跟它有关的东西」，不算把它握在手里。换成「拿到实物」之后，两个数就合上了；他表里收的，也只是那些已经握在手里、被公认为一种元素的。</p>
   </div>
 </section>
 
@@ -1049,9 +1025,11 @@ window.__CAPS__=["1869 年，化学家手里有 63 种元素，每个都称出�
     $('#atom').classList.toggle('paused', !state.playing);
     $('#atom_name').textContent = e.zh + ' ' + e.sym + ' · ' + e.en;
     $('#atom_z').textContent = e.z;
-    $('#atom_mass').textContent = e.mass;
-    var neu = Math.max(0, Math.round(e.mass) - e.z);
-    $('#atom_nuc').textContent = e.z + ' 个质子 + 约 ' + neu + ' 个中子（常见同位素）';
+    if (window.EF_P2) { window.EF_P2.paintMass(e); } else {
+      $('#atom_mass').textContent = e.mass;
+      var neu = Math.max(0, Math.round(e.mass) - e.z);
+      $('#atom_nuc').textContent = e.z + ' 个质子 + 约 ' + neu + ' 个中子（常见同位素）';
+    }
     $('#atom_cfg').textContent = e.shells.join(', ');
     $('#atom_val').textContent = e.shells[e.shells.length - 1] + ' 个电子';
     $('#atom_cat').textContent = e.cat;
@@ -1090,9 +1068,12 @@ window.__CAPS__=["1869 年，化学家手里有 63 种元素，每个都称出�
 
   /* ── 发现时间轴 ── */
   var trange = $('#tlrange'), tmini = $('#tlmini');
+  /* P2-4 口径（Sky 拍板）：这条时间轴数的是「手里拿到实物 / 被公认为一种元素」，
+     只看「在光谱里见过」不算 —— 所以氦 1868 年被看到，1869 年仍不计入。 */
+  function recogY(e) { return window.EF_P2 ? window.EF_P2.recogYear(e) : (e.year || null); }
   function known(e, y) {
-    if (e.year) { return e.year <= y; }
-    if (e.firstuse !== null && e.firstuse !== undefined) { return true; }
+    var ry = recogY(e);
+    if (ry !== null && ry !== undefined) { return ry <= y; }
     return true; /* 无年份的极少数，按「早已知道」处理，避免漏格 */
   }
   function tlPaint(y) {
@@ -1105,14 +1086,16 @@ window.__CAPS__=["1869 年，化学家手里有 63 种元素，每个都称出�
       if (on) { n++; }
     });
     $('#tlcount').textContent = '已认识 ' + n + ' 种 / 共 118 种';
-    var before = D.filter(function (e) { return e.year && e.year <= y; }).sort(function (a, b) { return b.year - a.year; });
+    var before = D.filter(function (e) { var ry = recogY(e); return ry && ry <= y; })
+      .map(function (e) { return { e: e, y: recogY(e) }; })
+      .sort(function (a, b) { return b.y - a.y; });
     if (y >= 2016) {
       $('#tllatest').textContent = '最新：鿬 Ts（2009）· 今天 118 个元素全部有正式名字';
     } else {
-      $('#tllatest').textContent = before.length ? ('最新：' + before[0].zh + ' ' + before[0].sym + '（' + before[0].year + '）') : '还没有';
+      $('#tllatest').textContent = before.length ? ('最新：' + before[0].e.zh + ' ' + before[0].e.sym + '（' + before[0].y + '）') : '还没有';
     }
-    $('#tllist').innerHTML = before.slice(0, 8).map(function (e) {
-      return '<button type="button" data-jump="' + e.z + '">' + e.zh + ' ' + e.sym + '<span class="tl-hidden"> · ' + e.year + '</span></button>';
+    $('#tllist').innerHTML = before.slice(0, 8).map(function (it) {
+      return '<button type="button" data-jump="' + it.e.z + '">' + it.e.zh + ' ' + it.e.sym + '<span class="tl-hidden"> · ' + it.y + '</span></button>';
     }).join('') || '<span class="lbl">这一年之前，还没有现代意义上的「新元素」</span>';
   }
   if (trange && tmini) {
@@ -1128,7 +1111,8 @@ window.__CAPS__=["1869 年，化学家手里有 63 种元素，每个都称出�
       if (!c) { return; }
       var z = parseInt(c.getAttribute('data-z'), 10);
       var e = BY[z];
-      if (e && e.year && e.year > parseInt(trange.value, 10)) { trange.value = String(e.year); tlPaint(e.year); }
+      var ry = recogY(e);
+      if (e && ry && ry > parseInt(trange.value, 10)) { trange.value = String(ry); tlPaint(ry); }
       openDetail(z);
       var d = $('#detail'); if (d) { d.scrollIntoView({ block: 'center' }); }
     });
@@ -1152,13 +1136,15 @@ window.__CAPS__=["1869 年，化学家手里有 63 种元素，每个都称出�
       '<div class="dh"><span class="sym">' + e.sym + '</span><span class="nm">' + e.zh + ' · ' + e.en + '</span><span class="cat">' + e.cat + '</span></div>' +
       '<dl class="dl">' +
       '<dt>原子序数</dt><dd>' + e.z + '</dd>' +
-      '<dt>原子量</dt><dd>' + e.mass + '</dd>' +
+      '<dt>原子量</dt><dd>' + (window.EF_P2 ? window.EF_P2.massHTML(e.z) : e.mass) + '</dd>' +
       '<dt>周期 / 族</dt><dd>' + grp + '</dd>' +
       '<dt>电子排布</dt><dd>' + e.shells.join(', ') + '（最外层 ' + e.shells[e.shells.length - 1] + ' 个）</dd>' +
       '<dt>常温状态</dt><dd>' + (PHASE[e.phase] || e.phase || '未知') + '</dd>' +
       '<dt>发现</dt><dd>' + (e.year ? e.year + ' 年 · ' + (e.disc || '发现者不详') : '古代就认识' + (e.firstuse ? '（最早使用约公元前 ' + Math.abs(e.firstuse) + ' 年）' : '')) + '</dd>' +
       '</dl>' +
-      '<p class="use">' + e.use + '</p>';
+      '<p class="use">' + e.use + '</p>' +
+      (window.EF_P2 ? window.EF_P2.detailExtra(e) : '');
+    if (window.EF_P2) { window.EF_P2.afterDetail(d, e); }
     if (full) {
       $$('.el', full).forEach(function (c) { c.setAttribute('aria-pressed', String(parseInt(c.getAttribute('data-z'), 10) === z)); });
     }
@@ -1537,7 +1523,7 @@ function EF_INIT() {
         '<button class="ef-close" type="button" aria-label="关闭">✕</button>' +
       '</div>' +
       '<div class="ef-facts">' +
-        '<div class="ef-fact"><span>相对原子质量</span><strong>' + esc(e.mass) + '</strong></div>' +
+        '<div class="ef-fact"><span>相对原子质量</span><strong>' + (window.EF_P2 ? window.EF_P2.massHTML(e.z) : esc(e.mass)) + '</strong></div>' +
         '<div class="ef-fact"><span>电子排布</span><strong>' + esc(e.config) + '</strong></div>' +
         '<div class="ef-fact"><span>各层电子数</span><strong>' + esc((e.shells || []).join(' / ')) + '</strong></div>' +
         '<div class="ef-fact"><span>最外层电子</span><strong>' + esc((e.shells && e.shells.length) ? e.shells[e.shells.length - 1] : '暂无') + '</strong></div>' +
@@ -1546,7 +1532,9 @@ function EF_INIT() {
         '<div class="ef-fact"><span>常温状态</span><strong>' + esc(e.phase) + '</strong></div>' +
         '<div class="ef-fact"><span>元素类别</span><strong>' + esc(e.cat) + '</strong></div>' +
       '</div>' +
-      '<div class="ef-note">生活里：' + esc(e.use) + '</div>';
+      '<div class="ef-note">生活里：' + esc(e.use) + '</div>' +
+      (window.EF_P2 ? window.EF_P2.modalExtra(e) : '');
+    if (window.EF_P2) { window.EF_P2.afterModal(dlg, e); }
     var big = dlg.querySelector('.ef-big');
     if (big) big.style.setProperty('--catfill', 'var(--c-' + ({ '碱金属': 'alkali', '碱土金属': 'alkaline', '过渡金属': 'transition', '主族金属': 'post', '准金属': 'metalloid', '非金属': 'nonmetal', '稀有气体': 'noble', '镧系': 'lanth', '锕系': 'act', '性质未定': 'unknown' }[e.cat] || 'unknown') + ')');
     dlg.querySelector('.ef-close').addEventListener('click', function () { dlg.close(); });
@@ -1891,6 +1879,930 @@ function EF_INIT() {
 if (document.readyState === 'complete') { setTimeout(EF_INIT, 0); }
 else { document.addEventListener('DOMContentLoaded', function () { setTimeout(EF_INIT, 0); }); }
 
+</script>
+<style id="ef-p2-css">
+/* ═══════════════════════════════════════════════════════════
+   P2 升级层（2026-09-20）
+   ① Learn / Explore 双模式外壳  ② 预测题组件
+   ③ 卡片关系图谱（7 类）        ④ 卡片历史多节点
+   ⑤ 原子量语义（单值 / 区间 / 方括号）
+   全部复用既有 token，不自创色相
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── ① 模式门（第一屏） ── */
+#efgate{margin:0 auto var(--sp5);padding:var(--sp6) 0 0}
+#efgate[hidden]{display:none}
+.efgate-h{font-family:var(--monoFont);font-size:var(--fs-xs);letter-spacing:var(--ls-wide);
+  text-transform:uppercase;color:var(--pen);margin:0 0 var(--sp3)}
+.efgate-opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--sp3)}
+.efgate-opt{text-align:left;background:var(--paper);border:1px solid var(--frame);border-radius:var(--rCard);
+  padding:var(--sp4) var(--sp4) var(--sp4);cursor:pointer;min-height:132px;display:flex;flex-direction:column;gap:6px;
+  transition:border-color .15s ease,transform .15s ease}
+.efgate-opt:hover{border-color:var(--pen);transform:translateY(-2px)}
+.efgate-opt[aria-pressed="true"]{border-color:var(--pen2);box-shadow:inset 0 0 0 2px var(--pen2)}
+.efgate-opt b{font-family:var(--serifFont);font-size:22px;font-weight:600;color:var(--ink);display:flex;align-items:center;gap:8px}
+.efgate-opt b i{font-style:normal;font-size:19px}
+.efgate-opt span{font-size:var(--fs-sm);color:var(--ink-dim);line-height:1.7}
+.efgate-resume{font-size:var(--fs-sm);color:var(--ink-dim);margin:var(--sp3) 0 0;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.efgate-resume[hidden]{display:none}
+.ef-resumebtn{font:inherit;font-size:var(--fs-sm);min-height:40px;padding:0 14px;border-radius:var(--rPill);
+  border:1px solid var(--frame);background:var(--cardBg);color:var(--ink);cursor:pointer}
+.ef-resumebtn:hover{border-color:var(--pen);color:var(--pen2)}
+
+/* 模式切换（顶栏内） */
+.ef-modechip{flex:none;font-size:var(--fs-sm);color:var(--ink);background:var(--cardBg);
+  border:1px solid var(--frame);border-radius:var(--rPill);padding:0 14px;margin:10px 0 10px 8px;
+  min-height:36px;align-self:center;cursor:pointer;white-space:nowrap}
+.ef-modechip:hover{border-color:var(--pen);color:var(--pen2)}
+.ef-progress{flex:none;align-self:center;margin-left:auto;padding:10px 16px 10px 0;font-family:var(--monoFont);
+  font-size:var(--fs-xs);color:var(--ink-dim);white-space:nowrap}
+
+/* 学习路径：每节末尾「下一节」 */
+.ef-next{display:flex;align-items:center;gap:var(--sp3);flex-wrap:wrap;
+  border-top:1px dashed var(--frame);margin:var(--sp5) 0 0;padding-top:var(--sp4)}
+.ef-next .ef-nextlbl{font-family:var(--monoFont);font-size:var(--fs-xs);letter-spacing:var(--ls-wide);color:var(--ink-dim)}
+.ef-nextbtn{font:inherit;font-size:var(--fs-sm);min-height:46px;padding:0 18px;border-radius:var(--rPill);
+  border:1px solid var(--pen);background:var(--pen);color:var(--paper);cursor:pointer}
+.ef-nextbtn:hover{background:var(--pen2);border-color:var(--pen2)}
+
+/* 模式差异：自由探索 = 表 + 关系，其余收起 */
+body.ef-explore #s-story,
+body.ef-explore #s-atom,
+body.ef-explore #s-history,
+body.ef-explore #s-game,
+body.ef-explore #s-tell{display:none}
+body.ef-explore .chip[href="#s-story"],
+body.ef-explore .chip[href="#s-atom"],
+body.ef-explore .chip[href="#s-history"],
+body.ef-explore .chip[href="#s-game"],
+body.ef-explore .chip[href="#s-tell"]{display:none}
+body.ef-explore .ef-next{display:none}
+body.ef-explore .efqgroup{display:none}
+body.ef-explore .hero .herofigure,
+body.ef-explore .hero .stats{display:none}
+body.ef-explore .hero{padding-bottom:var(--sp3)}
+body.ef-learn #s-table .ef-exploreonly{display:none}
+body.ef-learn .ef-explorehint{display:none}
+
+/* 三步读表法折叠（自由探索里默认收起） */
+details.ef-fold{border:1px solid var(--frame);background:var(--paper);border-radius:4px;padding:var(--sp3) var(--sp4);margin:var(--sp4) 0}
+details.ef-fold>summary{cursor:pointer;font-weight:700;font-size:var(--fs-md);min-height:44px;display:flex;align-items:center;gap:8px}
+details.ef-fold>summary::marker{color:var(--pen)}
+details.ef-fold[open]>summary{margin-bottom:var(--sp3)}
+
+/* ── ② 预测题组件 ── */
+.efq{border:1px solid var(--frame);background:var(--paper);border-radius:var(--rCard);
+  padding:var(--sp4);margin:var(--sp5) 0 0}
+.efq-tag{font-family:var(--monoFont);font-size:var(--fs-xs);letter-spacing:var(--ls-wide);
+  text-transform:uppercase;color:var(--pen);margin:0 0 var(--sp2)}
+.efq-q{font-size:var(--fs-md);font-weight:700;color:var(--ink);margin:0 0 var(--sp3)}
+.efq-opts{display:grid;gap:var(--sp2)}
+.efq-opt{text-align:left;font:inherit;font-size:var(--fs-sm);color:var(--ink);background:var(--paper2);
+  border:1px solid var(--frame);border-radius:var(--rInput);padding:12px 14px;cursor:pointer;
+  min-height:52px;line-height:1.6}
+.efq-opt:hover{border-color:var(--pen);background:var(--paper)}
+.efq-opt[disabled]{cursor:default}
+.efq-opt.efq-right{border-color:var(--pen2);background:color-mix(in srgb,var(--pen) 12%,var(--paper));font-weight:700}
+.efq-opt.efq-wrong{border-color:var(--penRed);background:color-mix(in srgb,var(--penRed) 10%,var(--paper))}
+.efq-go{margin-top:10px;font:inherit;font-size:13px;font-weight:700;color:var(--pen2);
+  background:var(--paper);border:1.5px solid var(--pen2);border-radius:var(--rPill);padding:6px 16px;cursor:pointer}
+.efq-go:hover{background:color-mix(in srgb,var(--pen) 8%,var(--paper))}
+.efq-multi .efq-opt[aria-pressed="true"]{border-color:var(--pen2);background:color-mix(in srgb,var(--pen) 7%,var(--paper))}
+.efq-multi .efq-opt[aria-pressed="true"]::before{content:"✓ "}
+.efq-multi .efq-opt::before{content:"○ "}
+.efq-a{margin:var(--sp3) 0 0;border-top:1px solid var(--frame);padding-top:var(--sp3);font-size:var(--fs-sm);
+  color:var(--ink-dim);line-height:1.85;min-height:76px}
+.efq-a[hidden]{display:none}
+.efq-a .efq-verdict{color:var(--ink);font-size:var(--fs-md);display:block;margin-bottom:8px}
+.efq-a .efq-verdict b{font-weight:700}
+.efq-src{display:block;margin-top:10px;font-size:var(--fs-xs);color:var(--ink-dim);font-family:var(--monoFont)}
+.efq-src b{font-family:var(--bodyFont);font-weight:400;color:var(--ink-dim)}
+.ef-score{font-family:var(--monoFont);font-size:var(--fs-xs);color:var(--ink-dim);margin:var(--sp3) 0 0}
+
+/* ── ③ 关系图谱（卡片内） ── */
+.ef-rel7{margin:0 28px 28px;border-top:1px solid var(--frame);padding-top:var(--sp4)}
+.ef-rel7 h4{margin:0 0 6px;font-family:var(--serifFont);font-size:19px;font-weight:600;color:var(--ink)}
+.ef-rel7 .ef-sub{font-size:var(--fs-xs);color:var(--ink-dim);margin:0 0 var(--sp3)}
+.ef-relrow{display:grid;grid-template-columns:112px 1fr;gap:var(--sp3);align-items:baseline;
+  padding:9px 10px;border-radius:var(--rInput);border:1px solid transparent}
+.ef-relrow[hidden]{display:none}
+.ef-relrow.on{border-color:var(--pen2);background:color-mix(in srgb,var(--pen) 7%,var(--paper))}
+.ef-relk{font-size:var(--fs-sm);font-weight:700;color:var(--ink);text-align:left}
+.ef-relk em{display:block;font-style:normal;font-family:var(--monoFont);font-size:var(--fs-xs);
+  color:var(--ink-dim);font-weight:400;margin-top:2px}
+.ef-relchips{display:flex;flex-wrap:wrap;gap:8px}
+.ef-relchip{font:inherit;font-size:var(--fs-sm);min-height:40px;padding:5px 13px;border-radius:var(--rPill);
+  border:1px solid var(--frame);background:var(--cardBg);color:var(--ink);cursor:pointer;
+  display:inline-flex;align-items:center;gap:7px}
+.ef-relchip:hover{border-color:var(--pen);color:var(--pen2);background:var(--paper)}
+.ef-relchip b{font-weight:700}
+.ef-relchip .ef-auto{font-family:var(--monoFont);font-size:10px;letter-spacing:.06em;color:var(--ink-dim);
+  border:1px solid var(--frame);border-radius:var(--rPill);padding:1px 6px}
+.ef-relmore{font:inherit;font-size:var(--fs-sm);min-height:44px;padding:0 16px;border-radius:var(--rPill);
+  border:1px solid var(--frame);background:var(--cardBg);color:var(--ink);cursor:pointer;margin-top:var(--sp2)}
+.ef-relmore:hover{border-color:var(--pen);color:var(--pen2)}
+.ef-relnone{font-size:var(--fs-sm);color:var(--ink-dim);margin:0}
+
+/* ── ④ 历史节点 ── */
+.ef-hist{margin:0 28px 28px;border-top:1px solid var(--frame);padding-top:var(--sp4)}
+.ef-hist h4{margin:0 0 6px;font-family:var(--serifFont);font-size:19px;font-weight:600;color:var(--ink)}
+.ef-hist .ef-sub{font-size:var(--fs-xs);color:var(--ink-dim);margin:0 0 var(--sp3)}
+.ef-nodes{display:flex;flex-wrap:wrap;gap:8px;align-items:stretch}
+.ef-node{font:inherit;text-align:left;min-height:56px;padding:8px 12px;border-radius:var(--rInput);
+  border:1px solid var(--frame);background:var(--cardBg);color:var(--ink);cursor:pointer;
+  display:flex;flex-direction:column;gap:2px;min-width:118px}
+.ef-node:hover{border-color:var(--pen)}
+.ef-node[aria-expanded="true"]{border-color:var(--pen2);background:color-mix(in srgb,var(--pen) 8%,var(--paper))}
+.ef-node .ef-ny{font-family:var(--monoFont);font-size:12px;font-weight:700;color:var(--ink)}
+.ef-node .ef-nk{font-size:11px;color:var(--ink-dim);display:flex;align-items:center;gap:5px}
+.ef-node .ef-nd{width:9px;height:9px;border-radius:50%;background:var(--ink-dim);flex:none;border:1px solid rgba(0,0,0,.15)}
+.ef-nd.ef-t-observed{background:#6b7d8a}
+.ef-nd.ef-t-predicted{background:#8c7bd0}
+.ef-nd.ef-t-isolated{background:#2f8f7a}
+.ef-nd.ef-t-natural{background:#4f7fc4}
+.ef-nd.ef-t-synthesized{background:#b4763a}
+.ef-nd.ef-t-confirmed{background:#7d8c5a}
+.ef-nd.ef-t-named{background:#b0893f}
+.ef-nodedetail{margin:var(--sp3) 0 0;padding:var(--sp3);border-radius:var(--rInput);
+  background:var(--paper2);font-size:var(--fs-sm);color:var(--ink-dim);line-height:1.8}
+.ef-nodedetail[hidden]{display:none}
+.ef-nodedetail b{color:var(--ink)}
+.ef-nodesrc{display:block;margin-top:8px;font-family:var(--monoFont);font-size:var(--fs-xs)}
+
+/* 单行历史（未补节点的元素，保持一行但把「发现年份」讲清楚） */
+.ef-oneline{margin:0 28px 28px;border-top:1px solid var(--frame);padding-top:var(--sp4);font-size:var(--fs-sm);color:var(--ink-dim)}
+.ef-oneline b{color:var(--ink)}
+
+/* ── ⑤ 原子量语义 ── */
+.ef-mass{font-family:var(--monoFont);font-size:16px;color:var(--ink);font-weight:700}
+.ef-iso .ef-mass{letter-spacing:.02em}
+.ef-masskind{display:inline-block;margin-left:8px;font-size:11px;font-family:var(--monoFont);
+  border:1px solid var(--frame);border-radius:var(--rPill);padding:1px 8px;color:var(--ink-dim);vertical-align:1px}
+.ef-masswhy{font-size:var(--fs-sm);color:var(--ink-dim);line-height:1.75;margin:8px 0 0}
+.ef-masswhy[hidden]{display:none}
+.ef-massbtn{font:inherit;font-size:var(--fs-xs);min-height:32px;padding:0 10px;margin-left:8px;
+  border-radius:var(--rPill);border:1px solid var(--frame);background:var(--cardBg);color:var(--ink-dim);cursor:pointer}
+.ef-massbtn:hover{border-color:var(--pen);color:var(--pen2)}
+
+/* 表头三形态图例 */
+#efmassleg{border:1px solid var(--frame);background:var(--paper);border-radius:4px;
+  padding:var(--sp3) var(--sp4);margin:var(--sp4) 0}
+#efmassleg .ef-ml-h{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:0 0 var(--sp2)}
+#efmassleg h3{margin:0;font-size:var(--fs-md)}
+#efmassleg .ef-ml-t{font-size:var(--fs-xs);color:var(--ink-dim);font-family:var(--monoFont)}
+.ef-ml-chips{display:flex;flex-wrap:wrap;gap:8px;margin:0}
+.ef-ml-chip{font:inherit;font-size:var(--fs-sm);min-height:44px;padding:0 14px;border-radius:var(--rPill);
+  border:1px solid var(--frame);background:var(--cardBg);color:var(--ink);cursor:pointer;
+  display:inline-flex;align-items:center;gap:8px}
+.ef-ml-chip:hover{border-color:var(--pen);color:var(--pen2)}
+.ef-ml-chip[aria-pressed="true"]{border-color:var(--pen2);background:color-mix(in srgb,var(--pen) 10%,var(--paper));font-weight:700}
+.ef-ml-chip i{width:9px;height:9px;border-radius:50%;background:var(--ink-dim);flex:none}
+.ef-ml-chip.m-std i{background:#2f8f7a}
+.ef-ml-chip.m-range i{background:#4f7fc4}
+.ef-ml-chip.m-iso i{background:#b4763a}
+.ef-ml-panel{margin:var(--sp3) 0 0;border-top:1px solid var(--frame);padding-top:var(--sp3);
+  font-size:var(--fs-sm);color:var(--ink-dim);line-height:1.8}
+.ef-ml-panel[hidden]{display:none}
+.ef-ml-panel b{color:var(--ink)}
+.ef-ml-list{margin:8px 0 0;display:flex;flex-wrap:wrap;gap:6px}
+.ef-ml-list span{font-family:var(--monoFont);font-size:12px;color:var(--ink-dim);
+  border:1px solid var(--frame);border-radius:var(--rPill);padding:1px 8px}
+
+/* 详情面板 (#detail) 里的形态标签 */
+#detail .ef-masskind{margin-left:6px}
+
+@media (max-width:760px){
+  .efgate-opts{grid-template-columns:1fr}
+  .efgate-opt{min-height:0;padding:var(--sp3) var(--sp4)}
+  .ef-rel7,.ef-hist,.ef-oneline{margin:0 18px 20px}
+  .ef-relrow{grid-template-columns:1fr;gap:6px;padding:8px}
+  .ef-node{min-width:0;flex:1 1 42%}
+  .ef-modechip{margin-left:0}
+  .ef-progress{margin-left:0;padding-right:8px}
+}
+@media (prefers-reduced-motion:reduce){
+  .efgate-opt,.ef-node,.ef-relchip{transition:none}
+}
+</style>
+<script id="ef-p2-js">
+/* ═══════════════════════════════════════════════════════════
+   P2 层（2026-09-20）· 零站外请求
+   ① 双模式外壳 ② 预测题组件 ③ 关系图谱 ④ 历史节点 ⑤ 原子量语义
+   数据来源：window.__ELS__（站内）＋ CIAAW（原子量）＋ 节点/题库数据块
+   ═══════════════════════════════════════════════════════════ */
+(function () {
+  var MASS = {"1":{"kind":"range","disp":"1.00784 – 1.00811","short":"1.00784 – 1.00811","why":"地表不同来源的氢，同位素比例略有不同，所以 CIAAW 给的是一个区间，不是单个数字。","src":"CIAAW 2021 标准原子量（简表）"},"2":{"kind":"std","disp":"4.002602(2)","short":"4.002602(2)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"3":{"kind":"range","disp":"6.938 – 6.997","short":"6.938 – 6.997","why":"不同矿石里的锂同位素比例有差别，CIAAW 给的是区间。","src":"CIAAW 2021 标准原子量（简表）"},"4":{"kind":"std","disp":"9.0121831(5)","short":"9.0121831(5)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"5":{"kind":"range","disp":"10.806 – 10.821","short":"10.806 – 10.821","why":"不同来源的硼同位素比例差别不小，所以给区间。","src":"CIAAW 2021 标准原子量（简表）"},"6":{"kind":"range","disp":"12.0096 – 12.0116","short":"12.0096 – 12.0116","why":"岩石里、生物体内、大气里的碳，同位素比例各不相同，所以给区间。","src":"CIAAW 2021 标准原子量（简表）"},"7":{"kind":"range","disp":"14.00643 – 14.00728","short":"14.00643 – 14.00728","why":"来源不同的氮，同位素比例有细微差别，所以给区间。","src":"CIAAW 2021 标准原子量（简表）"},"8":{"kind":"range","disp":"15.99903 – 15.99977","short":"15.99903 – 15.99977","why":"不同来源的氧同位素比例略有差别，所以给区间。","src":"CIAAW 2021 标准原子量（简表）"},"9":{"kind":"std","disp":"18.998403162(5)","short":"18.998403162(5)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"10":{"kind":"std","disp":"20.1797(6)","short":"20.1797(6)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"11":{"kind":"std","disp":"22.98976928(2)","short":"22.98976928(2)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"12":{"kind":"range","disp":"24.304 – 24.307","short":"24.304 – 24.307","why":"不同矿物里的镁同位素比例略有差别，所以给区间。","src":"CIAAW 2021 标准原子量（简表）"},"13":{"kind":"std","disp":"26.9815384(3)","short":"26.9815384(3)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"14":{"kind":"range","disp":"28.084 – 28.086","short":"28.084 – 28.086","why":"不同岩石与生物里的硅同位素比例有差别，所以给区间。","src":"CIAAW 2021 标准原子量（简表）"},"15":{"kind":"std","disp":"30.973761998(5)","short":"30.973761998(5)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"16":{"kind":"range","disp":"32.059 – 32.076","short":"32.059 – 32.076","why":"不同来源的硫同位素比例差别明显（火山、生物、海水各不一样），所以给区间。","src":"CIAAW 2021 标准原子量（简表）"},"17":{"kind":"range","disp":"35.446 – 35.457","short":"35.446 – 35.457","why":"不同来源的氯同位素比例有差别，所以给区间。","src":"CIAAW 2021 标准原子量（简表）"},"18":{"kind":"range","disp":"39.792 – 39.963","short":"39.792 – 39.963","why":"空气里的氩与岩石里的氩，同位素比例不同，所以给区间。","src":"CIAAW 2021 标准原子量（简表）"},"19":{"kind":"std","disp":"39.0983(1)","short":"39.0983(1)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"20":{"kind":"std","disp":"40.078(4)","short":"40.078(4)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"21":{"kind":"std","disp":"44.955907(4)","short":"44.955907(4)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"22":{"kind":"std","disp":"47.867(1)","short":"47.867(1)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"23":{"kind":"std","disp":"50.9415(1)","short":"50.9415(1)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"24":{"kind":"std","disp":"51.9961(6)","short":"51.9961(6)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"25":{"kind":"std","disp":"54.938043(2)","short":"54.938043(2)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"26":{"kind":"std","disp":"55.845(2)","short":"55.845(2)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"27":{"kind":"std","disp":"58.933194(3)","short":"58.933194(3)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"28":{"kind":"std","disp":"58.6934(4)","short":"58.6934(4)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"29":{"kind":"std","disp":"63.546(3)","short":"63.546(3)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"30":{"kind":"std","disp":"65.38(2)","short":"65.38(2)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"31":{"kind":"std","disp":"69.723(1)","short":"69.723(1)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"32":{"kind":"std","disp":"72.630(8)","short":"72.630(8)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"33":{"kind":"std","disp":"74.921595(6)","short":"74.921595(6)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"34":{"kind":"std","disp":"78.971(8)","short":"78.971(8)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"35":{"kind":"range","disp":"79.901 – 79.907","short":"79.901 – 79.907","why":"不同来源的溴同位素比例有差别，所以给区间。","src":"CIAAW 2021 标准原子量（简表）"},"36":{"kind":"std","disp":"83.798(2)","short":"83.798(2)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"37":{"kind":"std","disp":"85.4678(3)","short":"85.4678(3)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"38":{"kind":"std","disp":"87.62(1)","short":"87.62(1)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"39":{"kind":"std","disp":"88.905838(2)","short":"88.905838(2)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"40":{"kind":"std","disp":"91.222(3)","short":"91.222(3)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"41":{"kind":"std","disp":"92.90637(1)","short":"92.90637(1)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"42":{"kind":"std","disp":"95.95(1)","short":"95.95(1)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"43":{"kind":"iso","disp":"[97]","short":"[97]","why":"这个元素没有稳定同位素（会不断衰变），所以没有「标准原子量」。方括号里是它最稳定同位素的质量数——那不是原子量，只是「哪种同位素活得最久」的一个编号。","massno":97,"src":"CIAAW《Radioactive Elements》最稳定已知同位素（据 NUBASE2020）"},"44":{"kind":"std","disp":"101.07(2)","short":"101.07(2)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"45":{"kind":"std","disp":"102.90549(2)","short":"102.90549(2)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"46":{"kind":"std","disp":"106.42(1)","short":"106.42(1)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"47":{"kind":"std","disp":"107.8682(2)","short":"107.8682(2)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"48":{"kind":"std","disp":"112.414(4)","short":"112.414(4)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"49":{"kind":"std","disp":"114.818(1)","short":"114.818(1)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"50":{"kind":"std","disp":"118.710(7)","short":"118.710(7)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"51":{"kind":"std","disp":"121.760(1)","short":"121.760(1)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"52":{"kind":"std","disp":"127.60(3)","short":"127.60(3)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"53":{"kind":"std","disp":"126.90447(3)","short":"126.90447(3)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"54":{"kind":"std","disp":"131.293(6)","short":"131.293(6)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"55":{"kind":"std","disp":"132.90545196(6)","short":"132.90545196(6)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"56":{"kind":"std","disp":"137.327(7)","short":"137.327(7)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"57":{"kind":"std","disp":"138.90547(7)","short":"138.90547(7)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"58":{"kind":"std","disp":"140.116(1)","short":"140.116(1)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"59":{"kind":"std","disp":"140.90766(1)","short":"140.90766(1)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"60":{"kind":"std","disp":"144.242(3)","short":"144.242(3)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"61":{"kind":"iso","disp":"[145]","short":"[145]","why":"这个元素没有稳定同位素（会不断衰变），所以没有「标准原子量」。方括号里是它最稳定同位素的质量数——那不是原子量，只是「哪种同位素活得最久」的一个编号。","massno":145,"src":"CIAAW《Radioactive Elements》最稳定已知同位素（据 NUBASE2020）"},"62":{"kind":"std","disp":"150.36(2)","short":"150.36(2)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"63":{"kind":"std","disp":"151.964(1)","short":"151.964(1)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"64":{"kind":"std","disp":"157.249(2)","short":"157.249(2)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"65":{"kind":"std","disp":"158.925354(7)","short":"158.925354(7)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"66":{"kind":"std","disp":"162.500(1)","short":"162.500(1)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"67":{"kind":"std","disp":"164.930329(5)","short":"164.930329(5)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"68":{"kind":"std","disp":"167.259(3)","short":"167.259(3)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"69":{"kind":"std","disp":"168.934219(5)","short":"168.934219(5)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"70":{"kind":"std","disp":"173.045(10)","short":"173.045(10)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"71":{"kind":"std","disp":"174.96669(5)","short":"174.96669(5)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"72":{"kind":"std","disp":"178.486(6)","short":"178.486(6)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"73":{"kind":"std","disp":"180.94788(2)","short":"180.94788(2)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"74":{"kind":"std","disp":"183.84(1)","short":"183.84(1)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"75":{"kind":"std","disp":"186.207(1)","short":"186.207(1)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"76":{"kind":"std","disp":"190.23(3)","short":"190.23(3)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"77":{"kind":"std","disp":"192.217(2)","short":"192.217(2)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"78":{"kind":"std","disp":"195.084(9)","short":"195.084(9)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"79":{"kind":"std","disp":"196.966570(4)","short":"196.966570(4)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"80":{"kind":"std","disp":"200.592(3)","short":"200.592(3)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"81":{"kind":"range","disp":"204.382 – 204.385","short":"204.382 – 204.385","why":"不同来源的铊同位素比例有差别，所以给区间。","src":"CIAAW 2021 标准原子量（简表）"},"82":{"kind":"range","disp":"206.14 – 207.94","short":"206.14 – 207.94","why":"岩石里的铅，放射成因的同位素比例差别很大，所以给的是一个很宽的区间。","src":"CIAAW 2021 标准原子量（简表）"},"83":{"kind":"std","disp":"208.98040(1)","short":"208.98040(1)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"84":{"kind":"iso","disp":"[209]","short":"[209]","why":"这个元素没有稳定同位素（会不断衰变），所以没有「标准原子量」。方括号里是它最稳定同位素的质量数——那不是原子量，只是「哪种同位素活得最久」的一个编号。","massno":209,"src":"CIAAW《Radioactive Elements》最稳定已知同位素（据 NUBASE2020）"},"85":{"kind":"iso","disp":"[210]","short":"[210]","why":"这个元素没有稳定同位素（会不断衰变），所以没有「标准原子量」。方括号里是它最稳定同位素的质量数——那不是原子量，只是「哪种同位素活得最久」的一个编号。","massno":210,"src":"CIAAW《Radioactive Elements》最稳定已知同位素（据 NUBASE2020）"},"86":{"kind":"iso","disp":"[222]","short":"[222]","why":"这个元素没有稳定同位素（会不断衰变），所以没有「标准原子量」。方括号里是它最稳定同位素的质量数——那不是原子量，只是「哪种同位素活得最久」的一个编号。","massno":222,"src":"CIAAW《Radioactive Elements》最稳定已知同位素（据 NUBASE2020）"},"87":{"kind":"iso","disp":"[223]","short":"[223]","why":"这个元素没有稳定同位素（会不断衰变），所以没有「标准原子量」。方括号里是它最稳定同位素的质量数——那不是原子量，只是「哪种同位素活得最久」的一个编号。","massno":223,"src":"CIAAW《Radioactive Elements》最稳定已知同位素（据 NUBASE2020）"},"88":{"kind":"iso","disp":"[226]","short":"[226]","why":"这个元素没有稳定同位素（会不断衰变），所以没有「标准原子量」。方括号里是它最稳定同位素的质量数——那不是原子量，只是「哪种同位素活得最久」的一个编号。","massno":226,"src":"CIAAW《Radioactive Elements》最稳定已知同位素（据 NUBASE2020）"},"89":{"kind":"iso","disp":"[227]","short":"[227]","why":"这个元素没有稳定同位素（会不断衰变），所以没有「标准原子量」。方括号里是它最稳定同位素的质量数——那不是原子量，只是「哪种同位素活得最久」的一个编号。","massno":227,"src":"CIAAW《Radioactive Elements》最稳定已知同位素（据 NUBASE2020）"},"90":{"kind":"std","disp":"232.0377(4)","short":"232.0377(4)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"91":{"kind":"std","disp":"231.03588(1)","short":"231.03588(1)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"92":{"kind":"std","disp":"238.02891(3)","short":"238.02891(3)","why":"括号里的数字是不确定度：末位 ±这么多。这是「标准原子量」的规范写法。","src":"CIAAW 2021 标准原子量（简表）"},"93":{"kind":"iso","disp":"[237]","short":"[237]","why":"这个元素没有稳定同位素（会不断衰变），所以没有「标准原子量」。方括号里是它最稳定同位素的质量数——那不是原子量，只是「哪种同位素活得最久」的一个编号。","massno":237,"src":"CIAAW《Radioactive Elements》最稳定已知同位素（据 NUBASE2020）"},"94":{"kind":"iso","disp":"[244]","short":"[244]","why":"这个元素没有稳定同位素（会不断衰变），所以没有「标准原子量」。方括号里是它最稳定同位素的质量数——那不是原子量，只是「哪种同位素活得最久」的一个编号。","massno":244,"src":"CIAAW《Radioactive Elements》最稳定已知同位素（据 NUBASE2020）"},"95":{"kind":"iso","disp":"[243]","short":"[243]","why":"这个元素没有稳定同位素（会不断衰变），所以没有「标准原子量」。方括号里是它最稳定同位素的质量数——那不是原子量，只是「哪种同位素活得最久」的一个编号。","massno":243,"src":"CIAAW《Radioactive Elements》最稳定已知同位素（据 NUBASE2020）"},"96":{"kind":"iso","disp":"[247]","short":"[247]","why":"这个元素没有稳定同位素（会不断衰变），所以没有「标准原子量」。方括号里是它最稳定同位素的质量数——那不是原子量，只是「哪种同位素活得最久」的一个编号。","massno":247,"src":"CIAAW《Radioactive Elements》最稳定已知同位素（据 NUBASE2020）"},"97":{"kind":"iso","disp":"[247]","short":"[247]","why":"这个元素没有稳定同位素（会不断衰变），所以没有「标准原子量」。方括号里是它最稳定同位素的质量数——那不是原子量，只是「哪种同位素活得最久」的一个编号。","massno":247,"src":"CIAAW《Radioactive Elements》最稳定已知同位素（据 NUBASE2020）"},"98":{"kind":"iso","disp":"[251]","short":"[251]","why":"这个元素没有稳定同位素（会不断衰变），所以没有「标准原子量」。方括号里是它最稳定同位素的质量数——那不是原子量，只是「哪种同位素活得最久」的一个编号。","massno":251,"src":"CIAAW《Radioactive Elements》最稳定已知同位素（据 NUBASE2020）"},"99":{"kind":"iso","disp":"[252]","short":"[252]","why":"这个元素没有稳定同位素（会不断衰变），所以没有「标准原子量」。方括号里是它最稳定同位素的质量数——那不是原子量，只是「哪种同位素活得最久」的一个编号。","massno":252,"src":"CIAAW《Radioactive Elements》最稳定已知同位素（据 NUBASE2020）"},"100":{"kind":"iso","disp":"[257]","short":"[257]","why":"这个元素没有稳定同位素（会不断衰变），所以没有「标准原子量」。方括号里是它最稳定同位素的质量数——那不是原子量，只是「哪种同位素活得最久」的一个编号。","massno":257,"src":"CIAAW《Radioactive Elements》最稳定已知同位素（据 NUBASE2020）"},"101":{"kind":"iso","disp":"[258]","short":"[258]","why":"这个元素没有稳定同位素（会不断衰变），所以没有「标准原子量」。方括号里是它最稳定同位素的质量数——那不是原子量，只是「哪种同位素活得最久」的一个编号。","massno":258,"src":"CIAAW《Radioactive Elements》最稳定已知同位素（据 NUBASE2020）"},"102":{"kind":"iso","disp":"[259]","short":"[259]","why":"这个元素没有稳定同位素（会不断衰变），所以没有「标准原子量」。方括号里是它最稳定同位素的质量数——那不是原子量，只是「哪种同位素活得最久」的一个编号。","massno":259,"src":"CIAAW《Radioactive Elements》最稳定已知同位素（据 NUBASE2020）"},"103":{"kind":"iso","disp":"[266]","short":"[266]","why":"这个元素没有稳定同位素（会不断衰变），所以没有「标准原子量」。方括号里是它最稳定同位素的质量数——那不是原子量，只是「哪种同位素活得最久」的一个编号。","massno":266,"src":"CIAAW《Radioactive Elements》最稳定已知同位素（据 NUBASE2020）"},"104":{"kind":"iso","disp":"[267]","short":"[267]","why":"这个元素没有稳定同位素（会不断衰变），所以没有「标准原子量」。方括号里是它最稳定同位素的质量数——那不是原子量，只是「哪种同位素活得最久」的一个编号。","massno":267,"src":"CIAAW《Radioactive Elements》最稳定已知同位素（据 NUBASE2020）"},"105":{"kind":"iso","disp":"[268]","short":"[268]","why":"这个元素没有稳定同位素（会不断衰变），所以没有「标准原子量」。方括号里是它最稳定同位素的质量数——那不是原子量，只是「哪种同位素活得最久」的一个编号。","massno":268,"src":"CIAAW《Radioactive Elements》最稳定已知同位素（据 NUBASE2020）"},"106":{"kind":"iso","disp":"[269]","short":"[269]","why":"这个元素没有稳定同位素（会不断衰变），所以没有「标准原子量」。方括号里是它最稳定同位素的质量数——那不是原子量，只是「哪种同位素活得最久」的一个编号。","massno":269,"src":"CIAAW《Radioactive Elements》最稳定已知同位素（据 NUBASE2020）"},"107":{"kind":"iso","disp":"[270]","short":"[270]","why":"这个元素没有稳定同位素（会不断衰变），所以没有「标准原子量」。方括号里是它最稳定同位素的质量数——那不是原子量，只是「哪种同位素活得最久」的一个编号。","massno":270,"src":"CIAAW《Radioactive Elements》最稳定已知同位素（据 NUBASE2020）"},"108":{"kind":"iso","disp":"[269]","short":"[269]","why":"这个元素没有稳定同位素（会不断衰变），所以没有「标准原子量」。方括号里是它最稳定同位素的质量数——那不是原子量，只是「哪种同位素活得最久」的一个编号。","massno":269,"src":"CIAAW《Radioactive Elements》最稳定已知同位素（据 NUBASE2020）"},"109":{"kind":"iso","disp":"[277]","short":"[277]","why":"这个元素没有稳定同位素（会不断衰变），所以没有「标准原子量」。方括号里是它最稳定同位素的质量数——那不是原子量，只是「哪种同位素活得最久」的一个编号。","massno":277,"src":"CIAAW《Radioactive Elements》最稳定已知同位素（据 NUBASE2020）"},"110":{"kind":"iso","disp":"[281]","short":"[281]","why":"这个元素没有稳定同位素（会不断衰变），所以没有「标准原子量」。方括号里是它最稳定同位素的质量数——那不是原子量，只是「哪种同位素活得最久」的一个编号。","massno":281,"src":"CIAAW《Radioactive Elements》最稳定已知同位素（据 NUBASE2020）"},"111":{"kind":"iso","disp":"[282]","short":"[282]","why":"这个元素没有稳定同位素（会不断衰变），所以没有「标准原子量」。方括号里是它最稳定同位素的质量数——那不是原子量，只是「哪种同位素活得最久」的一个编号。","massno":282,"src":"CIAAW《Radioactive Elements》最稳定已知同位素（据 NUBASE2020）"},"112":{"kind":"iso","disp":"[285]","short":"[285]","why":"这个元素没有稳定同位素（会不断衰变），所以没有「标准原子量」。方括号里是它最稳定同位素的质量数——那不是原子量，只是「哪种同位素活得最久」的一个编号。","massno":285,"src":"CIAAW《Radioactive Elements》最稳定已知同位素（据 NUBASE2020）"},"113":{"kind":"iso","disp":"[286]","short":"[286]","why":"这个元素没有稳定同位素（会不断衰变），所以没有「标准原子量」。方括号里是它最稳定同位素的质量数——那不是原子量，只是「哪种同位素活得最久」的一个编号。","massno":286,"src":"CIAAW《Radioactive Elements》最稳定已知同位素（据 NUBASE2020）"},"114":{"kind":"iso","disp":"[290]","short":"[290]","why":"这个元素没有稳定同位素（会不断衰变），所以没有「标准原子量」。方括号里是它最稳定同位素的质量数——那不是原子量，只是「哪种同位素活得最久」的一个编号。","massno":290,"src":"CIAAW《Radioactive Elements》最稳定已知同位素（据 NUBASE2020）"},"115":{"kind":"iso","disp":"[290]","short":"[290]","why":"这个元素没有稳定同位素（会不断衰变），所以没有「标准原子量」。方括号里是它最稳定同位素的质量数——那不是原子量，只是「哪种同位素活得最久」的一个编号。","massno":290,"src":"CIAAW《Radioactive Elements》最稳定已知同位素（据 NUBASE2020）"},"116":{"kind":"iso","disp":"[293]","short":"[293]","why":"这个元素没有稳定同位素（会不断衰变），所以没有「标准原子量」。方括号里是它最稳定同位素的质量数——那不是原子量，只是「哪种同位素活得最久」的一个编号。","massno":293,"src":"CIAAW《Radioactive Elements》最稳定已知同位素（据 NUBASE2020）"},"117":{"kind":"iso","disp":"[294]","short":"[294]","why":"这个元素没有稳定同位素（会不断衰变），所以没有「标准原子量」。方括号里是它最稳定同位素的质量数——那不是原子量，只是「哪种同位素活得最久」的一个编号。","massno":294,"src":"CIAAW《Radioactive Elements》最稳定已知同位素（据 NUBASE2020）"},"118":{"kind":"iso","disp":"[294]","short":"[294]","why":"这个元素没有稳定同位素（会不断衰变），所以没有「标准原子量」。方括号里是它最稳定同位素的质量数——那不是原子量，只是「哪种同位素活得最久」的一个编号。","massno":294,"src":"CIAAW《Radioactive Elements》最稳定已知同位素（据 NUBASE2020）"}};
+  var QUIZ = [{"id":"legacy-mendeleev-gap","tag":"读完先押注","anchor":"s-story","q":"门捷列夫凭什么敢在空位里写下「这个元素原子量大约 68」？","opts":[{"t":"他其实见过那些元素，只是没记下来","ok":false},{"t":"因为折好的格子里，空位的位置已经被周围的性质定住了","ok":true},{"t":"因为同行都同意那里应该有个元素","ok":false}],"why":"空位不是凭空猜的：它的上下左右都站着已知元素。门捷列夫按四周邻居的性质取中间值，写下这个未知元素「原子量大约多少、密度大约多少、会跟什么反应」——等于立下三条可以被检验的字据。后来镓（1875）、钪（1879）、锗（1886）一个个被找到，和他写的对得上，这张表才从「一张排法」变成「一个能预言的工具」。","src":"本页 01 节「留空位」；门捷列夫 1869 年原表转录件"},{"id":"legacy-order-not-weight","tag":"读完先押注","anchor":"s-story","q":"按原子量排有两处对不上（氩比钾重、碲比碘重），这说明什么？","opts":[{"t":"说明原子量称错了","ok":false},{"t":"说明真正决定顺序的不是重量，而是另一个量","ok":true},{"t":"说明周期表这个思路根本站不住","ok":false}],"why":"「称错了」只能解释一处：碲/碘确实可以怀疑碲的原子量量偏了（门捷列夫本人就这么怀疑过）。但氩和钾的重量都反复称过、没问题，顺序却必须是氩排在钾前面——同一套「重量」解释在第二处失效了。两处放在一起，唯一站得住的结论是：决定顺序的另有其物。1913 年莫塞莱用 X 射线找到原子序数，两处一起归位。","src":"本页 01 节第 5 步；本页 03 节"},{"id":"legacy-why-alike","tag":"读完先押注","anchor":"s-story","q":"同一列的元素脾气像亲戚，最根本的原因是什么？","opts":[{"t":"它们最外层的电子排布很像","ok":true},{"t":"它们的原子量差不多","ok":false},{"t":"它们在自然界里总是一起出现","ok":false}],"why":"决定脾气的是最外层电子数，不是体重。氙比钠重得多，却几乎不反应；金比锂重得多，却很稳定。主族元素纵向同一列，最外层电子数刚好一样——钠和钾都是 1 个（都舍得丢，遇水都剧烈反应），氟和氯都是 7 个（都爱抢电子）。这才是「像亲戚」的根。（中间 10 列 d 区、以及抽出来单放的镧系锕系不适用这条。）","src":"本页 02 节"},{"id":"argon-discovery-1894","q":"门捷列夫 1869 年排第一版周期表的时候，他为「氩和钾到底谁排前面」头疼过吗？","why":"容易猜错，是因为很多人把「氩钾矛盾」和「碲碘矛盾」当成门捷列夫同一年碰上的一对麻烦。其实 1869 年他桌上根本没有氩：氩要到 1894 年才由瑞利和拉姆齐从空气里分出来。氩的原子量约 39.95，钾约 39.10，氩更大却必须排在钾前面。这个新麻烦出现的年份，比第一版周期表晚了 25 年。","src":"审计 §2.1（氩 Argon 1894 年由 Lord Rayleigh 与 William Ramsay 识别）；Royal Society of Chemistry 元素页 argon：Discovery date 1894 / Lord Rayleigh and Sir William Ramsay，https://periodic-table.rsc.org/element/18/argon","opts":[{"t":"头疼过，他为此把钾往前挪了一位","ok":false},{"t":"没头疼过，氩要到 1894 年才被发现，比那张表晚了 25 年","ok":true},{"t":"头疼过，他最后把氩单独拎到表的最右边","ok":false},{"t":"没头疼过，因为氩的原子量本来比钾小","ok":false}],"tag":"先猜再揭晓 · 氩 1894 年才被发现","anchor":"s-history"},{"id":"mendeleev-tellurium-iodine","q":"碲的原子量比碘大，可周期表里碲排在碘前面。门捷列夫当年是怎么处理的？","why":"直觉是「按原子量排就完了」，所以会以为碲碘之争是门捷列夫解决不了的硬伤。事实正相反：他主动违背了当时测出的原子量顺序，把碲放在碘前面，因为碲的性质更像氧、硫、硒那一家人。他还怀疑碲的原子量被称错了。相信化学家族，胜过相信一串可能出错的数字，这正是他高明的地方。","src":"审计 §2.2（门捷列夫宁可违背当时测得的原子量顺序，也按化学性质归位，并怀疑碲的原子量测错；见 Wikipedia: History of the periodic table）；RSC 元素页 tellurium 标准原子量 127.60，https://periodic-table.rsc.org/element/52/tellurium ；RSC 元素页 iodine 标准原子量 126.904，https://periodic-table.rsc.org/element/53/iodine","opts":[{"t":"他没看出这个问题，是后人替他改的顺序","ok":false},{"t":"他先按原子量把碘排在碲前面，等以后称准了再说","ok":false},{"t":"他按化学性质把碲排在碘前面，甚至怀疑是碲的原子量称错了","ok":true},{"t":"他把碲和碘都留成空格，等两个都测准再定","ok":false}],"tag":"先猜再揭晓 · 门捷列夫相信化学家族","anchor":"s-story"},{"id":"hydrogen-discovery-date","q":"同样是氢，有的资料写「1671 年，波义耳」，有的写「1766 年，卡文迪什」。这是怎么回事？","why":"同一个元素会有好几个「第一次」。1671 年波义耳看到的是金属遇上酸会冒出可燃气体，但他并不知道那是新元素。1766 年卡文迪什把它当成一种独立物质系统研究，所以皇家化学会的元素页把氢的发现年份写成 1766 年、发现者写卡文迪什。Hydrogen 这个名字是 1780 年代拉瓦锡起的。观察、确认、命名，是三件事。","src":"审计 §2.3（Boyle 17 世纪观察到反应产气 / Cavendish 1760s 系统确认是独立物质 / Lavoisier 命名 Hydrogen）；RSC 元素页 hydrogen：Discovery date 1766, Discovered by Henry Cavendish，https://periodic-table.rsc.org/element/1/hydrogen","opts":[{"t":"1671 年波义耳看到的是金属遇酸冒出的可燃气体，1766 年卡文迪什才把它当成一种独立物质系统研究","ok":true},{"t":"1671 年那个是错的，氢在 1766 年之前根本不存在","ok":false},{"t":"两个年份一个指氢，一个指水，被后人弄混了","ok":false},{"t":"1766 年是氢被正式命名的那一年","ok":false}],"tag":"先猜再揭晓 · 氢的发现年份有两个","anchor":"s-history"},{"id":"group-number-main-group","q":"有人教你一条口诀：「第几列，最外层就有几个电子。」铁在第 8 列，那铁最外层有几个电子？","why":"「第几列就有几个最外层电子」只对主族元素好使，过渡金属不能这么数。铁在第 8 列，电子排布却是 2, 8, 14, 2，最外层只有 2 个。真正参与反应的不止这 2 个 4s 电子，里面那个没填满的 3d 层也会上场，写成 [Ar] 3d⁶ 4s² 就看得更清楚。过渡金属的脾气，得把 3d 和 4s 一起算。","src":"审计 §2.5（族号等于最外层电子数须加「主族元素」限定）与 §3.3（Fe 为 [Ar] 3d⁶ 4s²，ns 与 (n−1)d 电子共同参与反应）；RSC 元素页 iron，https://periodic-table.rsc.org/element/26/iron","opts":[{"t":"8 个，按列号数就对了","ok":false},{"t":"14 个，因为铁的电子层是 2, 8, 14, 2","ok":false},{"t":"2 个。这条口诀只对主族元素好使","ok":true},{"t":"6 个，等于 3d 层上的 6 个电子","ok":false}],"tag":"先猜再揭晓 · 列号只对主族好使","anchor":"s-atom"},{"id":"lanthanide-block-position","q":"镧系那 15 个元素被单独抽出来，挂在周期表的下方。这是为什么？","why":"这 15 个元素不是性质完全相同的一列，也不是人造元素，更不是附录。它们本来嵌在第 6 周期中间，属于 f 区。如果全都摊开摆回原位，周期表会宽得像一条长卷轴，所以通常把它们抽出来挂在表格下方，纯粹是排版上的搬家。顺带说，第 3 族到底放镧还是放镥，学界至今还有讨论。","src":"审计 §2.6（镧系属 f 区，本嵌在第 6、7 周期中，被抽到下方主要为版面紧凑；Group 3 取 La/Ac 或 Lu/Lr 存在长期讨论）；RSC 元素页 lanthanum（1839 年发现，f 区），https://periodic-table.rsc.org/element/57/lanthanum","opts":[{"t":"它们是 15 个性质完全一样、算作同一列的元素","ok":false},{"t":"它们本来嵌在第 6 周期中间，抽到下面只是为了让表不变太宽","ok":true},{"t":"它们都是人造元素，所以只能另起一行","ok":false},{"t":"它们其实不属于周期表，只是附录","ok":false}],"tag":"先猜再揭晓 · 镧系为什么被抽到下面","anchor":"s-table"},{"id":"bohr-model-limit","q":"玻尔那套「电子在圆圈上跑」的模型，对下面哪种情况算得最准？","why":"玻尔模型最漂亮的战绩就是氢和类氢体系，算出来和实验对得上。电子一多，彼此遮挡、彼此排斥，那些圆圈就不再准了，所以对铁这样的多电子原子只能当示意图看。真实的电子更接近一片概率云，得用量子力学描述。记住它，是因为它是理解电子层的第一把钥匙，不是因为它就是最终真相。","src":"审计 §2.7（Bohr 模型对氢与类氢体系非常成功，对多电子原子能级与光谱并不准确）；审计 §18 引用的 APS 参考页 The Bohr Model of the Atom，https://www.aps.org/apsnews/2012/03/bohr-model-atom-rutherford （该页对脚本直连返回 403，本次未能现场复核，仅供人工打开核对）","opts":[{"t":"铁这类电子很多的重原子","ok":false},{"t":"所有元素都一样准，只是画起来简单","ok":false},{"t":"越重的元素越准","ok":false},{"t":"氢原子这种最简单的体系","ok":true}],"tag":"先猜再揭晓 · 玻尔模型对谁算得准","anchor":"s-atom"},{"id":"mendeleev-1869-count","q":"门捷列夫 1869 年那张第一版周期表上，写了多少种元素？","why":"那份表上写出名字的格子是 62 个，其中一格把钴和镍挤在一起，当年都测作 59，所以名字一共 63 个。他还在表上留了 4 个只写问号的空格，等着将来被发现的元素来填，后来镓、钪、锗就是这么被找出来的。另外，不同资料数出来的「1869 年已知元素」会差一两个，因为氦和铽那时已被注意到却没在他的表上。","src":"审计 §9.2 与修订报告第二轮 §①（门捷列夫 1869 年排 63 种，维基 History of the periodic table 原句互证）；逐格转录件 Wikimedia Commons, File:Mendeleev's 1869 periodic table.svg，https://commons.wikimedia.org/wiki/File:Mendeleev%27s_1869_periodic_table.svg（经 gh_relay 抓取复核，证据等级 Yellow）","opts":[{"t":"118 种，跟今天的表一样多","ok":false},{"t":"92 种，天然存在的那些全在上面","ok":false},{"t":"差不多 30 种，只有轻元素","ok":false},{"t":"63 种。表上还留了几个只写问号的空格","ok":true}],"tag":"先猜再揭晓 · 1869 年表上有几种元素","anchor":"s-history"},{"id":"halogen-family-reason","q":"氟和氯为什么会被放进同一族（最右边往左第一列）？","why":"最容易想到的理由是「都有毒」，但那只是它们抢电子抢得太狠的后果，不是它们像亲戚的原因。真正的原因是价电子结构相似：这一族的原子最外层都差 1 个电子就满，所以都拼命去抢别人的电子，反应趋势才这么一致。它们不靠送出电子过日子，那是第 1 族碱金属的做法。","src":"审计 §3.6 与修订报告第一轮 P1 第 12 条（F/Cl 同族的核心是价电子结构相似，「都有毒」移入安全常识）；RSC 元素页 fluorine（1886 年 Moissan 分离，第 17 族），https://periodic-table.rsc.org/element/9/fluorine","opts":[{"t":"因为它们都有毒，闻起来都呛人","ok":false},{"t":"因为它们的原子量很接近","ok":false},{"t":"因为它们都爱把最外层那个电子送出去","ok":false},{"t":"因为它们都只差 1 个电子就填满最外层，都特别爱抢别人的电子","ok":true}],"tag":"先猜再揭晓 · 氟和氯为什么像亲戚","anchor":"s-atom"},{"id":"valence-electrons-trap","q":"关于「同一列的元素，最外层电子数一样，化学行为就一样」这句话，下面哪些说法是对的？（选两项）","why":"这句话半对半错。对主族元素来说，价电子结构相似，化学性质往往相似，看最外层基本够用，但「往往」两个字不能丢。过渡金属不行，铁里面没填满的 3d 电子也会上阵。同一列的最外层电子数也不总是一样：稀有气体里氦最外层只有 2 个，其余多是 8 个。所以更稳的说法是价电子结构相似，而不是最外层数字相同。","src":"审计 §2.4（「最外层电子数一样，化学行为一样」过度绝对，应改为「价电子结构相似，化学性质往往相似」）与 §9.8（氦第一层 2 个电子即满），另见 §2.5 的主族限定","multi":true,"opts":[{"t":"对主族元素来说，价电子结构相似，化学性质往往相似，看最外层基本够用","ok":true},{"t":"过渡金属要另算，铁那样没填满的 d 电子也会一起参与反应","ok":true},{"t":"只要是同一列，化学行为就一定完全相同","ok":false},{"t":"同一列元素的最外层电子数一定都一样多","ok":false}],"tag":"先猜再揭晓 · 最外层一样不等于一模一样","anchor":"s-atom"}];
+  var NODES = {"1":{"sym":"H","zh":"","nodes":[{"type":"isolated","year":1766,"who":"H. Cavendish（亨利·卡文迪什）","text":"卡文迪什把金属放进稀酸里，收集到一种会燃烧的气体：它和空气混合点燃会爆炸，烧完只剩下水。他意识到这是一种全新的物质。（RSC 记 1766 年，LANL 记 1776 年，两个权威站点年份不一致）","src":"https://www.rsc.org/periodic-table/element/1/hydrogen ／ https://periodic.lanl.gov/1.shtml"}],"note":"RSC 记 1766、LANL 记 1776，两说并存，取 RSC 的 1766。"},"2":{"sym":"He","zh":"","nodes":[{"type":"observed","year":1868,"who":"P. J. C. Janssen / J. N. Lockyer","text":"1868 年日全食时，法国天文学家让桑跑到印度去测太阳光谱，看到一条从没见过的黄线，说明太阳上有一种地球上还不知道的元素。同年 10 月英国的洛克耶透过伦敦的雾霾也拍到了同一条线，把它标成 D₃。","src":"https://www.rsc.org/periodic-table/element/2/helium ／ https://periodic.lanl.gov/2.shtml"},{"type":"named","year":1868,"who":"J. N. Lockyer（洛克耶）","text":"洛克耶以为这种新元素是金属，就用希腊语里「太阳」（helios）给它取名 helium。（LANL 记洛克耶与弗兰克兰共同提出；维基百科认为弗兰克兰当时并不相信它存在，参与命名存疑，故 who 只写洛克耶）","src":"https://www.rsc.org/periodic-table/element/2/helium ／ https://en.wikipedia.org/wiki/Helium"},{"type":"isolated","year":1895,"who":"W. Ramsay（拉姆齐）；同期 P. T. Cleve 与 N. A. Langlet","text":"拉姆齐把含铀的矿石（沥青铀矿）加热，跑出来的气体光谱里竟然出现了那条只有太阳上才见过的 D₃ 黄线——人类第一次把氦握在手里。瑞典的克利夫和朗格莱几乎同时得到同样结果。他因此获得 1904 年诺贝尔化学奖。","src":"https://www.rsc.org/periodic-table/element/2/helium ／ https://periodic.lanl.gov/2.shtml"},{"type":"natural","year":1903,"who":"","text":"美国天然气田里发现大量氦，从此它从「太阳上的东西」变成工业原料。","src":"维基百科条目 + 门捷列夫 1869/1871 原表转录（P2 方案轮已核链）"}],"note":"1895 年拉姆齐从沥青铀矿里分离出氦气，是人类第一次在地球上拿到这种元素；1868 年只是光谱观测，不计入。"},"7":{"sym":"N","zh":"","nodes":[{"type":"isolated","year":1772,"who":"D. Rutherford（丹尼尔·卢瑟福）","text":"卢瑟福把空气中的氧气和二氧化碳都吸收掉，剩下一种气体，既不能帮东西燃烧，动物在里面也活不了。他确认这是一种新的气体（后来叫氮气）。当时舍勒、卡文迪什、普利斯特里也在研究同一种气体的路上。","src":"https://www.rsc.org/periodic-table/element/7/nitrogen ／ https://periodic.lanl.gov/7.shtml"}],"note":""},"8":{"sym":"O","zh":"","nodes":[{"type":"isolated","year":1774,"who":"J. Priestley / C. W. Scheele","text":"普利斯特里加热红色的氧化汞，收到一种气体：蜡烛在里面烧得更旺，老鼠在里面精神得多。瑞典的舍勒也独立得到了同样的气体。那时大家还相信「燃素说」，所以没人马上看懂这件事。","src":"https://www.rsc.org/periodic-table/element/8/oxygen ／ https://periodic.lanl.gov/8.shtml"}],"note":""},"9":{"sym":"F","zh":"","nodes":[{"type":"isolated","year":1886,"who":"H. Moissan（亨利·莫瓦桑）","text":"氟实在太活泼，几十年里没有一个化学家能把它单独弄出来，还有人做实验做到中毒受伤。莫瓦桑用低温电解的办法，第一次拿到了淡黄色的氟气。他因此获得 1906 年诺贝尔化学奖，奖状上写的正是「氟元素的分离」。","src":"https://www.rsc.org/periodic-table/element/9/fluorine ／ https://www.nobelprize.org/prizes/chemistry/1906/summary/"}],"note":""},"17":{"sym":"Cl","zh":"","nodes":[{"type":"isolated","year":1774,"who":"C. W. Scheele（舍勒）","text":"舍勒用盐酸和二氧化锰反应，得到一种黄绿色的气体。他确实把它弄出来了，却误以为里面还含有氧，没有认出这是新元素。","src":"https://www.rsc.org/periodic-table/element/17/chlorine ／ https://periodic.lanl.gov/17.shtml"},{"type":"named","year":1810,"who":"H. Davy（汉弗莱·戴维）","text":"戴维用实验证明这种黄绿色气体不是化合物，而是一种独立的元素，并用希腊语「黄绿色」给它取名 chlorine。","src":"https://periodic.lanl.gov/17.shtml ／ https://www.rsc.org/periodic-table/element/17/chlorine"}],"note":"1774 年舍勒已经拿到实物，但直到 1810 年戴维才证明它是元素，故 confidence=medium。"},"18":{"sym":"Ar","zh":"","nodes":[{"type":"observed","year":1785,"who":"H. Cavendish（卡文迪什）","text":"卡文迪什把空气中的氮和氧都去掉以后，发现总剩下大约 1% 怎么弄都不反应的气体。他把这个疑问记了下来，但一辈子没能解释它是什么。","src":"https://periodic.lanl.gov/18.shtml ／ https://www.rsc.org/periodic-table/element/18/argon"},{"type":"isolated","year":1894,"who":"Lord Rayleigh / W. Ramsay","text":"瑞利发现「从空气里提出来的氮」比「从化合物里做出来的氮」重那么一点点，拉姆齐和他一起追查这个差，终于分离出那种懒得反应的新气体，用希腊语「懒」给它取名 argon。他们分别获得 1904 年诺贝尔物理学奖和化学奖。","src":"https://www.rsc.org/periodic-table/element/18/argon ／ https://periodic.lanl.gov/18.shtml"}],"note":"1894 年瑞利与拉姆齐分离出氩气。1785 年卡文迪什只是发现空气里有约 1% 不反应的残余气体，属于观测。"},"19":{"sym":"K","zh":"","nodes":[{"type":"isolated","year":1807,"who":"H. Davy（汉弗莱·戴维）","text":"戴维把电池接到熔融的氢氧化钾上通电，第一次得到银白色的金属钾：它浮在水面上、一碰到水就烧起来。这是人类第一次用电解法把金属从化合物里取出来。他做完钾不到十天，又用同样的办法拿到了钠。","src":"https://www.rsc.org/periodic-table/element/19/potassium ／ https://periodic.lanl.gov/19.shtml"}],"note":""},"21":{"sym":"Sc","zh":"","nodes":[{"type":"predicted","year":1869,"who":"D. Mendeleev（门捷列夫）","text":"门捷列夫排周期表时发现，钙和钛之间空着一格。他断定那里应该有一种还没被发现的元素，估算出它的原子量，并叫它「类硼」（ekaboron）。（RSC 与维基正文都记 1869 年；维基信息框记 1871 年，那是他把预测性质写详细的年份）","src":"https://www.rsc.org/periodic-table/element/21/scandium ／ https://en.wikipedia.org/wiki/Scandium"},{"type":"isolated","year":1879,"who":"L. F. Nilson（尼尔松）","text":"瑞典化学家尼尔松从两种稀有矿物（黑稀金矿和硅铍钇矿）里分离出这种元素，用斯堪的纳维亚的拉丁名给它取名 scandium。大家随后发现，它就是门捷列夫预言的那个「类硼」。（LANL 记 1878 年，RSC 与维基记 1879 年）","src":"https://www.rsc.org/periodic-table/element/21/scandium ／ https://en.wikipedia.org/wiki/Scandium"},{"type":"isolated","year":1937,"who":"W. Fischer / K. Brünger / H. Grieneisen","text":"尼尔松拿到的是氧化钪，真正的金属钪又过了 58 年才做出来——用熔融氯化钪电解的办法。","src":"https://www.rsc.org/periodic-table/element/21/scandium ／ https://en.wikipedia.org/wiki/Scandium"}],"note":"LANL 记 1878，RSC 与维基百科一致记 1879，取 1879。"},"31":{"sym":"Ga","zh":"","nodes":[{"type":"predicted","year":1871,"who":"D. Mendeleev（门捷列夫）","text":"门捷列夫发现铝的下方还空着一格，就预言那里有一种没被发现的元素，算好它的原子量大约是 68、密度大约是 6，并叫它「类铝」（eka-aluminium）。","src":"https://periodic.lanl.gov/31.shtml ／ https://www.rsc.org/periodic-table/element/31/gallium"},{"type":"isolated","year":1875,"who":"P.-É. Lecoq de Boisbaudran（布瓦博德朗）","text":"法国化学家布瓦博德朗用光谱法在闪锌矿里看到一条新谱线，判断是新元素；同一年他用电解的办法得到了金属镓。它的性质和门捷列夫预言的一模一样——这是周期表第一次被证实真的能「预言」。","src":"https://www.rsc.org/periodic-table/element/31/gallium ／ https://periodic.lanl.gov/31.shtml"}],"note":""},"32":{"sym":"Ge","zh":"","nodes":[{"type":"predicted","year":1871,"who":"D. Mendeleev（门捷列夫）","text":"门捷列夫预言硅的下方空着一格，叫它「类硅」（ekasilicon），并算出它的原子量大约 71、密度大约 5.5。","src":"https://periodic.lanl.gov/32.shtml ／ https://www.rsc.org/periodic-table/element/32/germanium"},{"type":"isolated","year":1886,"who":"C. Winkler（温克勒）","text":"德国化学家温克勒在弗赖堡附近银矿里的一种新矿物（硫银锗矿）中分离出这种元素。他一测性质，发现和门捷列夫 15 年前预测的「类硅」几乎完全对上。","src":"https://www.rsc.org/periodic-table/element/32/germanium ／ https://periodic.lanl.gov/32.shtml"}],"note":""},"43":{"sym":"Tc","zh":"","nodes":[{"type":"predicted","year":1871,"who":"D. Mendeleev（门捷列夫）","text":"门捷列夫预言锰的下方缺一个原子量约 43 的元素，叫它「类锰」（eka-manganese）。这个空位空了六十多年，门捷列夫本人到去世都没等到它被发现。","src":"https://www.rsc.org/periodic-table/element/43/technetium ／ https://periodic.lanl.gov/43.shtml"},{"type":"synthesized","year":1937,"who":"C. Perrier / E. Segrè（佩里耶与塞格雷）","text":"劳伦斯从伯克利寄给塞格雷一块被回旋加速器轰击过的钼片。佩里耶和塞格雷从这块废片里分离出一种全新的放射性元素——第 43 号。这是人类第一次造出周期表上地球上没有的元素，它的名字 technetium 就是「人造的」的意思。","src":"https://www.rsc.org/periodic-table/element/43/technetium ／ https://periodic.lanl.gov/43.shtml"},{"type":"natural","year":1962,"who":"B. T. Kenna / P. K. Kuroda","text":"人们一直以为锝在自然界里完全不存在。1962 年，两位科学家在非洲（比属刚果）的沥青铀矿里找到了极微量的锝-99，含量大约是每公斤矿石 0.2 纳克——它是铀自己裂变时产生的。","src":"https://periodic.lanl.gov/43.shtml ／ https://en.wikipedia.org/wiki/Technetium"}],"note":""},"61":{"sym":"Pm","zh":"","nodes":[{"type":"predicted","year":1902,"who":"B. Branner（布拉纳）","text":"布拉纳预言，钕和钐之间应该还藏着一种元素。1914 年莫塞莱用 X 射线测出这个空位确实存在，但之后三十年谁也没能把它真正找出来。","src":"https://periodic.lanl.gov/61.shtml ／ https://en.wikipedia.org/wiki/Promethium"},{"type":"synthesized","year":1945,"who":"J. A. Marinsky / L. E. Glendenin / C. D. Coryell","text":"三位美国化学家从铀的裂变产物里，用离子交换色谱把第 61 号元素一点点分开，第一次拿到它的化学证据。它按希腊神话里偷火给人类的普罗米修斯命名为 promethium。","src":"https://www.rsc.org/periodic-table/element/61/promethium ／ https://periodic.lanl.gov/61.shtml"}],"note":""},"85":{"sym":"At","zh":"","nodes":[{"type":"synthesized","year":1940,"who":"D. R. Corson / K. R. MacKenzie / E. Segrè","text":"三位科学家在伯克利用α粒子轰击铋，造出了第 85 号元素。它极其不稳定，寿命最长的一个同位素也只能存在几个小时，而且每次只能得到极少的原子，根本看不见摸不着。它的名字来自希腊语「不稳定」。","src":"https://www.rsc.org/periodic-table/element/85/astatine ／ https://periodic.lanl.gov/85.shtml"}],"note":""},"87":{"sym":"Fr","zh":"","nodes":[{"type":"predicted","year":1869,"who":"D. Mendeleev（门捷列夫）","text":"门捷列夫预言铯的下方还有一个和铯很像的元素没被发现。此后几十年里，不断有人宣称找到了它，又一个个被推翻——它成了周期表上最难抓的空位之一。","src":"https://www.rsc.org/periodic-table/element/87/francium ／ https://en.wikipedia.org/wiki/Francium"},{"type":"isolated","year":1939,"who":"M. Perey（玛格丽特·佩雷）","text":"居里研究所的佩雷在提纯锕的时候，发现一种半衰期只有 22 分钟、化学性质却像铯的新放射性物质——第 87 号元素。她给老师居里夫人看过这份成果。她用法国给它取名 francium，是独自发现一个元素的第一位女性。","src":"https://www.rsc.org/periodic-table/element/87/francium ／ https://periodic.lanl.gov/87.shtml"}],"note":""},"88":{"sym":"Ra","zh":"","nodes":[{"type":"isolated","year":1898,"who":"P. Curie / M. Curie（皮埃尔与玛丽·居里）","text":"居里夫妇把成吨的沥青铀矿残渣一遍遍溶解、结晶，终于分出一点点放射性极强的新元素。居里夫人用拉丁语里「射线」（radius）给它取名 radium。他们和贝克勒尔一起获得 1903 年诺贝尔物理学奖。","src":"https://www.rsc.org/periodic-table/element/88/radium ／ https://periodic.lanl.gov/88.shtml"},{"type":"isolated","year":1911,"who":"M. Curie / A. Debierne","text":"居里夫人和德比耶尔纳把纯氯化镭拿来电解，第一次得到了金属状态的镭。（LANL 记 1911 年，维基百科记 1910 年）同年她获得诺贝尔化学奖，颁奖词里写的就是「发现镭和钋、并分离出镭」。","src":"https://periodic.lanl.gov/88.shtml ／ https://www.nobelprize.org/prizes/chemistry/1911/summary/"}],"note":"1898 年居里夫妇分出的是氯化镭（实物在手的化合物），金属镭要到 1910/1911 年，按站点口径取 1898。"},"92":{"sym":"U","zh":"","nodes":[{"type":"isolated","year":1789,"who":"M. H. Klaproth（克拉普罗特）","text":"德国化学家克拉普罗特研究沥青铀矿时，断定里面藏着一种新元素，用刚发现不久的行星天王星（Uranus）给它命名为 uranium。不过他要到的其实不是纯金属，而是铀的氧化物。","src":"https://www.rsc.org/periodic-table/element/92/uranium ／ https://periodic.lanl.gov/92.shtml"},{"type":"isolated","year":1841,"who":"E.-M. Péligot（佩利戈）","text":"法国化学家佩利戈用钾去还原四氯化铀，第一次得到了真正的金属铀——距离克拉普罗特下判断已经过去 52 年。","src":"https://www.rsc.org/periodic-table/element/92/uranium ／ https://periodic.lanl.gov/92.shtml"}],"note":"1789 年克拉普罗特拿到的是铀的氧化物而非纯金属，纯金属要到 1841 年，故 confidence=medium。"},"94":{"sym":"Pu","zh":"","nodes":[{"type":"synthesized","year":1940,"who":"G. T. Seaborg / E. M. McMillan / J. W. Kennedy / A. C. Wahl","text":"在伯克利，西博格等人用氘核轰击铀-238，先造出第 93 号镎，镎又自己衰变成第 94 号元素。他们照着「铀=天王星、镎=海王星」的顺序，用冥王星（Pluto）给它取名 plutonium。因为钚-239 能发生核裂变，论文被紧急撤回，成果一直保密到二战结束。1951 年西博格与麦克米伦因超铀元素研究获得诺贝尔化学奖。","src":"https://www.rsc.org/periodic-table/element/94/plutonium ／ https://periodic.lanl.gov/94.shtml"}],"note":""},"113":{"sym":"Nh","zh":"","nodes":[{"type":"synthesized","year":2004,"who":"K. Morita 与理化学研究所（RIKEN）团队","text":"日本理化所的森田浩介团队用锌-70 去轰击铋-209，撞了九年，终于在 2004 年得到第 113 号元素的原子。这是亚洲国家第一次发现新元素。","src":"https://www.rsc.org/periodic-table/element/113/nihonium ／ https://en.wikipedia.org/wiki/Nihonium"},{"type":"confirmed","year":2015,"who":"IUPAC / IUPAP 联合工作组","text":"2015 年 12 月 30 日，IUPAC 与 IUPAP 的联合工作组审查后认定：理研团队对第 113 号元素的发现成立。周期表第 7 行终于被填满。","src":"https://iupac.org/discovery-and-assignment-of-elements-with-atomic-numbers-113-115-117-and-118/ ／ https://en.wikipedia.org/wiki/Nihonium"},{"type":"named","year":2016,"who":"IUPAC（理研提出）","text":"经过 5 个月的公开评议，IUPAC 在 2016 年 11 月 28 日正式批准第 113 号元素命名为 nihonium（Nh），名字来自日语里对「日本」的一种读法 Nihon。","src":"https://iupac.org/iupac-announces-the-names-of-the-elements-113-115-117-and-118/ ／ https://periodic.lanl.gov/113.shtml"}],"note":""},"118":{"sym":"Og","zh":"","nodes":[{"type":"synthesized","year":2002,"who":"JINR（杜布纳）/ LLNL（利弗莫尔）合作组","text":"俄罗斯杜布纳联合核子研究所和美国劳伦斯利弗莫尔实验室合作，用钙-48 轰击锎-249，得到了第 118 号元素的原子。它存在不到一毫秒就衰变了，科学家只能顺着它衰变出来的碎片反推它真的出现过。（RSC 把发现年份记作 2006 年，那是论文正式发表的年份）","src":"https://www.rsc.org/periodic-table/element/118/oganesson ／ https://en.wikipedia.org/wiki/Oganesson"},{"type":"confirmed","year":2015,"who":"IUPAC / IUPAP 联合工作组","text":"2015 年 12 月 30 日，IUPAC 与 IUPAP 的联合工作组发表结论：杜布纳—利弗莫尔合作组对第 118 号元素的发现符合认定标准。","src":"https://iupac.org/discovery-and-assignment-of-elements-with-atomic-numbers-113-115-117-and-118/ ／ https://en.wikipedia.org/wiki/Oganesson"},{"type":"named","year":2016,"who":"IUPAC（JINR 与 LLNL 提出）","text":"2016 年 11 月 28 日，IUPAC 正式批准第 118 号元素命名为 oganesson（Og），纪念长期研究超重元素的俄罗斯核物理学家尤里·奥加涅相。","src":"https://iupac.org/iupac-announces-the-names-of-the-elements-113-115-117-and-118/ ／ https://periodic.lanl.gov/118.shtml"}],"note":"RSC 把发现年份记作 2006（论文发表年），维基与 IUPAC 相关报道记 2002（首次合成年），故 confidence=medium。"}};
+  var ELS = window.__ELS__ || [];
+  var BY = {}; ELS.forEach(function (e) { BY[e.z] = e; });
+
+  var SECS = [
+    { id: 's-story', no: '01', t: '它为什么长成这个样子' },
+    { id: 's-atom', no: '02', t: '拆开一个原子看看' },
+    { id: 's-history', no: '03', t: '这张表是怎么被填满的' },
+    { id: 's-table', no: '04', t: '整张表，以及怎么读它' },
+    { id: 's-rel', no: '05', t: '元素的亲戚' },
+    { id: 's-game', no: '06', t: '来找错' },
+    { id: 's-tell', no: '07', t: '讲给我听' }
+  ];
+
+  var K_MODE = 'ef_mode_v1', K_PROG = 'ef_prog_v1', K_QUIZ = 'ef_quiz_v1', K_SEEN = 'ef_seen_v1';
+
+  function ls(k, v) {
+    try {
+      if (v === undefined) { return window.localStorage.getItem(k); }
+      window.localStorage.setItem(k, v);
+    } catch (e) { return null; }
+    return v;
+  }
+  function lsj(k, d) {
+    try {
+      var s = window.localStorage.getItem(k);
+      return s ? JSON.parse(s) : d;
+    } catch (e) { return d; }
+  }
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"]/g, function (m) {
+      return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[m];
+    });
+  }
+  function h(tag, cls, txt) {
+    var d = document.createElement(tag);
+    if (cls) { d.className = cls; }
+    if (txt != null) { d.textContent = txt; }
+    return d;
+  }
+
+  /* ─────────── ⑤ 原子量语义 ─────────── */
+  var KIND = {
+    std: { k: '标准原子量', why: true },
+    range: { k: '区间（不同来源不一样）' },
+    iso: { k: '最稳定同位素质量数（不是原子量）' }
+  };
+  function mOf(z) { return MASS[String(z)] || null; }
+  function massKind(z) { var m = mOf(z); return m ? m.kind : 'std'; }
+  function massDisp(z) { var m = mOf(z); return m ? m.disp : String((BY[z] || {}).mass); }
+
+  /* 卡片 / 详情里用的原子量 HTML：数值 + 形态标签 + 「为什么」 */
+  function massHTML(z) {
+    var m = mOf(z), e = BY[z];
+    if (!m) { return esc(e ? e.mass : ''); }
+    var kid = 'efmass_' + z;
+    return '<span class="ef-mass ef-' + m.kind + '">' + esc(m.disp) + '</span>' +
+      '<span class="ef-masskind">' + esc(KIND[m.kind].k) + '</span>' +
+      '<button class="ef-massbtn" type="button" aria-expanded="false" aria-controls="' + kid + '">为什么这样写</button>' +
+      '<p class="ef-masswhy" id="' + kid + '" hidden>' + esc(m.why) +
+      '<br><span style="font-family:var(--monoFont);font-size:11px">来源：' + esc(m.src) + '</span></p>';
+  }
+
+  /* 原子装置里的原子量（atomPaint 调用） */
+  function paintMass(e) {
+    var dd = document.getElementById('atom_mass');
+    if (dd) { dd.textContent = massDisp(e.z); }
+    var kd = document.getElementById('atom_mass_kind');
+    if (kd) {
+      var m = mOf(e.z);
+      kd.textContent = m ? KIND[m.kind].k : '';
+    }
+    var nd = document.getElementById('atom_nuc');
+    var massNo = (mOf(e.z) && mOf(e.z).massno) || Math.round(e.mass);
+    if (nd) {
+      var neu = Math.max(0, massNo - e.z);
+      nd.textContent = e.z + ' 个质子 + 约 ' + neu + ' 个中子（常见同位素）' +
+        (mOf(e.z) && mOf(e.z).kind === 'iso' ? '；这里按最稳定的那一种算' : '');
+    }
+    var w = document.getElementById('atom_masswhy');
+    if (w) {
+      var m2 = mOf(e.z);
+      w.hidden = true;
+      if (m2) {
+        w.innerHTML = m2.why + '<br><span style="font-family:var(--monoFont);font-size:11px">来源：' + esc(m2.src) + '</span>';
+      }
+    }
+  }
+
+  function bindMassWhy(root) {
+    root.addEventListener('click', function (ev) {
+      var b = ev.target.closest ? ev.target.closest('.ef-massbtn') : null;
+      if (!b) { return; }
+      var id = b.getAttribute('aria-controls');
+      var p = id ? document.getElementById(id) : null;
+      if (!p) { return; }
+      p.hidden = !p.hidden;
+      b.setAttribute('aria-expanded', String(!p.hidden));
+    });
+  }
+
+  /* 表头三形态图例（点一下看解释） */
+  function buildMassLegend() {
+    var table = document.getElementById('s-table');
+    if (!table || document.getElementById('efmassleg')) { return; }
+    var legend = table.querySelector('.legend');
+    if (!legend) { return; }
+    var counts = { std: [], range: [], iso: [] };
+    ELS.forEach(function (e) {
+      var k = massKind(e.z);
+      if (counts[k]) { counts[k].push(e); }
+    });
+    var box = h('div'); box.id = 'efmassleg';
+    box.innerHTML =
+      '<div class="ef-ml-h"><h3>「体重」有三种写法</h3>' +
+      '<span class="ef-ml-t">点一下看解释</span></div>' +
+      '<p class="ef-ml-chips">' +
+      '<button class="ef-ml-chip m-std" type="button" data-k="std" aria-pressed="false"><i></i>单值 ' + counts.std.length + ' 个</button>' +
+      '<button class="ef-ml-chip m-range" type="button" data-k="range" aria-pressed="false"><i></i>区间 ' + counts.range.length + ' 个</button>' +
+      '<button class="ef-ml-chip m-iso" type="button" data-k="iso" aria-pressed="false"><i></i>方括号 ' + counts.iso.length + ' 个</button>' +
+      '</p>' +
+      '<div class="ef-ml-panel" hidden></div>';
+    legend.parentNode.insertBefore(box, legend);
+    var panel = box.querySelector('.ef-ml-panel');
+    var TXT = {
+      std: '<b>单值</b>：一个数字，括号里是不确定度（末位 ± 这么多）。' +
+        '例：氦 <span class="ef-mass">4.002602(2)</span>。这是最规范的一种写法：' +
+        '绝大多数元素在大自然里的同位素比例很稳定，所以给得出一个确定的数。',
+      range: '<b>区间</b>：给的是上下限，不是一个数。同一个元素，岩石里的和生物体内的同位素比例不一样，' +
+        '测出来就不是同一个值。例：碳 <span class="ef-mass">12.0096 – 12.0116</span>。',
+      iso: '<b>方括号</b>：方括号里的数字<b>不是原子量</b>，是「这个元素最稳定的那种同位素的质量数」。' +
+        '放射性元素会不断衰变，没有稳定的原子量可算。例：锝 <span class="ef-mass">[97]</span>——' +
+        '它最稳定的是锝-97，活大约 421 万年。'
+    };
+    box.querySelector('.ef-ml-chips').addEventListener('click', function (ev) {
+      var b = ev.target.closest('.ef-ml-chip');
+      if (!b) { return; }
+      var k = b.getAttribute('data-k');
+      var was = b.getAttribute('aria-pressed') === 'true';
+      Array.prototype.forEach.call(box.querySelectorAll('.ef-ml-chip'), function (x) { x.setAttribute('aria-pressed', 'false'); });
+      if (was) { panel.hidden = true; return; }
+      b.setAttribute('aria-pressed', 'true');
+      var list = counts[k].map(function (e) { return '<span>' + esc(e.sym) + ' ' + esc(e.zh) + '</span>'; }).join('');
+      panel.innerHTML = '<p style="margin:0">' + TXT[k] + '</p>' +
+        '<p style="margin:10px 0 0"><b>这一类共 ' + counts[k].length + ' 个</b></p>' +
+        '<p class="ef-ml-list">' + list + '</p>';
+      panel.hidden = false;
+    });
+  }
+
+  /* ─────────── ④ 历史节点 ─────────── */
+  var NODEK = {
+    observed: { zh: '在光谱/实验里观察到', d: 'ef-t-observed' },
+    predicted: { zh: '被预言应该存在', d: 'ef-t-predicted' },
+    isolated: { zh: '分离出实物', d: 'ef-t-isolated' },
+    natural: { zh: '在自然界里确认', d: 'ef-t-natural' },
+    synthesized: { zh: '人工合成出来', d: 'ef-t-synthesized' },
+    confirmed: { zh: '被官方确认', d: 'ef-t-confirmed' },
+    named: { zh: '正式命名', d: 'ef-t-named' }
+  };
+  /* 「已认识」口径（Sky 拍板）：手里拿到实物 / 被公认为一种元素。
+     只看「在光谱里见过」不算——所以氦 1868 年在太阳光谱里被看到，1869 年仍不计入。 */
+  var SOLID = { isolated: 1, natural: 1, synthesized: 1, confirmed: 1 };
+
+  function nodesOf(z) {
+    var n = NODES[String(z)];
+    if (!n) { return null; }
+    var arr = n.nodes || n;
+    return (arr && arr.length) ? arr : null;
+  }
+  function recogYear(e) {
+    var ns = nodesOf(e.z);
+    if (ns) {
+      var best = null;
+      ns.forEach(function (n) {
+        if (!SOLID[n.type]) { return; }
+        if (typeof n.year !== 'number') { return; }
+        if (best === null || n.year < best) { best = n.year; }
+      });
+      if (best !== null) { return best; }
+    }
+    return typeof e.year === 'number' ? e.year : null;
+  }
+  function recogWhy(e) {
+    var ns = nodesOf(e.z);
+    if (!ns) { return null; }
+    var best = null;
+    ns.forEach(function (n) {
+      if (!SOLID[n.type] || typeof n.year !== 'number') { return; }
+      if (!best || n.year < best.year) { best = n; }
+    });
+    return best;
+  }
+
+  function histHTML(z, cls) {
+    var e = BY[z], ns = nodesOf(z);
+    if (!e) { return ''; }
+    if (!ns) {
+      var txt = e.year
+        ? (e.year + ' 年 · ' + esc(e.disc || '发现者不详'))
+        : ('古代就认识' + (e.firstuse ? '（最早使用约公元前 ' + Math.abs(e.firstuse) + ' 年）' : ''));
+      return '<div class="' + (cls || 'ef-oneline') + '"><b>发现</b>　' + txt +
+        '<br><span style="font-size:12px">（这一条还没补多节点资料，所以只有一行。）</span></div>';
+    }
+    var sorted = ns.slice().sort(function (a, b) { return (a.year || 0) - (b.year || 0); });
+    /* 站内「发现年份」与节点口径不一致时，主动把缝标出来，不让两个数默默打架 */
+    var gap = '';
+    var ry = recogYear(e);
+    if (ry !== null && e.year && ry !== e.year) {
+      var soft = sorted.filter(function (n) { return (n.type === 'observed' || n.type === 'predicted') && n.year && n.year < ry; });
+      gap = '<p class="ef-sub ef-gap">注意卡片上方写的「发现年份」是 ' + e.year + '，下面这条时间轴按「手里拿到实物」算是 ' + ry +
+        '。两个数不一样是口径不同：' + (soft.length
+          ? ('上面那个记的是「' + soft[0].year + ' 年第一次有人注意到它」（可能只是光谱里一条线、或者一个预言），那不算拿到实物。')
+          : '上面那个是站内数据表登记的年份，下面按「第一次分离出实物」计。') + '</p>';
+    }
+    return '<div class="' + (cls || 'ef-hist') + '"><h4>关键历史节点</h4>' +
+      '<p class="ef-sub">同一件事被压成一个年份就会失真：「在光谱里见过」「被预言该存在」「手里拿到实物」「人工造出来」是四件事。' +
+      '点任一节点看说明与来源。带下划线的是「手里拿到实物」，时间轴按它计数。</p>' + gap +
+      '<div class="ef-nodes" role="list">' +
+      sorted.map(function (n, i) {
+        var k = NODEK[n.type] || { zh: n.type, d: '' };
+        return '<button class="ef-node' + (SOLID[n.type] ? ' ef-solid' : '') + '" type="button" role="listitem" data-i="' + i + '" aria-expanded="false">' +
+          '<span class="ef-ny">' + (n.year != null ? n.year : '—') + (n.who ? '　' + esc(n.who) : '') + '</span>' +
+          '<span class="ef-nk"><i class="ef-nd ' + k.d + '"></i>' + esc(k.zh) + '</span></button>';
+      }).join('') +
+      '</div>' +
+      '<div class="ef-nodedetail" hidden aria-live="polite"></div></div>';
+  }
+
+  function bindHist(root, z) {
+    var ns = nodesOf(z); if (!ns) { return; }
+    var sorted = ns.slice().sort(function (a, b) { return (a.year || 0) - (b.year || 0); });
+    var box = root.querySelector('.ef-nodedetail');
+    if (!box) { return; }
+    root.addEventListener('click', function (ev) {
+      var b = ev.target.closest ? ev.target.closest('.ef-node') : null;
+      if (!b || !root.contains(b)) { return; }
+      var n = sorted[parseInt(b.getAttribute('data-i'), 10)];
+      if (!n) { return; }
+      var was = b.getAttribute('aria-expanded') === 'true';
+      Array.prototype.forEach.call(root.querySelectorAll('.ef-node'), function (x) { x.setAttribute('aria-expanded', 'false'); });
+      if (was) { box.hidden = true; return; }
+      b.setAttribute('aria-expanded', 'true');
+      var k = NODEK[n.type] || { zh: n.type };
+      box.innerHTML = '<b>' + (n.year != null ? n.year + ' 年' : '年代不详') + ' · ' + esc(k.zh) + '</b>' +
+        (n.who ? '　' + esc(n.who) : '') + '<br>' + esc(n.text || '') +
+        (n.src ? '<span class="ef-nodesrc">来源：' + esc(n.src) + '</span>' : '');
+      box.hidden = false;
+    });
+  }
+
+  /* ─────────── ③ 关系图谱（7 类，全部从已有字段推） ─────────── */
+  var BIO_KW = ['人体', '身体', '骨骼', '骨头', '血液', '牙齿', '呼吸', '神经', 'DNA', '血红蛋白', '叶绿素', '微量元素', '维生素', '甲状腺', '细胞'];
+  var IND_KW = ['电池', '合金', '催化剂', '玻璃', '半导体', '芯片', '钢', '焊', '燃料', '化肥', '水泥', '颜料', '阻燃', '太阳能', '灯泡', '激光', '电镀', '陶瓷', '烟花', '电瓶'];
+  function hasKW(txt, kws) { return kws.filter(function (k) { return txt.indexOf(k) >= 0; }); }
+
+  function partners(e) {
+    var out = [];
+    var clauses = String(e.use || '').split(/[；;。，,、（）()]/);
+    ELS.forEach(function (o) {
+      if (o.z === e.z) { return; }
+      var hit = clauses.some(function (c) {
+        return c.indexOf(e.zh) >= 0 && (c.indexOf(o.zh) >= 0 || c.indexOf(o.sym) >= 0);
+      });
+      if (!hit) {
+        var ocl = String(o.use || '').split(/[；;。，,、（）()]/);
+        hit = ocl.some(function (c) { return c.indexOf(o.zh) >= 0 && (c.indexOf(e.zh) >= 0 || c.indexOf(e.sym) >= 0); });
+      }
+      if (hit) { out.push({ z: o.z, auto: true, why: '用途里和它出现在同一句话：' + String(e.use || '').slice(0, 24) + '…' }); }
+    });
+    return out.slice(0, 6);
+  }
+
+  function rel7(z) {
+    var e = BY[z]; if (!e) { return []; }
+    var rows = [];
+    var famZ = ELS.filter(function (o) {
+      return o.z !== z && o.group === e.group && o.cat === e.cat && e.cat !== '镧系' && e.cat !== '锕系';
+    }).sort(function (a, b) { return Math.abs(a.z - e.z) - Math.abs(b.z - e.z); });
+    rows.push({
+      key: 'sameg', label: '同族', note: '纵向同一列',
+      items: famZ.slice(0, 8).map(function (o) {
+        return { z: o.z, auto: false, why: '第 ' + e.group + ' 列：最外层电子数一样，脾气像一家人' };
+      })
+    });
+    var perZ = ELS.filter(function (o) { return o.z !== z && o.period === e.period; });
+    rows.push({
+      key: 'samep', label: '同周期', note: '同一行',
+      items: perZ.map(function (o) {
+        return { z: o.z, auto: false, why: '第 ' + e.period + ' 行：电子层数一样，最外层一个一个变过去' };
+      })
+    });
+    var catZ = ELS.filter(function (o) { return o.z !== z && o.cat === e.cat; });
+    rows.push({
+      key: 'samec', label: '同区（同一类）', note: '颜色一样的那一批',
+      items: catZ.map(function (o) { return { z: o.z, auto: false, why: '同属' + e.cat }; })
+    });
+    rows.push({ key: 'mate', label: '常见搭档', note: '一起用的元素', items: partners(e) });
+    var bio = ELS.filter(function (o) {
+      if (o.z === e.z) { return false; }
+      return hasKW(String(o.use || ''), BIO_KW).length > 0;
+    }).slice(0, 8);
+    rows.push({
+      key: 'bio', label: '生物体内', note: '身体里干活的', items: bio.map(function (o) {
+        return { z: o.z, auto: true, why: '用途里提到：' + hasKW(String(o.use || ''), BIO_KW).join('、') };
+      })
+    });
+    var ind = ELS.filter(function (o) {
+      if (o.z === e.z) { return false; }
+      return hasKW(String(o.use || ''), IND_KW).length > 0;
+    }).slice(0, 8);
+    rows.push({
+      key: 'ind', label: '工业用途', note: '工厂里成对出现的', items: ind.map(function (o) {
+        return { z: o.z, auto: true, why: '用途里提到：' + hasKW(String(o.use || ''), IND_KW).join('、') };
+      })
+    });
+    var ey = recogYear(e);
+    var era = ey === null ? [] : ELS.filter(function (o) {
+      var oy = recogYear(o);
+      return o.z !== z && oy !== null && Math.abs(oy - ey) <= 3 &&
+        recogYear(o) !== null && (o.period === e.period || String(o.use || '').length > 0);
+    }).sort(function (a, b) { return Math.abs(recogYear(a) - ey) - Math.abs(recogYear(b) - ey); }).slice(0, 8);
+    rows.push({
+      key: 'era', label: '同时代', note: '差不多同时被认识',
+      items: era.map(function (o) {
+        return { z: o.z, auto: true, why: recogYear(o) + ' 年前后，与它的 ' + ey + ' 相差不到 3 年' };
+      })
+    });
+    return rows;
+  }
+
+  function relHTML(z) {
+    var rows = rel7(z);
+    if (!rows.length) { return ''; }
+    return '<div class="ef-rel7"><h4>看它的关系</h4>' +
+      '<p class="ef-sub">选一类关系看它们之间的牵连。带「自动」的是按站内已有字段（族 / 周期 / 类别 / 年份 / 用途）推出来的，' +
+      '不是新查来的事实；点任意一个标签就走到那个元素去。</p>' +
+      '<div class="ef-relrows">' + rows.map(function (r, i) {
+        return '<div class="ef-relrow" data-k="' + r.key + '"' + (i < 3 ? '' : ' hidden') + '>' +
+          '<div class="ef-relk">' + esc(r.label) + '<em>' + esc(r.note) + '</em></div>' +
+          '<div class="ef-relchips">' + (r.items.length ? r.items.map(function (it) {
+            var o = BY[it.z];
+            return '<button class="ef-relchip" type="button" data-jump="' + it.z + '" title="' + esc(it.why) + '">' +
+              '<b>' + esc(o.sym) + '</b>' + esc(o.zh) +
+              (it.auto ? '<span class="ef-auto">自动</span>' : '') + '</button>';
+          }).join('') : '<p class="ef-relnone">这一类里暂时没有别的元素。</p>') + '</div></div>';
+      }).join('') + '</div>' +
+      '<button class="ef-relmore" type="button" id="efrelmore' + z + '">展开全部 7 类 ▾</button></div>';
+  }
+
+  function bindRel(root, z) {
+    var more = root.querySelector('.ef-relmore');
+    if (more) {
+      more.addEventListener('click', function () {
+        var open = more.textContent.indexOf('展开') >= 0;
+        Array.prototype.forEach.call(root.querySelectorAll('.ef-relrow'), function (r, i) {
+          if (i >= 3) { r.hidden = !open; }
+        });
+        more.textContent = open ? '收起 ▴' : '展开全部 7 类 ▾';
+      });
+    }
+    root.addEventListener('click', function (ev) {
+      var c = ev.target.closest ? ev.target.closest('.ef-relchip') : null;
+      if (c) {
+        var jz = parseInt(c.getAttribute('data-jump'), 10);
+        var g = document.getElementById('fullgrid');
+        if (g) {
+          var cell = g.querySelector('.el[data-z="' + jz + '"]');
+          if (cell) { cell.click(); return; }
+        }
+        return;
+      }
+      var k = ev.target.closest ? ev.target.closest('.ef-relk') : null;
+      if (k) {
+        var row = k.parentNode;
+        Array.prototype.forEach.call(root.querySelectorAll('.ef-relrow'), function (r) {
+          r.classList.toggle('on', r === row);
+        });
+      }
+    });
+  }
+
+  /* ─────────── ② 预测题组件 ─────────── */
+  function quizState() { return lsj(K_QUIZ, { answered: {} }); }
+  function quizScore() {
+    var s = quizState(), r = 0, t = 0;
+    Object.keys(s.answered).forEach(function (k) { t++; if (s.answered[k].ok) { r++; } });
+    return { right: r, total: t };
+  }
+  function qOpts(q) {
+    return (q.opts || q.options || []).map(function (o) {
+      if (typeof o === 'string') { return { t: o, ok: false }; }
+      return { t: o.t != null ? o.t : o.text, ok: !!(o.ok || o.right) };
+    });
+  }
+  function buildQuiz(q) {
+    var opts = qOpts(q);
+    var isMulti = !!q.multi;
+    var wrap = h('div', 'efq' + (isMulti ? ' efq-multi' : ''));
+    wrap.setAttribute('data-id', q.id);
+    wrap.innerHTML = '<p class="efq-tag">' + esc(q.tag || '先猜一下') + '</p>' +
+      '<p class="efq-q">' + esc(q.q) + '</p>' +
+      '<div class="efq-opts" role="group" aria-label="选项">' +
+      opts.map(function (o, i) {
+        return '<button class="efq-opt" type="button" aria-pressed="false" data-i="' + i + '">' + esc(o.t) + '</button>';
+      }).join('') + '</div>' +
+      (isMulti ? '<button class="efq-go" type="button">看对了没</button>' : '') +
+      '<div class="efq-a" aria-live="polite" hidden></div>';
+    var a = wrap.querySelector('.efq-a');
+    var st = quizState();
+    var wantIdx = [], want0 = 0;
+    opts.forEach(function (o, i) { if (o.ok) { wantIdx.push(i); want0 = i; } });
+
+    function finish(pick, restore) {
+      var picks = [].concat(pick);
+      Array.prototype.forEach.call(wrap.querySelectorAll('.efq-opt'), function (b, i) {
+        b.disabled = true;
+        b.setAttribute('aria-pressed', String(picks.indexOf(i) >= 0));
+        if (isMulti) {
+          if (opts[i].ok) { b.classList.add('efq-right'); }
+          else if (picks.indexOf(i) >= 0) { b.classList.add('efq-wrong'); }
+        } else {
+          if (i === want0) { b.classList.add('efq-right'); }
+          if (i === pick && pick !== want0) { b.classList.add('efq-wrong'); }
+        }
+      });
+      var ok, verdict;
+      if (isMulti) {
+        var hit = picks.filter(function (i) { return wantIdx.indexOf(i) >= 0; }).length;
+        var miss = picks.filter(function (i) { return wantIdx.indexOf(i) < 0; }).length;
+        ok = (hit === wantIdx.length && miss === 0);
+        verdict = ok
+          ? '你选了 ' + picks.length + ' 项，正好就是那两项 —— 选对了。'
+          : '你选了 ' + picks.length + ' 项：对的选到 ' + hit + ' / ' + wantIdx.length + '，错的选进 ' + miss + ' 项。';
+      } else {
+        ok = pick === want0;
+        verdict = ok
+          ? '你押的是「' + esc(opts[pick] ? opts[pick].t : '') + '」，实际就是它 —— 押对了。'
+          : '你押的是「' + esc(opts[pick] ? opts[pick].t : '（没选）') + '」，实际是「' + esc(opts[want0].t) + '」。';
+      }
+      a.innerHTML = '<span class="efq-verdict">' + verdict + '</span>' +
+        esc(q.why || '') +
+        (q.src ? '<span class="efq-src">来源：<b>' + esc(q.src) + '</b></span>' : '');
+      a.hidden = false;
+      var go = wrap.querySelector('.efq-go');
+      if (go) { go.hidden = true; }
+      if (!restore) {
+        var s2 = quizState();
+        s2.answered[q.id] = { pick: pick, ok: ok };
+        ls(K_QUIZ, JSON.stringify(s2));
+        paintScore();
+      }
+    }
+    wrap.querySelector('.efq-opts').addEventListener('click', function (ev) {
+      var b = ev.target.closest ? ev.target.closest('.efq-opt') : null;
+      if (!b || b.disabled) { return; }
+      var i = parseInt(b.getAttribute('data-i'), 10);
+      if (!isMulti) { finish(i, false); return; }
+      b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') === 'true' ? 'false' : 'true');
+    });
+    var goBtn = wrap.querySelector('.efq-go');
+    if (goBtn) {
+      goBtn.addEventListener('click', function () {
+        var picks = [];
+        Array.prototype.forEach.call(wrap.querySelectorAll('.efq-opt'), function (b, i) {
+          if (b.getAttribute('aria-pressed') === 'true') { picks.push(i); }
+        });
+        if (!picks.length) { goBtn.textContent = '先选至少一项'; setTimeout(function () { goBtn.textContent = '看对了没'; }, 1200); return; }
+        finish(picks, false);
+      });
+    }
+    if (st.answered[q.id]) {
+      var prev = st.answered[q.id];
+      finish(prev.pick, true);
+    }
+    return wrap;
+  }
+  function paintScore() {
+    var s = quizScore();
+    var el = document.getElementById('efquizscore');
+    if (el) {
+      el.textContent = s.total ? ('预测题 押对 ' + s.right + ' / ' + s.total) : '预测题 还没押';
+      el.hidden = false;
+    }
+  }
+  function mountQuiz() {
+    if (!QUIZ || !QUIZ.length) { return; }
+    var host = document.getElementById('efquizhost');
+    if (host) { host.remove(); }
+    var byAnchor = {};
+    QUIZ.forEach(function (q) { (byAnchor[q.anchor] = byAnchor[q.anchor] || []).push(q); });
+    var used = [];
+    Object.keys(byAnchor).forEach(function (aid) {
+      var sec = document.getElementById(aid);
+      if (!sec) { sec = document.getElementById('s-table'); }
+      if (!sec) { return; }
+      var group = h('div', 'efqgroup');
+      group.id = 'efquiz_' + aid;
+      byAnchor[aid].forEach(function (q) { group.appendChild(buildQuiz(q)); });
+      var next = sec.querySelector('.ef-next');
+      if (next) { sec.insertBefore(group, next); } else { sec.appendChild(group); }
+      used.push(aid);
+    });
+    paintScore();
+  }
+
+  /* ─────────── ① 双模式外壳 ─────────── */
+  function buildProgress() {
+    var rail = document.getElementById('navrail');
+    if (!rail || document.getElementById('efprog')) { return; }
+    var p = h('span', 'ef-progress'); p.id = 'efprog';
+    var s = h('span', 'ef-progress'); s.id = 'efquizscore'; s.hidden = true;
+    var chip = h('button', 'chip ef-modechip'); chip.id = 'efmodeswitch'; chip.type = 'button';
+    chip.addEventListener('click', function () {
+      setMode(document.body.classList.contains('ef-explore') ? 'learn' : 'explore');
+    });
+    rail.appendChild(s);
+    rail.appendChild(p);
+    rail.appendChild(chip);
+  }
+  function navH() {
+    var r = document.getElementById('navrail');
+    if (!r) { return 60; }
+    var host = r.closest('nav') || r.parentNode;
+    var b = host.getBoundingClientRect();
+    return (b.height || 60) + ((b.top > 0) ? b.top : 0);
+  }
+  function jumpTo(el) {
+    if (!el) { return; }
+    var y = el.getBoundingClientRect().top + window.scrollY - navH() - 14;
+    window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+  }
+
+  function setMode(mode, persist, hideGate) {
+    var prev = setMode._m;
+    setMode._m = mode;
+    document.body.classList.toggle('ef-explore', mode === 'explore');
+    document.body.classList.toggle('ef-learn', mode !== 'explore');
+    var chip = document.getElementById('efmodeswitch');
+    if (chip) { chip.textContent = mode === 'explore' ? '⇄ 切到学习路径' : '⇄ 切到自由探索'; }
+    var gate = document.getElementById('efgate');
+    if (gate && hideGate !== false) { gate.hidden = true; }
+    var fold = document.querySelector('details.ef-fold');
+    if (fold && prev !== mode) { fold.open = mode !== 'explore'; }
+    var hf = document.querySelector('header.hero .herofigure');
+    if (hf) { hf.hidden = mode === 'explore'; }
+    Array.prototype.forEach.call(document.querySelectorAll('[data-mode]'), function (b) {
+      b.setAttribute('aria-pressed', String(b.getAttribute('data-mode') === mode));
+    });
+    if (persist !== false) { ls(K_MODE, mode); }
+    paintProgress();
+    var sec = document.getElementById('s-table');
+    if (sec && mode === 'explore') { window.scrollTo({ top: sec.offsetTop - navH() - 14, behavior: 'auto' }); }
+  }
+  function buildGate() {
+    var main = document.getElementById('main');
+    var hero = document.querySelector('header.hero');
+    if (!main || !hero || document.getElementById('efgate')) { return; }
+    var wrap = h('div', 'wrap'); wrap.id = 'efgate';
+    wrap.innerHTML = '<p class="efgate-h">先选一条路</p>' +
+      '<div class="efgate-opts">' +
+      '<button class="efgate-opt" type="button" data-mode="learn" aria-pressed="false">' +
+      '<b><i>📖</i>学习路径</b><span>按顺序走完 7 段：为什么长这样 → 拆开原子 → 表怎么被填满 → 整张表 → 亲戚关系 → 来找错 → 讲给我听。每段末尾有一道先猜再揭晓的题，进度记在你这台设备上。</span></button>' +
+      '<button class="efgate-opt" type="button" data-mode="explore" aria-pressed="false">' +
+      '<b><i>🧭</i>自由探索</b><span>不按顺序：一进来就是整张表，上面常驻搜索框，点任意一格看它的卡片（体重 / 排布 / 历史节点 / 关系）。想学「为什么」再切回学习路径。</span></button>' +
+      '</div>' +
+      '<p class="efgate-resume" id="efresume" hidden></p>';
+    hero.parentNode.insertBefore(wrap, hero);
+    var res = document.getElementById('efresume');
+    var seen = lsj(K_SEEN, {});
+    var prog = lsj(K_PROG, { max: 0 });
+    var last = SECS[Math.max(0, (prog.max || 1) - 1)];
+    var txt = h('span'); txt.textContent = '进度 ' + (prog.max || 0) + ' / 7' + (last && prog.max ? '　上次走到 ' + last.no + ' ' + last.t : '');
+    res.appendChild(txt);
+    if (prog.max) {
+      var go = h('button', 'ef-resumebtn', '继续第 ' + last.no + ' 节 →');
+      go.type = 'button';
+      go.addEventListener('click', function () {
+        setMode('learn');
+        var s = document.getElementById(last.id);
+        if (s) { jumpTo(s); }
+      });
+      res.appendChild(go);
+    }
+    res.hidden = false;
+    wrap.addEventListener('click', function (ev) {
+      var b = ev.target.closest ? ev.target.closest('[data-mode]') : null;
+      if (!b) { return; }
+      ls(K_SEEN, '1');
+      setMode(b.getAttribute('data-mode'));
+    });
+  }
+  function paintProgress() {
+    var el = document.getElementById('efprog');
+    if (!el) { return; }
+    var prog = lsj(K_PROG, { max: 0 });
+    if (document.body.classList.contains('ef-explore')) {
+      el.textContent = '自由探索';
+    } else {
+      el.textContent = '进度 ' + (prog.max || 0) + ' / 7';
+    }
+  }
+  function trackProgress() {
+    var seen = lsj(K_SEEN, null);
+    var prog = lsj(K_PROG, { max: 0 });
+    var max = prog.max || 0;
+    SECS.forEach(function (s, i) {
+      s.el = document.getElementById(s.id);
+    });
+    function upd() {
+      var m = max;
+      var mid = window.innerHeight * 0.5;
+      SECS.forEach(function (s, i) {
+        if (!s.el) { return; }
+        var r = s.el.getBoundingClientRect();
+        if (r.top <= mid && r.bottom > 0) { m = Math.max(m, i + 1); }
+      });
+      if (m !== max) {
+        max = m;
+        ls(K_PROG, JSON.stringify({ max: m }));
+        paintProgress();
+      }
+    }
+    window.addEventListener('scroll', upd, { passive: true });
+    upd();
+  }
+  function buildNextButtons() {
+    SECS.forEach(function (s, i) {
+      var el = document.getElementById(s.id);
+      if (!el || el.querySelector('.ef-next')) { return; }
+      var nx = SECS[i + 1];
+      var box = h('div', 'ef-next');
+      box.innerHTML = '<span class="ef-nextlbl">' + s.no + ' / 07　' + esc(s.t) + ' 读完了</span>';
+      var b = h('button', 'ef-nextbtn'); b.type = 'button';
+      b.textContent = nx ? ('下一节：' + nx.no + ' ' + nx.t + ' →') : '回到开头 ↺';
+      b.addEventListener('click', function () {
+        var t = nx ? document.getElementById(nx.id) : document.getElementById('s-story');
+        if (t) { jumpTo(t); }
+      });
+      box.appendChild(b);
+      el.appendChild(box);
+    });
+  }
+  function foldReadTable() {
+    var table = document.getElementById('s-table');
+    if (!table) { return; }
+    var secs = Array.prototype.slice.call(table.querySelectorAll(':scope > .box'));
+    var box = secs[0];
+    if (!box || box.querySelector('h3') === null) { return; }
+    if (box.querySelector('h3').textContent.indexOf('三步读表法') < 0) { return; }
+    var d = document.createElement('details');
+    d.className = 'ef-fold';
+    var sum = document.createElement('summary');
+    sum.textContent = '三步读表法（点开看怎么读这张表）';
+    box.parentNode.insertBefore(d, box);
+    d.appendChild(sum);
+    d.appendChild(box);
+    d.open = !document.body.classList.contains('ef-explore');
+    setMode._fold = d;
+  }
+
+  /* ─────────── 卡片 / 详情的扩展挂载点 ─────────── */
+  function modalExtra(e) {
+    return histHTML(e.z) + relHTML(e.z);
+  }
+  function afterModal(dlg, e) {
+    var m = dlg.querySelector('#efmodal');
+    if (!m) { return; }
+    bindMassWhy(m);
+    bindHist(m, e.z);
+    bindRel(m, e.z);
+  }
+  function detailExtra(e) {
+    return histHTML(e.z) + relHTML(e.z);
+  }
+  function afterDetail(root, e) {
+    bindMassWhy(root);
+    bindHist(root, e.z);
+    bindRel(root, e.z);
+  }
+
+  /* ─────────── 启动 ─────────── */
+  function boot() {
+    buildMassLegend();
+    buildGate();
+    buildProgress();
+    var stored = ls(K_MODE);
+    setMode(stored || 'learn', false, !!stored);
+    paintProgress();
+    foldReadTable();
+    buildNextButtons();
+    mountQuiz();
+    trackProgress();
+    bindMassWhy(document.body);
+    paintScore();
+    /* 时间轴在 p2 层加载前已经画过一次（那时还没有节点数据，用的是旧年份字段）——
+       这里重新派发一次 input，让它按「手里拿到实物」的口径重算。 */
+    var tr = document.getElementById('tlrange');
+    if (tr) { tr.dispatchEvent(new Event('input', { bubbles: true })); }
+  }
+  window.EF_P2 = {
+    massHTML: massHTML, massDisp: massDisp, massKind: massKind,
+    paintMass: paintMass, recogYear: recogYear, recogWhy: recogWhy, jumpTo: jumpTo,
+    modalExtra: modalExtra, afterModal: afterModal,
+    detailExtra: detailExtra, afterDetail: afterDetail,
+    rel7: rel7, nodesOf: nodesOf, quiz: { score: quizScore }
+  };
+  if (document.readyState === 'complete') { setTimeout(boot, 120); }
+  else { document.addEventListener('DOMContentLoaded', function () { setTimeout(boot, 120); }); }
+})();
 </script>
 </body>
 </html>
